@@ -621,7 +621,9 @@ header .nav-search-toggle svg {
 }
 
 /* Start Playing — dark blue text with two-line layout */
-header .nav-start-playing {
+
+/* Specificity bumped to override header nav a:any-link { color: currentcolor } */
+header nav .nav-actions a.nav-start-playing {
   display: none;
   font-size: 24px;
   font-weight: 700;
@@ -635,18 +637,18 @@ header .nav-start-playing {
   position: relative;
 }
 
-header .nav-start-playing .smaller {
+header nav .nav-actions a.nav-start-playing .smaller {
   display: block;
   font-size: 18px;
   font-weight: 700;
 }
 
-header .nav-start-playing:hover {
+header nav .nav-actions a.nav-start-playing:hover {
   color: rgb(0 50 120);
 }
 
 @media (width >= 900px) {
-  header .nav-start-playing {
+  header nav .nav-actions a.nav-start-playing {
     display: block;
   }
 }
