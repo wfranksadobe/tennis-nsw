@@ -1,0 +1,10 @@
+{
+  "type": "xwalk",
+  "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+  "contentSource": "https://author-p154716-e1630108.adobeaemcloud.com/bin/franklin.delivery/wfranksadobe/tennis-nsw/main",
+  "contentHostUrl": "author-p154716-e1630108.adobeaemcloud.com",
+  "aemSitePath": "/content/tennis-nsw",
+  "aemAssetsFolderPath": "/content/dam/tennis-nsw",
+  "aemSiteName": "tennis-nsw",
+  "aemSiteTitle": "Tennis NSW"
+}

@@ -1,0 +1,134 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.tennis.com.au/nsw/"
+      ],
+      "description": "Tennis NSW homepage with hero, latest news, upcoming tournaments, partner logos, and acknowledgement section",
+      "blocks": [
+        {
+          "name": "carousel",
+          "instances": [
+            ".banner-article.banner-slider"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".promo--row__container .flex-wrapper"
+          ]
+        },
+        {
+          "name": "table",
+          "instances": [
+            ".table--blue.tournament"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Banner Slider",
+          "selector": ".banner-article.banner-slider",
+          "style": null,
+          "blocks": [
+            "carousel"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-latest-news",
+          "name": "Latest News",
+          "selector": ".promo--row.bg--blue",
+          "style": "blue",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".promo--row__container__section--heading",
+            ".promo--row__link"
+          ]
+        },
+        {
+          "id": "section-3-tournaments",
+          "name": "Upcoming Tournaments",
+          "selector": ".banner-ranking",
+          "style": null,
+          "blocks": [
+            "table"
+          ],
+          "defaultContent": [
+            ".banner-ranking__container__section-heading",
+            ".banner-ranking__container__more"
+          ]
+        },
+        {
+          "id": "section-4-partners",
+          "name": "Partners",
+          "selector": ".two-column",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".two-column .wysiwyg h2",
+            ".two-column .wysiwyg img",
+            ".two-column .wysiwyg a"
+          ]
+        },
+        {
+          "id": "section-5-acknowledgement",
+          "name": "Acknowledgement",
+          "selector": ".has-text-align-center",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".has-text-align-center em"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "section-landing",
+      "urls": [
+        "https://www.tennis.com.au/nsw/clubs",
+        "https://www.tennis.com.au/nsw/players",
+        "https://www.tennis.com.au/nsw/our-work",
+        "https://www.tennis.com.au/nsw/about-us"
+      ],
+      "description": "Section landing page with hero banner image and blue content section with topic cards linking to child pages",
+      "blocks": [
+        {
+          "name": "cards",
+          "instances": [
+            ".promo--row__container .flex-wrapper"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Banner",
+          "selector": ".banner-article",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".banner-article__background img"
+          ]
+        },
+        {
+          "id": "section-2-content",
+          "name": "Content",
+          "selector": ".promo--row.bg--blue",
+          "style": "blue",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".promo--row__container__section--heading",
+            ".promo--row__container__section--intro"
+          ]
+        }
+      ]
+    }
+  ]
+}
