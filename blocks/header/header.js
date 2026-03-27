@@ -244,13 +244,29 @@ export default async function decorate(block) {
     const toolsWrapper = navTools.querySelector('.default-content-wrapper');
     const lists = toolsWrapper ? toolsWrapper.querySelectorAll(':scope > ul') : [];
 
-    // First list = utility links -> top bar
+    // First list = utility/portal links -> top bar
     if (lists[0]) {
       utilityBar = document.createElement('div');
       utilityBar.className = 'nav-utility-bar';
       const utilityContainer = document.createElement('div');
       utilityContainer.className = 'nav-utility-container';
-      utilityContainer.append(lists[0]);
+
+      // Portal links wrapper
+      const portalLinks = document.createElement('div');
+      portalLinks.className = 'nav-portal-links';
+      portalLinks.append(lists[0]);
+      utilityContainer.append(portalLinks);
+
+      // Social links wrapper (email, facebook, twitter)
+      const socialLinks = document.createElement('div');
+      socialLinks.className = 'nav-social-links';
+      socialLinks.innerHTML = `<ul>
+        <li><a class="social-email" href="/nsw/contacts" aria-label="Contact us"></a></li>
+        <li><a class="social-facebook" href="https://www.facebook.com/TennisNSW" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a></li>
+        <li><a class="social-twitter" href="https://www.twitter.com/tennis_nsw" target="_blank" rel="noopener noreferrer" aria-label="Twitter"></a></li>
+      </ul>`;
+      utilityContainer.append(socialLinks);
+
       utilityBar.append(utilityContainer);
     }
 
@@ -276,10 +292,15 @@ export default async function decorate(block) {
         }
       }
 
-      // Decorate Start Playing link
+      // Decorate Start Playing link — two-line layout like live site
       const startLink = lists[1].querySelector('a[href*="play"]');
       if (startLink) {
         startLink.className = 'nav-start-playing';
+        const smaller = document.createElement('span');
+        smaller.className = 'smaller';
+        smaller.textContent = 'Playing';
+        startLink.textContent = 'Start ';
+        startLink.append(smaller);
       }
 
       navActions.append(lists[1]);

@@ -52,7 +52,7 @@
 
   /* nav heights */
   --nav-height: 64px;
-  --nav-utility-height: 44px;
+  --nav-utility-height: 34px;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
 }

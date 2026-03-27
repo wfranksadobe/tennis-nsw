@@ -22,7 +22,7 @@ header nav a:any-link {
 }
 
 /* ==========================================
-   UTILITY BAR (top navy bar)
+   UTILITY BAR (top navy bar — 34px)
    ========================================== */
 header .nav-utility-bar {
   background-color: var(--color-navy, #001f3d);
@@ -32,6 +32,7 @@ header .nav-utility-bar {
 @media (width >= 900px) {
   header .nav-utility-bar {
     display: block;
+    height: 34px;
   }
 }
 
@@ -40,12 +41,50 @@ header .nav-utility-container {
   margin: 0 auto;
   padding: 0 32px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  height: 44px;
+  height: 34px;
 }
 
-header .nav-utility-container ul {
+/* Portal links (left side of utility bar) */
+header .nav-portal-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+header .nav-portal-links li {
+  font-size: 14px;
+  line-height: 16px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-right: 1px solid rgb(0 67 153);
+}
+
+header .nav-portal-links li:first-child {
+  padding-left: 0;
+}
+
+header .nav-portal-links li:last-child {
+  border-right: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-portal-links a {
+  color: var(--color-white, #fff);
+  white-space: nowrap;
+}
+
+header .nav-portal-links a:hover {
+  text-decoration: underline;
+}
+
+/* Social links (right side of utility bar) */
+header .nav-social-links ul {
   display: flex;
   list-style: none;
   margin: 0;
@@ -54,33 +93,47 @@ header .nav-utility-container ul {
   align-items: center;
 }
 
-header .nav-utility-container li {
-  font-size: 14px;
-  line-height: 1;
-}
-
-header .nav-utility-container li::before {
-  content: '|';
-  padding: 0 10px;
-  opacity: 0.5;
-}
-
-header .nav-utility-container li:first-child::before {
-  display: none;
+header .nav-social-links li {
+  display: flex;
+  align-items: center;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-header .nav-utility-container a {
+header .nav-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   color: var(--color-white, #fff);
-  white-space: nowrap;
+  font-size: 0;
 }
 
-header .nav-utility-container a:hover {
-  text-decoration: underline;
+header .nav-social-links a::before {
+  font-size: 16px;
+  line-height: 1;
+}
+
+header .nav-social-links .social-email::before {
+  content: '\2709';
+  font-size: 18px;
+}
+
+header .nav-social-links .social-facebook::before {
+  content: 'f';
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+header .nav-social-links .social-twitter::before {
+  content: '\1D54F';
+  font-size: 14px;
+  font-weight: 700;
 }
 
 /* ==========================================
-   MAIN NAV BAR (blue bar with logo + nav)
+   MAIN NAV BAR (blue bar — 90px desktop)
    ========================================== */
 header .nav-main-bar {
   max-width: 1264px;
@@ -89,13 +142,11 @@ header .nav-main-bar {
   display: flex;
   align-items: center;
   height: var(--nav-height);
-  gap: 0 24px;
 }
 
 @media (width >= 900px) {
   header .nav-main-bar {
     padding: 0 32px;
-    gap: 0 32px;
     height: 90px;
   }
 }
@@ -185,6 +236,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 
 /* ==========================================
    BRAND (logo + NSW badge)
+   Live site: logo 150px wide container, overlaps utility bar
    ========================================== */
 header .nav-brand {
   flex-shrink: 0;
@@ -196,6 +248,7 @@ header .nav-brand .default-content-wrapper {
   position: relative;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header .nav-brand p {
   margin: 0;
   line-height: 1;
@@ -213,6 +266,12 @@ header .nav-brand img {
 }
 
 @media (width >= 900px) {
+  header .nav-brand {
+    margin-top: -34px;
+    padding-top: 10px;
+    z-index: 5;
+  }
+
   header .nav-brand img {
     width: 110px;
   }
@@ -224,22 +283,19 @@ header .nav-brand-badge {
   background-color: var(--color-green, #aef500);
   color: var(--color-navy, #001f3d);
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 400;
   text-align: center;
   padding: 4px 12px;
   line-height: 1;
-  letter-spacing: 1px;
   width: fit-content;
 }
 
 @media (width >= 900px) {
   header .nav-brand-badge {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 3;
-    font-size: 16px;
-    padding: 6px 20px;
+    font-size: 21px;
+    line-height: 21px;
+    padding: 5px 0;
+    width: 150px;
   }
 }
 
@@ -270,6 +326,7 @@ header nav .nav-sections .default-content-wrapper > ul > li {
   text-transform: uppercase;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-sections .default-content-wrapper > ul > li > a {
   display: block;
   padding: 12px 0;
@@ -317,9 +374,11 @@ header nav[aria-expanded='true'] .nav-actions {
 
 @media (width >= 900px) {
   header nav .nav-sections {
-    display: block;
+    display: flex;
     visibility: visible;
     white-space: nowrap;
+    align-items: center;
+    margin-left: 24px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -337,7 +396,7 @@ header nav[aria-expanded='true'] .nav-actions {
 
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;
-    gap: 24px;
+    gap: 0;
     margin: 0;
     align-items: center;
   }
@@ -346,35 +405,16 @@ header nav[aria-expanded='true'] .nav-actions {
     flex: 0 1 auto;
     position: relative;
     cursor: pointer;
+    padding: 0 18px;
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li:first-child {
+    padding-left: 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > a {
     padding: 8px 0;
-  }
-
-  /* dropdown arrow */
-  header nav .nav-sections .nav-drop {
-    padding-right: 16px;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 12px;
-    right: 0;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 12px;
-    transform: rotate(315deg);
   }
 
   /* dropdown sub-menus hidden by default */
@@ -409,6 +449,7 @@ header nav[aria-expanded='true'] .nav-actions {
     border-bottom: 8px solid var(--color-navy, #001f3d);
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 6px 0;
   }
@@ -420,6 +461,7 @@ header nav[aria-expanded='true'] .nav-actions {
 
 /* ==========================================
    ACTIONS (search + start playing)
+   Live site: search icon ~40px + Start Playing text block
    ========================================== */
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-actions {
@@ -435,47 +477,54 @@ header .nav-actions ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 16px;
+  gap: 0;
   align-items: center;
 }
 
-/* Search toggle */
+/* Search toggle — magnifying glass icon */
 header .nav-search-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
 }
 
 header .nav-search-toggle svg {
   fill: var(--color-white, #fff);
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
 }
 
-/* Start Playing button */
+/* Start Playing — dark blue text with two-line layout */
 header .nav-start-playing {
   display: none;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  line-height: 18px;
+  color: rgb(0 67 153);
+  padding: 18px 0 18px 10px;
+  border-top: 9px solid var(--color-blue, #0a6dff);
+  border-bottom: 9px solid var(--color-blue, #0a6dff);
   white-space: nowrap;
-  padding: 10px 16px;
-  border: 2px solid var(--color-white, #fff);
-  border-radius: 4px;
+  position: relative;
+}
+
+header .nav-start-playing .smaller {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 header .nav-start-playing:hover {
-  background-color: var(--color-white, #fff);
-  color: var(--color-blue, #0a6dff);
+  color: rgb(0 50 120);
 }
 
 @media (width >= 900px) {
   header .nav-start-playing {
-    display: inline-block;
+    display: block;
   }
 }
 
