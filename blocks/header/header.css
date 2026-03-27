@@ -93,6 +93,7 @@ header .nav-social-links ul {
   align-items: center;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header .nav-social-links li {
   display: flex;
   align-items: center;
