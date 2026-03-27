@@ -41,7 +41,8 @@ header .nav-utility-bar {
 header .nav-utility-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 0 0 130px;
+  padding: 0 0 0 170px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -272,8 +273,14 @@ header .nav-brand img {
     left: 0;
     top: -34px;
     width: 150px;
+    height: 124px;
     background-color: var(--color-blue, #0a6dff);
-    z-index: 5;
+    z-index: 15;
+    overflow: visible;
+  }
+
+  header .nav-brand .default-content-wrapper {
+    position: static;
   }
 
   header .nav-brand img {
@@ -302,6 +309,9 @@ header .nav-brand-badge {
     line-height: 21px;
     padding: 5px 0;
     width: 150px;
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
 }
 
@@ -455,6 +465,7 @@ header nav[aria-expanded='true'] .nav-actions {
     width: 250px;
     top: 90px;
     padding: 0;
+    margin: 0;
     background-color: var(--color-blue, #0a6dff);
     white-space: initial;
     z-index: 10;
@@ -483,25 +494,26 @@ header nav[aria-expanded='true'] .nav-actions {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
-    background-color: rgb(255 255 255 / 10%);
+    background-color: rgb(36 88 197);
   }
 
   /* Landing item (house icon + parent name) — first item in dropdown */
 
-  /* House icon via ::before pseudo-element, padding-left 40px */
-  /* stylelint-disable-next-line no-descending-specificity */
-  header nav .nav-sections .dropdown-landing a {
-    padding-left: 40px;
+  /* House icon via ::before pseudo-element
+     Specificity must beat .default-content-wrapper > ul > li > ul > li > a (0,0,2,7)
+     so we use .default-content-wrapper > ul > li > ul > li.dropdown-landing > a (0,0,3,7) */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li.dropdown-landing > a {
+    padding: 9px 15px 9px 40px;
     position: relative;
   }
 
   header nav .nav-sections .dropdown-landing a::before {
     content: '\2302';
     position: absolute;
-    left: 15px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1;
   }
 
@@ -521,17 +533,21 @@ header nav[aria-expanded='true'] .nav-actions {
     opacity: 0.8;
   }
 
-  /* 3rd-level slide-out panel — appears to the right */
+  /* 3rd-level slide-out panel — appears to the right, darker blue */
   header nav .nav-sections .slide-out {
     display: none;
     position: absolute;
     left: 100%;
     top: 0;
     width: 250px;
-    background-color: var(--color-blue, #0a6dff);
+    background-color: rgb(36 88 197);
     z-index: 11;
     padding: 0;
     margin: 0;
+  }
+
+  header nav .nav-sections .has-slide-out:hover {
+    background-color: rgb(36 88 197);
   }
 
   header nav .nav-sections .has-slide-out:hover > .slide-out {
@@ -562,7 +578,7 @@ header nav[aria-expanded='true'] .nav-actions {
   /* Slide-out landing item also gets house icon */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .slide-out .dropdown-landing a {
-    padding-left: 40px;
+    padding: 9px 15px 9px 40px;
     position: relative;
   }
 
@@ -570,16 +586,16 @@ header nav[aria-expanded='true'] .nav-actions {
   header nav .nav-sections .slide-out .dropdown-landing a::before {
     content: '\2302';
     position: absolute;
-    left: 15px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .slide-out a:hover {
-    background-color: rgb(255 255 255 / 10%);
+    background-color: rgb(255 255 255 / 15%);
   }
 }
 
