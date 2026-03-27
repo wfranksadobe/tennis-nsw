@@ -176,7 +176,10 @@ async function buildBreadcrumbs() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  let navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  if (!navMeta && window.location.pathname.startsWith('/content/')) {
+    navPath = '/content/nav';
+  }
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
@@ -185,54 +188,131 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // assign classes to the three fragment sections
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  // --- Brand decoration ---
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
+    // Create NSW badge from second <p>
+    const wrapper = navBrand.querySelector('.default-content-wrapper');
+    const paragraphs = wrapper ? wrapper.querySelectorAll(':scope > p') : [];
+    if (paragraphs.length > 1) {
+      const badgeText = paragraphs[1].textContent.trim();
+      paragraphs[1].remove();
+      const badge = document.createElement('span');
+      badge.className = 'nav-brand-badge';
+      badge.textContent = badgeText;
+      wrapper.append(badge);
+    }
   }
 
+  // --- Sections decoration (main nav items) ---
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
+      navSection.addEventListener('click', (e) => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          // prevent navigation when toggling dropdown
+          if (navSection.classList.contains('nav-drop')) {
+            e.preventDefault();
+          }
         }
       });
     });
-    navSections.querySelectorAll('.button-container').forEach((buttonContainer) => {
-      buttonContainer.classList.remove('button-container');
-      buttonContainer.querySelector('.button').classList.remove('button');
-    });
   }
 
+  // --- Tools decoration (split into utility bar + actions) ---
   const navTools = nav.querySelector('.nav-tools');
+  let utilityBar = null;
+  let navActions = null;
+
   if (navTools) {
-    const search = navTools.querySelector('a[href*="search"]');
-    if (search && search.textContent === '') {
-      search.setAttribute('aria-label', 'Search');
+    const toolsWrapper = navTools.querySelector('.default-content-wrapper');
+    const lists = toolsWrapper ? toolsWrapper.querySelectorAll(':scope > ul') : [];
+
+    // First list = utility links -> top bar
+    if (lists[0]) {
+      utilityBar = document.createElement('div');
+      utilityBar.className = 'nav-utility-bar';
+      const utilityContainer = document.createElement('div');
+      utilityContainer.className = 'nav-utility-container';
+      utilityContainer.append(lists[0]);
+      utilityBar.append(utilityContainer);
     }
+
+    // Second list = action links (search + start playing)
+    if (lists[1]) {
+      navActions = document.createElement('div');
+      navActions.className = 'nav-actions';
+
+      // Decorate search link — use inline SVG since decorateIcons ran before this
+      const searchLink = lists[1].querySelector('a[href*="search"]');
+      if (searchLink) {
+        searchLink.className = 'nav-search-toggle';
+        searchLink.setAttribute('aria-label', 'Search');
+        searchLink.textContent = '';
+        try {
+          const resp = await fetch('/icons/search.svg');
+          if (resp.ok) {
+            const svg = await resp.text();
+            searchLink.innerHTML = svg;
+          }
+        } catch {
+          // fallback: CSS will show the icon via background-image
+        }
+      }
+
+      // Decorate Start Playing link
+      const startLink = lists[1].querySelector('a[href*="play"]');
+      if (startLink) {
+        startLink.className = 'nav-start-playing';
+      }
+
+      navActions.append(lists[1]);
+    }
+
+    // Remove the original tools section from nav
+    navTools.remove();
   }
 
-  // hamburger for mobile
+  // --- Build two-tier structure ---
+  // Utility bar at top
+  if (utilityBar) nav.prepend(utilityBar);
+
+  // Main bar wrapper
+  const mainBar = document.createElement('div');
+  mainBar.className = 'nav-main-bar';
+
+  // Hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
+  mainBar.append(hamburger);
+
+  if (navBrand) mainBar.append(navBrand);
+  if (navSections) mainBar.append(navSections);
+  if (navActions) mainBar.append(navActions);
+
+  nav.append(mainBar);
   nav.setAttribute('aria-expanded', 'false');
+
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));

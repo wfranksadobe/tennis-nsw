@@ -52,8 +52,16 @@
 
   /* nav heights */
   --nav-height: 64px;
+  --nav-utility-height: 44px;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
+}
+
+@media (width >= 900px) {
+  :root {
+    --nav-height: 90px;
+    --header-height: calc(var(--nav-utility-height) + var(--nav-height));
+  }
 }
 
 /* fallback font */

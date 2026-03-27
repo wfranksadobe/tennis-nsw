@@ -1,4 +1,4 @@
-/* header and nav layout */
+/* header and nav layout — Tennis NSW two-tier header */
 header .nav-wrapper {
   background-color: var(--color-blue, #0a6dff);
   color: var(--color-white, #fff);
@@ -8,42 +8,7 @@ header .nav-wrapper {
 }
 
 header nav {
-  box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
-  align-items: center;
-  gap: 0 24px;
-  margin: auto;
-  max-width: 1248px;
-  height: var(--nav-height);
-  padding: 0 24px;
   font-family: var(--body-font-family);
-}
-
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
-}
-
-@media (width >= 900px) {
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
 }
 
 header nav p {
@@ -53,14 +18,95 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
-/* hamburger */
-header nav .nav-hamburger {
-  grid-area: hamburger;
-  height: 22px;
+/* ==========================================
+   UTILITY BAR (top navy bar)
+   ========================================== */
+header .nav-utility-bar {
+  background-color: var(--color-navy, #001f3d);
+  display: none;
+}
+
+@media (width >= 900px) {
+  header .nav-utility-bar {
+    display: block;
+  }
+}
+
+header .nav-utility-container {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 44px;
+}
+
+header .nav-utility-container ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  align-items: center;
+}
+
+header .nav-utility-container li {
+  font-size: 14px;
+  line-height: 1;
+}
+
+header .nav-utility-container li::before {
+  content: '|';
+  padding: 0 10px;
+  opacity: 0.5;
+}
+
+header .nav-utility-container li:first-child::before {
+  display: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-utility-container a {
+  color: var(--color-white, #fff);
+  white-space: nowrap;
+}
+
+header .nav-utility-container a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   MAIN NAV BAR (blue bar with logo + nav)
+   ========================================== */
+header .nav-main-bar {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
+  height: var(--nav-height);
+  gap: 0 24px;
+}
+
+@media (width >= 900px) {
+  header .nav-main-bar {
+    padding: 0 32px;
+    gap: 0 32px;
+    height: 90px;
+  }
+}
+
+/* ==========================================
+   HAMBURGER
+   ========================================== */
+header nav .nav-hamburger {
+  display: flex;
+  align-items: center;
+  height: 22px;
 }
 
 header nav .nav-hamburger button {
@@ -74,6 +120,7 @@ header nav .nav-hamburger button {
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -136,23 +183,70 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* ==========================================
+   BRAND (logo + NSW badge)
+   ========================================== */
 header .nav-brand {
-  grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  flex-shrink: 0;
+  position: relative;
   line-height: 1;
 }
 
-header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+header .nav-brand .default-content-wrapper {
+  position: relative;
 }
 
-/* sections */
+header .nav-brand p {
+  margin: 0;
+  line-height: 1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-brand a {
+  display: block;
+}
+
+header .nav-brand img {
+  width: 80px;
+  height: auto;
+  display: block;
+}
+
+@media (width >= 900px) {
+  header .nav-brand img {
+    width: 110px;
+  }
+}
+
+/* NSW badge — green tab below the logo */
+header .nav-brand-badge {
+  display: block;
+  background-color: var(--color-green, #aef500);
+  color: var(--color-navy, #001f3d);
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+  padding: 4px 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  width: fit-content;
+}
+
+@media (width >= 900px) {
+  header .nav-brand-badge {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 3;
+    font-size: 16px;
+    padding: 6px 20px;
+  }
+}
+
+/* ==========================================
+   SECTIONS (main nav items)
+   ========================================== */
 header nav .nav-sections {
-  grid-area: sections;
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
@@ -161,26 +255,64 @@ header nav .nav-sections {
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
-  align-self: start;
+  align-self: flex-start;
 }
 
-header nav .nav-sections ul {
+header nav .nav-sections .default-content-wrapper > ul {
   list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
+  padding: 0;
+  margin: 0;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 700;
+header nav .nav-sections .default-content-wrapper > ul > li {
+  font-weight: 400;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
+header nav .nav-sections .default-content-wrapper > ul > li > a {
+  display: block;
+  padding: 12px 0;
 }
 
-header nav .nav-sections ul > li > ul > li {
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-sections ul ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-sections ul ul li {
   font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-sections ul ul a {
+  display: block;
+  padding: 8px 0 8px 16px;
+}
+
+/* mobile expanded — full screen overlay */
+header nav[aria-expanded='true'] .nav-main-bar {
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: 100dvh;
+  overflow-y: auto;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+header nav[aria-expanded='true'] .nav-sections {
+  flex-basis: 100%;
+  order: 3;
+  padding-bottom: 80px;
+}
+
+/* mobile: show utility links at bottom of mobile menu */
+header nav[aria-expanded='true'] .nav-actions {
+  flex-basis: 100%;
+  order: 4;
 }
 
 @media (width >= 900px) {
@@ -192,20 +324,45 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+    flex-basis: auto;
+    order: unset;
+    padding-bottom: 0;
   }
 
-  header nav .nav-sections .nav-drop {
+  header nav[aria-expanded='true'] .nav-main-bar {
+    flex-wrap: nowrap;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul {
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    align-items: center;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li {
+    flex: 0 1 auto;
     position: relative;
-    padding-right: 16px;
     cursor: pointer;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a {
+    padding: 8px 0;
+  }
+
+  /* dropdown arrow */
+  header nav .nav-sections .nav-drop {
+    padding-right: 16px;
   }
 
   header nav .nav-sections .nav-drop::after {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 12px;
+    right: 0;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
@@ -216,21 +373,11 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
     top: unset;
-    bottom: 2px;
+    bottom: 12px;
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
+  /* dropdown sub-menus hidden by default */
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
@@ -240,19 +387,21 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
+    width: 240px;
     top: 150%;
     padding: 16px;
     background-color: var(--color-navy, #001f3d);
     white-space: initial;
-    z-index: 1;
+    z-index: 10;
+    border-radius: 0 0 4px 4px;
   }
 
+  /* dropdown triangle pointer */
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
     content: '';
     position: absolute;
     top: -8px;
-    left: 16px;
+    left: 24px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
@@ -261,24 +410,78 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 6px 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
+    text-decoration: underline;
   }
 }
 
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
+/* ==========================================
+   ACTIONS (search + start playing)
+   ========================================== */
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
-header nav .nav-tools .button {
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-actions ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
   margin: 0;
-  border: none;
-  padding: 0.5em;
-  background: none;
-  line-height: 0;
+  gap: 16px;
+  align-items: center;
 }
 
-/* breadcrumbs */
+/* Search toggle */
+header .nav-search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+header .nav-search-toggle svg {
+  fill: var(--color-white, #fff);
+  width: 28px;
+  height: 28px;
+}
+
+/* Start Playing button */
+header .nav-start-playing {
+  display: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  padding: 10px 16px;
+  border: 2px solid var(--color-white, #fff);
+  border-radius: 4px;
+}
+
+header .nav-start-playing:hover {
+  background-color: var(--color-white, #fff);
+  color: var(--color-blue, #0a6dff);
+}
+
+@media (width >= 900px) {
+  header .nav-start-playing {
+    display: inline-block;
+  }
+}
+
+/* ==========================================
+   BREADCRUMBS
+   ========================================== */
 header .breadcrumbs {
   display: none;
   margin: auto;
