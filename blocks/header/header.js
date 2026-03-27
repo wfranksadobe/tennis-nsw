@@ -283,6 +283,21 @@ export default async function decorate(block) {
           e.preventDefault();
         }
       });
+
+      // Desktop: open dropdown on hover
+      navSection.addEventListener('mouseenter', () => {
+        if (isDesktop.matches) {
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Desktop: close all dropdowns when mouse leaves the nav sections area
+    navSections.addEventListener('mouseleave', () => {
+      if (isDesktop.matches) {
+        toggleAllNavSections(navSections);
+      }
     });
   }
 

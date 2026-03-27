@@ -41,7 +41,7 @@ header .nav-utility-bar {
 header .nav-utility-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 0 0 170px;
+  padding: 0 0 0 150px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -394,7 +394,7 @@ header nav[aria-expanded='true'] .nav-actions {
     visibility: visible;
     white-space: nowrap;
     align-items: center;
-    margin-left: 170px;
+    margin-left: 150px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
