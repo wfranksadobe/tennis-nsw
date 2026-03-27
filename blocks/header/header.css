@@ -33,13 +33,15 @@ header .nav-utility-bar {
   header .nav-utility-bar {
     display: block;
     height: 34px;
+    position: relative;
+    z-index: 10;
   }
 }
 
 header .nav-utility-container {
-  max-width: 1264px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 0 0 130px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,17 +58,11 @@ header .nav-portal-links ul {
 }
 
 header .nav-portal-links li {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
+  display: table-cell;
+  padding: 0;
   border-right: 1px solid rgb(0 67 153);
-}
-
-header .nav-portal-links li:first-child {
-  padding-left: 0;
 }
 
 header .nav-portal-links li:last-child {
@@ -77,6 +73,8 @@ header .nav-portal-links li:last-child {
 header .nav-portal-links a {
   color: var(--color-white, #fff);
   white-space: nowrap;
+  padding: 8px;
+  display: block;
 }
 
 header .nav-portal-links a:hover {
@@ -137,17 +135,18 @@ header .nav-social-links .social-twitter::before {
    MAIN NAV BAR (blue bar — 90px desktop)
    ========================================== */
 header .nav-main-bar {
-  max-width: 1264px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
   align-items: center;
   height: var(--nav-height);
+  position: relative;
 }
 
 @media (width >= 900px) {
   header .nav-main-bar {
-    padding: 0 32px;
+    padding: 0;
     height: 90px;
   }
 }
@@ -237,7 +236,8 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 
 /* ==========================================
    BRAND (logo + NSW badge)
-   Logo overlaps utility bar — extends to top of page
+   Logo container is position:absolute, starts at top of page (y=0),
+   has blue background so it overlaps the navy utility bar seamlessly.
    ========================================== */
 header .nav-brand {
   flex-shrink: 0;
@@ -268,17 +268,21 @@ header .nav-brand img {
 
 @media (width >= 900px) {
   header .nav-brand {
-    margin-top: -34px;
-    padding-top: 0;
+    position: absolute;
+    left: 0;
+    top: -34px;
+    width: 150px;
+    background-color: var(--color-blue, #0a6dff);
     z-index: 5;
   }
 
   header .nav-brand img {
-    width: 120px;
+    width: 150px;
+    padding-top: 10px;
   }
 }
 
-/* NSW badge — green tab below the logo, same width as logo */
+/* NSW badge — green tab below the logo, same width as logo (150px) */
 header .nav-brand-badge {
   display: block;
   background-color: var(--color-green, #aef500);
@@ -286,6 +290,7 @@ header .nav-brand-badge {
   font-size: 14px;
   font-weight: 400;
   text-align: center;
+  text-transform: uppercase;
   padding: 4px 12px;
   line-height: 1;
   width: fit-content;
@@ -296,13 +301,13 @@ header .nav-brand-badge {
     font-size: 21px;
     line-height: 21px;
     padding: 5px 0;
-    width: 120px;
+    width: 150px;
   }
 }
 
 /* ==========================================
    SECTIONS (main nav items)
-   ALL text uppercase, faint separators between items
+   ALL text uppercase
    ========================================== */
 header nav .nav-sections {
   flex: 1 1 auto;
@@ -324,8 +329,8 @@ header nav .nav-sections .default-content-wrapper > ul {
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -343,7 +348,7 @@ header nav .nav-sections ul ul {
 /* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-sections ul ul li {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -379,7 +384,7 @@ header nav[aria-expanded='true'] .nav-actions {
     visibility: visible;
     white-space: nowrap;
     align-items: center;
-    margin-left: 24px;
+    margin-left: 170px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -402,34 +407,39 @@ header nav[aria-expanded='true'] .nav-actions {
     align-items: center;
   }
 
-  /* Primary nav items with faint vertical separators between them */
+  /* Primary nav items — float left, height 90px, borders between */
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
     cursor: pointer;
-    padding: 0 20px;
-    border-right: 1px solid rgb(255 255 255 / 25%);
+    padding: 0;
+    height: 90px;
+    border-right: 1px solid rgb(0 89 204 / 70%);
+    border-left: 1px solid rgb(0 89 204 / 70%);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:first-child {
-    padding-left: 0;
+    border-left: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:last-child {
     border-right: none;
   }
 
+  /* Primary nav links — 20px, weight 400, padding 26px 18px */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > a {
-    padding: 8px 0;
+    padding: 26px 18px;
     display: block;
-    line-height: 90px;
-    height: 90px;
-    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    height: 20px;
+    box-sizing: content-box;
   }
 
   /* ==========================================
-     DROPDOWN MENUS — blue bg, flush with nav bottom
+     DROPDOWN MENUS — blue bg, flush with nav bottom, 250px wide
      ========================================== */
 
   /* dropdown sub-menus hidden by default */
@@ -442,21 +452,21 @@ header nav[aria-expanded='true'] .nav-actions {
     display: block;
     position: absolute;
     left: 0;
-    width: 280px;
-    top: 100%;
+    width: 250px;
+    top: 90px;
     padding: 0;
     background-color: var(--color-blue, #0a6dff);
     white-space: initial;
     z-index: 10;
   }
 
-  /* Each dropdown item — bordered, uppercase, white text */
+  /* Each dropdown item — border-bottom rgb(0,67,153), 18px font, weight 400 */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 0;
-    border-bottom: 1px solid rgb(255 255 255 / 20%);
-    font-size: 14px;
-    font-weight: 700;
+    border-bottom: 1px solid rgb(0 67 153);
+    font-size: 18px;
+    font-weight: 400;
     position: relative;
   }
 
@@ -467,8 +477,9 @@ header nav[aria-expanded='true'] .nav-actions {
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
     display: block;
-    padding: 12px 16px;
+    padding: 9px 15px;
     color: var(--color-white, #fff);
+    line-height: 20px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
@@ -476,28 +487,38 @@ header nav[aria-expanded='true'] .nav-actions {
   }
 
   /* Landing item (house icon + parent name) — first item in dropdown */
+
+  /* House icon via ::before pseudo-element, padding-left 40px */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .dropdown-landing a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding-left: 40px;
+    position: relative;
   }
 
-  header nav .nav-sections .icon-house {
-    font-size: 18px;
+  header nav .nav-sections .dropdown-landing a::before {
+    content: '\2302';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
     line-height: 1;
   }
 
-  /* Items with slide-out sub-menus get a > chevron */
+  /* Items with slide-out sub-menus get a > chevron via ::after */
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .has-slide-out > a {
+    padding-right: 30px;
+  }
+
   header nav .nav-sections .has-slide-out > a::after {
-    content: '>';
+    content: '\276F';
     position: absolute;
-    right: 16px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 14px;
-    font-weight: 700;
-    opacity: 0.7;
+    font-size: 16px;
+    opacity: 0.8;
   }
 
   /* 3rd-level slide-out panel — appears to the right */
@@ -506,7 +527,7 @@ header nav[aria-expanded='true'] .nav-actions {
     position: absolute;
     left: 100%;
     top: 0;
-    width: 280px;
+    width: 250px;
     background-color: var(--color-blue, #0a6dff);
     z-index: 11;
     padding: 0;
@@ -520,9 +541,9 @@ header nav[aria-expanded='true'] .nav-actions {
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .slide-out > li {
     padding: 0;
-    border-bottom: 1px solid rgb(255 255 255 / 20%);
-    font-size: 14px;
-    font-weight: 700;
+    border-bottom: 1px solid rgb(0 67 153);
+    font-size: 18px;
+    font-weight: 400;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -533,8 +554,27 @@ header nav[aria-expanded='true'] .nav-actions {
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .slide-out > li > a {
     display: block;
-    padding: 12px 16px;
+    padding: 9px 15px;
     color: var(--color-white, #fff);
+    line-height: 20px;
+  }
+
+  /* Slide-out landing item also gets house icon */
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out .dropdown-landing a {
+    padding-left: 40px;
+    position: relative;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out .dropdown-landing a::before {
+    content: '\2302';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    line-height: 1;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -569,8 +609,8 @@ header .nav-search-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 90px;
   cursor: pointer;
 }
 
@@ -588,7 +628,7 @@ header .nav-start-playing {
   text-transform: uppercase;
   line-height: 18px;
   color: rgb(0 67 153);
-  padding: 18px 0 18px 10px;
+  padding: 18px 0 18px 52px;
   border-top: 9px solid var(--color-blue, #0a6dff);
   border-bottom: 9px solid var(--color-blue, #0a6dff);
   white-space: nowrap;
@@ -617,9 +657,9 @@ header .nav-start-playing:hover {
 header .breadcrumbs {
   display: none;
   margin: auto;
-  max-width: 1248px;
+  max-width: 960px;
   height: var(--breadcrumbs-height);
-  padding: 0 24px;
+  padding: 0;
   font-size: var(--body-font-size-xs);
   overflow: hidden;
 }
@@ -653,7 +693,6 @@ header .breadcrumbs ol li[aria-current] {
 @media (width >= 900px) {
   header .breadcrumbs {
     display: block;
-    max-width: 1264px;
-    padding: 0 32px;
+    max-width: 960px;
   }
 }

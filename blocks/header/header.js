@@ -182,12 +182,12 @@ function decorateDropdown(navSection) {
   const parentText = topLink.textContent.trim();
   const parentHref = topLink.getAttribute('href');
 
-  // 1. Insert landing item (house icon + parent name) as first dropdown item
+  // 1. Insert landing item (parent name) as first dropdown item — CSS adds house icon via ::before
   const landingLi = document.createElement('li');
   landingLi.className = 'dropdown-landing';
   const landingA = document.createElement('a');
   landingA.href = parentHref;
-  landingA.innerHTML = `<span class="icon-house">&#8962;</span> ${parentText}`;
+  landingA.textContent = parentText;
   landingLi.append(landingA);
   dropdownUl.prepend(landingLi);
 
@@ -195,14 +195,26 @@ function decorateDropdown(navSection) {
   topLink.setAttribute('href', '#');
   topLink.addEventListener('click', (e) => e.preventDefault());
 
-  // 3. For each 2nd-level item that has a sub-ul, add slide-out class and hide 3rd level
+  // 3. For each 2nd-level item that has a sub-ul, add slide-out class
+  //    Also add a landing item to each slide-out panel (with house icon)
   dropdownUl.querySelectorAll(':scope > li').forEach((li) => {
     if (li === landingLi) return;
     const subUl = li.querySelector(':scope > ul');
     if (subUl) {
       li.classList.add('has-slide-out');
-      // Hide 3rd-level from dropdown — it shows on hover/click as slide-out
       subUl.classList.add('slide-out');
+
+      // Add landing item to slide-out (e.g. house icon + "Membership")
+      const subLink = li.querySelector(':scope > a');
+      if (subLink) {
+        const subLanding = document.createElement('li');
+        subLanding.className = 'dropdown-landing';
+        const subLandingA = document.createElement('a');
+        subLandingA.href = subLink.getAttribute('href');
+        subLandingA.textContent = subLink.textContent.trim();
+        subLanding.append(subLandingA);
+        subUl.prepend(subLanding);
+      }
     }
   });
 }
