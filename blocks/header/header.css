@@ -237,7 +237,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 
 /* ==========================================
    BRAND (logo + NSW badge)
-   Live site: logo 150px wide container, overlaps utility bar
+   Logo overlaps utility bar — extends to top of page
    ========================================== */
 header .nav-brand {
   flex-shrink: 0;
@@ -269,16 +269,16 @@ header .nav-brand img {
 @media (width >= 900px) {
   header .nav-brand {
     margin-top: -34px;
-    padding-top: 10px;
+    padding-top: 0;
     z-index: 5;
   }
 
   header .nav-brand img {
-    width: 110px;
+    width: 120px;
   }
 }
 
-/* NSW badge — green tab below the logo */
+/* NSW badge — green tab below the logo, same width as logo */
 header .nav-brand-badge {
   display: block;
   background-color: var(--color-green, #aef500);
@@ -296,17 +296,19 @@ header .nav-brand-badge {
     font-size: 21px;
     line-height: 21px;
     padding: 5px 0;
-    width: 150px;
+    width: 120px;
   }
 }
 
 /* ==========================================
    SECTIONS (main nav items)
+   ALL text uppercase, faint separators between items
    ========================================== */
 header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
+  text-transform: uppercase;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -322,9 +324,8 @@ header nav .nav-sections .default-content-wrapper > ul {
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li {
-  font-weight: 400;
-  font-size: 16px;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -342,7 +343,6 @@ header nav .nav-sections ul ul {
 /* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-sections ul ul li {
   font-weight: 400;
-  text-transform: none;
   font-size: 14px;
 }
 
@@ -402,21 +402,35 @@ header nav[aria-expanded='true'] .nav-actions {
     align-items: center;
   }
 
+  /* Primary nav items with faint vertical separators between them */
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
     cursor: pointer;
-    padding: 0 18px;
+    padding: 0 20px;
+    border-right: 1px solid rgb(255 255 255 / 25%);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:first-child {
     padding-left: 0;
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li:last-child {
+    border-right: none;
+  }
+
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > a {
     padding: 8px 0;
+    display: block;
+    line-height: 90px;
+    height: 90px;
+    box-sizing: border-box;
   }
+
+  /* ==========================================
+     DROPDOWN MENUS — blue bg, flush with nav bottom
+     ========================================== */
 
   /* dropdown sub-menus hidden by default */
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -427,42 +441,110 @@ header nav[aria-expanded='true'] .nav-actions {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
-    width: 240px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--color-navy, #001f3d);
+    left: 0;
+    width: 280px;
+    top: 100%;
+    padding: 0;
+    background-color: var(--color-blue, #0a6dff);
     white-space: initial;
     z-index: 10;
-    border-radius: 0 0 4px 4px;
   }
 
-  /* dropdown triangle pointer */
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 24px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--color-navy, #001f3d);
+  /* Each dropdown item — bordered, uppercase, white text */
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+    padding: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
+    border-bottom: none;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 6px 0;
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--color-white, #fff);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
-    text-decoration: underline;
+    background-color: rgb(255 255 255 / 10%);
+  }
+
+  /* Landing item (house icon + parent name) — first item in dropdown */
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .dropdown-landing a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  header nav .nav-sections .icon-house {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Items with slide-out sub-menus get a > chevron */
+  header nav .nav-sections .has-slide-out > a::after {
+    content: '>';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.7;
+  }
+
+  /* 3rd-level slide-out panel — appears to the right */
+  header nav .nav-sections .slide-out {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 280px;
+    background-color: var(--color-blue, #0a6dff);
+    z-index: 11;
+    padding: 0;
+    margin: 0;
+  }
+
+  header nav .nav-sections .has-slide-out:hover > .slide-out {
+    display: block;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out > li {
+    padding: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out > li:last-child {
+    border-bottom: none;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out > li > a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--color-white, #fff);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .slide-out a:hover {
+    background-color: rgb(255 255 255 / 10%);
   }
 }
 
 /* ==========================================
    ACTIONS (search + start playing)
-   Live site: search icon ~40px + Start Playing text block
    ========================================== */
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-actions {

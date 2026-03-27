@@ -170,6 +170,44 @@ async function buildBreadcrumbs() {
 }
 
 /**
+ * Decorates a dropdown: adds landing item with house icon,
+ * marks items with children for slide-out, hides 3rd-level lists.
+ * @param {Element} navSection The top-level <li> with a dropdown
+ */
+function decorateDropdown(navSection) {
+  const topLink = navSection.querySelector(':scope > a');
+  const dropdownUl = navSection.querySelector(':scope > ul');
+  if (!topLink || !dropdownUl) return;
+
+  const parentText = topLink.textContent.trim();
+  const parentHref = topLink.getAttribute('href');
+
+  // 1. Insert landing item (house icon + parent name) as first dropdown item
+  const landingLi = document.createElement('li');
+  landingLi.className = 'dropdown-landing';
+  const landingA = document.createElement('a');
+  landingA.href = parentHref;
+  landingA.innerHTML = `<span class="icon-house">&#8962;</span> ${parentText}`;
+  landingLi.append(landingA);
+  dropdownUl.prepend(landingLi);
+
+  // 2. Make top-level link non-navigable (it only toggles the dropdown)
+  topLink.setAttribute('href', '#');
+  topLink.addEventListener('click', (e) => e.preventDefault());
+
+  // 3. For each 2nd-level item that has a sub-ul, add slide-out class and hide 3rd level
+  dropdownUl.querySelectorAll(':scope > li').forEach((li) => {
+    if (li === landingLi) return;
+    const subUl = li.querySelector(':scope > ul');
+    if (subUl) {
+      li.classList.add('has-slide-out');
+      // Hide 3rd-level from dropdown — it shows on hover/click as slide-out
+      subUl.classList.add('slide-out');
+    }
+  });
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -220,16 +258,17 @@ export default async function decorate(block) {
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        // Decorate dropdown: landing item, slide-outs, hide 3rd level
+        decorateDropdown(navSection);
+      }
       navSection.addEventListener('click', (e) => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          // prevent navigation when toggling dropdown
-          if (navSection.classList.contains('nav-drop')) {
-            e.preventDefault();
-          }
+          e.preventDefault();
         }
       });
     });
