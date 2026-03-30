@@ -269,16 +269,20 @@ export default async function decorate(block) {
       brandLink.append(logo);
     }
 
-    // Create NSW badge from second <p> or second text node
+    // Create NSW badge — find the <p> that has just text (no img/link inside)
     const wrapper = navBrand.querySelector('.default-content-wrapper');
-    const paragraphs = wrapper ? wrapper.querySelectorAll(':scope > p') : [];
-    if (paragraphs.length > 1) {
-      const badgeText = paragraphs[1].textContent.trim();
-      paragraphs[1].remove();
-      const badge = document.createElement('span');
-      badge.className = 'nav-brand-badge';
-      badge.textContent = badgeText;
-      wrapper.append(badge);
+    if (wrapper) {
+      const badgeParagraph = [...wrapper.querySelectorAll(':scope > p')].find(
+        (p) => !p.querySelector('img') && !p.querySelector('a') && p.textContent.trim(),
+      );
+      if (badgeParagraph) {
+        const badgeText = badgeParagraph.textContent.trim();
+        badgeParagraph.remove();
+        const badge = document.createElement('span');
+        badge.className = 'nav-brand-badge';
+        badge.textContent = badgeText;
+        wrapper.append(badge);
+      }
     }
   }
 
