@@ -259,7 +259,17 @@ export default async function decorate(block) {
   // --- Brand decoration ---
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
-    // Create NSW badge from second <p>
+    // Ensure brand link has the logo image (AEM content may not include it)
+    const brandLink = navBrand.querySelector('a[href]');
+    if (brandLink && !brandLink.querySelector('img')) {
+      const logo = document.createElement('img');
+      logo.src = '/icons/ta-logo.svg';
+      logo.alt = 'Tennis Australia';
+      logo.loading = 'eager';
+      brandLink.append(logo);
+    }
+
+    // Create NSW badge from second <p> or second text node
     const wrapper = navBrand.querySelector('.default-content-wrapper');
     const paragraphs = wrapper ? wrapper.querySelectorAll(':scope > p') : [];
     if (paragraphs.length > 1) {
