@@ -238,6 +238,17 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // Strip button decoration from nav links — AEM content wraps links in
+  // <p class="button-container"><a class="button"> which breaks nav styling.
+  // Unwrap them so the DOM matches the expected li > a structure.
+  nav.querySelectorAll('.button-container').forEach((p) => {
+    const a = p.querySelector('a');
+    if (a) {
+      a.classList.remove('button');
+      p.replaceWith(a);
+    }
+  });
+
   // assign classes to the three fragment sections
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
@@ -248,11 +259,6 @@ export default async function decorate(block) {
   // --- Brand decoration ---
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
-    const brandLink = navBrand.querySelector('.button');
-    if (brandLink) {
-      brandLink.className = '';
-      brandLink.closest('.button-container').className = '';
-    }
     // Create NSW badge from second <p>
     const wrapper = navBrand.querySelector('.default-content-wrapper');
     const paragraphs = wrapper ? wrapper.querySelectorAll(':scope > p') : [];
