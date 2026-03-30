@@ -326,6 +326,21 @@ main .section.dark a:any-link {
   color: var(--color-white);
 }
 
+/* carousel section — full-width, no gap below header */
+main > .section.carousel-container {
+  margin: 0;
+}
+
+main > .section.carousel-container > div {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+main > .section.carousel-container .default-content-wrapper {
+  display: none;
+}
+
 /* acknowledgement text */
 main em {
   color: var(--color-grey);
