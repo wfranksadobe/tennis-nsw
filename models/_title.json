@@ -54,6 +54,25 @@
               "value": "h6"
             }
           ]
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Position",
+          "options": [
+            {
+              "name": "Left",
+              "value": ""
+            },
+            {
+              "name": "Centered",
+              "value": "center"
+            },
+            {
+              "name": "Right",
+              "value": "right"
+            }
+          ]
         }
       ]
     }
