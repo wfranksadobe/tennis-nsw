@@ -87,6 +87,17 @@ function createSlide(row, slideIndex, carouselId) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
   }
 
+  // Make slide clickable if it contains a link
+  const slideLink = slide.querySelector('.carousel-slide-content a');
+  if (slideLink) {
+    slide.classList.add('carousel-slide-clickable');
+    slide.addEventListener('click', (e) => {
+      if (!e.target.closest('button')) {
+        window.location.href = slideLink.href;
+      }
+    });
+  }
+
   return slide;
 }
 

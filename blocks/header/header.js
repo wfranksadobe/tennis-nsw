@@ -297,10 +297,14 @@ export default async function decorate(block) {
       }
       navSection.addEventListener('click', (e) => {
         if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          e.preventDefault();
+          // Only toggle dropdown when clicking the top-level nav link, not dropdown items
+          const topLink = navSection.querySelector(':scope > a');
+          if (e.target === topLink || e.target === navSection) {
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            e.preventDefault();
+          }
         }
       });
 
