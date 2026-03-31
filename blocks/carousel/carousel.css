@@ -1,3 +1,7 @@
+.carousel {
+  position: relative;
+}
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -73,7 +77,12 @@
   justify-content: center;
   gap: 6px 12px;
   padding: 12px;
-  background-color: var(--color-link-blue, #004399);
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   line-height: 0;
 }
 
