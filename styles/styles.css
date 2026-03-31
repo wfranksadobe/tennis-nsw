@@ -255,11 +255,22 @@ main > .section {
 main > .section > div {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 24px;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+/* carousel section — images go edge-to-edge, no padding */
+main > .section.carousel-container > div {
+  padding: 0;
 }
 
 /* section metadata */
