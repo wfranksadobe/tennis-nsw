@@ -4,6 +4,15 @@
 **Repository**: https://github.com/wfranksadobe/tennis-nsw.git
 **Branch**: main
 
+## Verbatim Transcript
+
+The full verbatim conversation transcript (JSONL format, 168MB uncompressed) is split into 3 gzipped parts:
+- `conversation-transcript.jsonl.gz.part-aa`
+- `conversation-transcript.jsonl.gz.part-ab`
+- `conversation-transcript.jsonl.gz.part-ac`
+
+To reconstruct: `cat conversation-transcript.jsonl.gz.part-* | gunzip > conversation-transcript.jsonl`
+
 ---
 
 ## Session Overview
