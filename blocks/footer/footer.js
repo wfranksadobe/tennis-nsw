@@ -10,9 +10,14 @@ export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   let footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
   if (!footerMeta && window.location.pathname.startsWith('/content/')) {
-    footerPath = '/content/footer';
+    const contentRoot = window.location.pathname.split('/').slice(0, 3).join('/');
+    footerPath = `${contentRoot}/footer`;
   }
-  const fragment = await loadFragment(footerPath);
+  let fragment = await loadFragment(footerPath);
+  // Fallback for local dev where footer may be at /content/footer
+  if (!fragment && footerPath !== '/content/footer' && window.location.pathname.startsWith('/content/')) {
+    fragment = await loadFragment('/content/footer');
+  }
 
   // decorate footer DOM
   block.textContent = '';

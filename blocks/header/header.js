@@ -228,9 +228,16 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   let navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   if (!navMeta && window.location.pathname.startsWith('/content/')) {
-    navPath = '/content/nav';
+    // In AEM (Universal Editor), derive content root from JCR path
+    // e.g. /content/tennis-nsw/nsw/page → content root is /content/tennis-nsw
+    const contentRoot = window.location.pathname.split('/').slice(0, 3).join('/');
+    navPath = `${contentRoot}/nav`;
   }
-  const fragment = await loadFragment(navPath);
+  let fragment = await loadFragment(navPath);
+  // Fallback for local dev where nav may be at /content/nav
+  if (!fragment && navPath !== '/content/nav' && window.location.pathname.startsWith('/content/')) {
+    fragment = await loadFragment('/content/nav');
+  }
 
   // decorate nav DOM
   block.textContent = '';
