@@ -305,7 +305,7 @@
                 "template": {
                   "name": "Table",
                   "model": "table",
-                  "filter": "table"
+                  "filter": "table-6-columns"
                 }
               }
             }

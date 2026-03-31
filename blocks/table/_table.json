@@ -10,7 +10,7 @@
             "template": {
               "name": "Table",
               "model": "table",
-              "filter": "table"
+              "filter": "table-6-columns"
             }
           }
         }
@@ -168,7 +168,7 @@
           "name": "filter",
           "label": "Columns",
           "valueType": "string",
-          "value": "table",
+          "value": "table-6-columns",
           "options": [
             {
               "name": "1 Column",
