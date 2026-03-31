@@ -1,0 +1,11 @@
+.title {
+  padding: 0;
+}
+
+.title.center {
+  text-align: center;
+}
+
+.title.right {
+  text-align: right;
+}
