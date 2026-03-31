@@ -254,18 +254,12 @@ main > .section {
 
 main > .section > div {
   max-width: 1400px;
-  margin: auto;
-  padding: 0 24px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
 }
 
 /* section metadata */
@@ -287,12 +281,6 @@ main .section.blue {
   color: var(--color-white);
   margin: 0;
   padding: 60px 0;
-}
-
-main > .section.blue > div {
-  max-width: 1400px;
-  padding: 0;
-  margin: 0 auto;
 }
 
 main .section.blue h2 {
@@ -337,11 +325,7 @@ main > .section.carousel-container {
   margin: 0;
 }
 
-main > .section.carousel-container > div {
-  max-width: 1400px;
-  padding: 0;
-  margin: 0 auto;
-}
+
 
 main > .section.carousel-container .default-content-wrapper {
   display: none;
