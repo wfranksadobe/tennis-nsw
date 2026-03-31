@@ -58,17 +58,7 @@
 }
 
 .carousel .carousel-slide .carousel-slide-content {
-  z-index: 1;
-  padding: 12px 24px;
-  color: white;
-  background-color: transparent;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  display: none;
 }
 
 .carousel .carousel-slide-indicators {
@@ -106,7 +96,15 @@
 }
 
 .carousel .carousel-navigation-buttons {
-  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
