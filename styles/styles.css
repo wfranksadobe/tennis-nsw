@@ -253,7 +253,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1400px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0;
 }
@@ -338,6 +338,10 @@ main .section.dark a:any-link {
 /* carousel section — full-width, no gap below header */
 main > .section.carousel-container {
   margin: 0;
+}
+
+main > .section.carousel-container > div {
+  max-width: none;
 }
 
 
