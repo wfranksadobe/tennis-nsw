@@ -49,17 +49,32 @@
         "valueType": "string"
       },
       {
-        "component": "multiselect",
+        "component": "select",
         "name": "classes",
-        "label": "Style",
+        "label": "Position",
         "options": [
           {
-            "name": "Center",
+            "name": "Left",
+            "value": ""
+          },
+          {
+            "name": "Centered",
             "value": "center"
           },
           {
             "name": "Right",
             "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "titleColor",
+        "label": "Colour",
+        "options": [
+          {
+            "name": "Black",
+            "value": ""
           },
           {
             "name": "White",
