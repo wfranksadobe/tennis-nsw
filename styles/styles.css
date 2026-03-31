@@ -332,9 +332,9 @@ main > .section.carousel-container {
 }
 
 main > .section.carousel-container > div {
-  max-width: none;
+  max-width: 1400px;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 main > .section.carousel-container .default-content-wrapper {
