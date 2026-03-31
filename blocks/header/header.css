@@ -643,6 +643,7 @@ header .nav-search-toggle {
   text-decoration: none;
   line-height: 1;
   box-sizing: border-box;
+  border-bottom: 9px solid rgb(10 109 255);
 }
 
 header .nav-search-toggle::before {
@@ -660,11 +661,12 @@ header .nav-search-toggle svg {
 }
 
 header .nav-search-toggle:hover {
-  color: rgb(0 50 120);
+  color: rgb(255 255 255);
+  border-bottom-color: rgb(174 245 0);
 }
 
 header .nav-search-toggle:hover::before {
-  color: rgb(0 50 120);
+  color: rgb(255 255 255);
 }
 
 /* Start Playing — dark blue text with two-line layout */
@@ -685,6 +687,7 @@ header nav .nav-actions a.nav-start-playing {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  border-bottom: 9px solid rgb(10 109 255);
 }
 
 /* Tennis ball icon before Start Playing */
@@ -710,11 +713,16 @@ header nav .nav-actions a.nav-start-playing .smaller {
 }
 
 header nav .nav-actions a.nav-start-playing:hover {
-  color: rgb(0 50 120);
+  color: rgb(255 255 255);
+  border-bottom-color: rgb(49 216 0);
 }
 
 header nav .nav-actions a.nav-start-playing:hover::before {
-  color: rgb(0 50 120);
+  color: rgb(255 255 255);
+}
+
+header nav .nav-actions a.nav-start-playing:hover .smaller {
+  color: rgb(255 255 255);
 }
 
 @media (width >= 900px) {
