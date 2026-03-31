@@ -341,6 +341,96 @@ main > .section.carousel-container .default-content-wrapper {
   display: none;
 }
 
+/* tournaments section — blue background matching live site */
+main > .section.table-container {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  margin: 0;
+  padding: 60px 0;
+}
+
+main > .section.table-container h2 {
+  color: var(--color-white);
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: var(--heading-font-size-xxl);
+}
+
+main > .section.table-container a:any-link {
+  color: var(--color-white);
+}
+
+main > .section.table-container .table.block table tbody tr {
+  border-bottom-color: rgb(255 255 255 / 20%);
+}
+
+main > .section.table-container .table.block table tbody tr:nth-child(even) {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+main > .section.table-container .table.block table td {
+  color: var(--color-white);
+}
+
+main > .section.table-container .table.block table td a:any-link {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* "More news" link — simple text link, not button */
+main .section.blue .button-container:last-child a.button:any-link {
+  background-color: transparent;
+  color: var(--color-white);
+  padding: 0;
+  margin: 16px 0 0;
+  border: 0;
+  font-size: var(--body-font-size-m);
+  text-decoration: none;
+}
+
+main .section.blue .button-container:last-child a.button:hover,
+main .section.blue .button-container:last-child a.button:focus {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* stylelint-disable no-descending-specificity -- section-specific button overrides */
+
+/* "Full Calendar" link — simple text link, not button */
+main > .section.table-container .button-container a.button:any-link {
+  background-color: transparent;
+  color: var(--color-white);
+  padding: 0;
+  margin: 16px 0 0;
+  border: 0;
+  font-size: var(--body-font-size-m);
+  text-decoration: none;
+}
+
+main > .section.table-container .button-container a.button:hover,
+main > .section.table-container .button-container a.button:focus {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* partners section — hide empty button links (image links with no text) */
+main > .section .button-container a.button:empty {
+  display: none;
+}
+
+/* stylelint-enable no-descending-specificity */
+
+main > .section .button-container:has(a.button:empty) {
+  margin: 0;
+}
+
+/* partners + acknowledgement sections — flush together, centered */
+main > .section.table-container ~ .section {
+  margin: 0;
+  padding: 40px 0;
+  text-align: center;
+}
+
 /* acknowledgement text */
 main em {
   color: var(--color-grey);
