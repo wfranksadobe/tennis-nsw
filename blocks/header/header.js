@@ -365,21 +365,12 @@ export default async function decorate(block) {
       navActions = document.createElement('div');
       navActions.className = 'nav-actions';
 
-      // Decorate search link — use inline SVG since decorateIcons ran before this
+      // Decorate search link — icon rendered via CSS ::before with tennis icon font
       const searchLink = lists[1].querySelector('a[href*="search"]');
       if (searchLink) {
         searchLink.className = 'nav-search-toggle';
         searchLink.setAttribute('aria-label', 'Search');
         searchLink.textContent = '';
-        try {
-          const resp = await fetch('/icons/search.svg');
-          if (resp.ok) {
-            const svg = await resp.text();
-            searchLink.innerHTML = svg;
-          }
-        } catch {
-          // fallback: CSS will show the icon via background-image
-        }
       }
 
       // Decorate Start Playing link — two-line layout like live site
