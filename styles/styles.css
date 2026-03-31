@@ -255,22 +255,26 @@ main > .section {
 main > .section > div {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
+/* content wrappers get internal padding so text doesn't touch edges */
+main .default-content-wrapper,
+main .cards-wrapper,
+main .table-wrapper {
+  padding: 0 24px;
 }
 
-/* carousel section — images go edge-to-edge, no padding */
-main > .section.carousel-container > div {
-  padding: 0;
+@media (width >= 900px) {
+  main .default-content-wrapper,
+  main .cards-wrapper,
+  main .table-wrapper {
+    padding: 0 32px;
+  }
 }
 
 /* section metadata */
