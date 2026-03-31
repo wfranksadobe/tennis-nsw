@@ -9,3 +9,11 @@
 .title.right {
   text-align: right;
 }
+
+.title.white h2 {
+  color: #fff;
+}
+
+.title.blue h2 {
+  color: var(--color-blue, #0a6dff);
+}

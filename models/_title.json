@@ -28,21 +28,25 @@
           "valueType": "string"
         },
         {
-          "component": "select",
+          "component": "multiselect",
           "name": "classes",
-          "label": "Position",
+          "label": "Style",
           "options": [
             {
-              "name": "Left",
-              "value": ""
-            },
-            {
-              "name": "Centered",
+              "name": "Center",
               "value": "center"
             },
             {
               "name": "Right",
               "value": "right"
+            },
+            {
+              "name": "White",
+              "value": "white"
+            },
+            {
+              "name": "Blue",
+              "value": "blue"
             }
           ]
         }
