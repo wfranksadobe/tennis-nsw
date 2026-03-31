@@ -341,7 +341,7 @@ main > .section.carousel-container {
 }
 
 main > .section.carousel-container > div {
-  max-width: none;
+  max-width: 1400px;
 }
 
 
