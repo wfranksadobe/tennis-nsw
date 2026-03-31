@@ -263,17 +263,18 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
-/* content wrappers get internal padding so text doesn't touch edges */
-main .default-content-wrapper,
-main .cards-wrapper,
-main .table-wrapper {
+/* content wrappers get internal padding so text doesn't touch edges
+   Specificity must beat main > .section > div (0,0,1,2) */
+main > .section > .default-content-wrapper,
+main > .section > .cards-wrapper,
+main > .section > .table-wrapper {
   padding: 0 24px;
 }
 
 @media (width >= 900px) {
-  main .default-content-wrapper,
-  main .cards-wrapper,
-  main .table-wrapper {
+  main > .section > .default-content-wrapper,
+  main > .section > .cards-wrapper,
+  main > .section > .table-wrapper {
     padding: 0 32px;
   }
 }
