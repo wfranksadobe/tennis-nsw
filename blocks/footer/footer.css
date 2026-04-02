@@ -38,26 +38,22 @@ footer li {
 }
 
 /* ==========================================
-   TOP SECTION — logo + 4 nav columns
+   TOP SECTION — Columns block with logo + 4 nav columns
    ========================================== */
 footer .section:first-child {
   padding-top: 30px;
   padding-bottom: 45px;
 }
 
-/* Logo area — first div in the content wrapper */
-footer .section:first-child .default-content-wrapper > div:first-child {
-  margin-bottom: 24px;
-}
-
-footer .section:first-child .default-content-wrapper > div:first-child img {
+/* Logo column — first column */
+footer .columns > div > div:first-child img {
   width: 150px;
   height: auto;
   display: block;
 }
 
 /* NSW badge below logo */
-footer .section:first-child .default-content-wrapper > div:first-child > p:last-child {
+footer .columns > div > div:first-child > p:last-child {
   background-color: var(--color-green, #aef500);
   color: var(--color-navy, #001f3d);
   font-size: 21px;
@@ -84,38 +80,11 @@ footer h2 a {
 }
 
 /* Column link lists */
-footer .section:first-child .default-content-wrapper > div:not(:first-child) li a {
+footer .columns li a {
   display: block;
   padding: 4px 0;
   font-size: 14px;
   line-height: 18px;
-}
-
-/* Nav columns — on mobile, add spacing */
-footer .section:first-child .default-content-wrapper > div:not(:first-child) {
-  margin-bottom: 16px;
-}
-
-/* Desktop — logo left, 4 columns right */
-@media (width >= 900px) {
-  footer .section:first-child .default-content-wrapper {
-    display: flex;
-    gap: 0;
-    align-items: flex-start;
-  }
-
-  /* Logo column — fixed width */
-  footer .section:first-child .default-content-wrapper > div:first-child {
-    flex: 0 0 150px;
-    margin-bottom: 0;
-    padding-right: 30px;
-  }
-
-  /* Nav columns — equal width */
-  footer .section:first-child .default-content-wrapper > div:not(:first-child) {
-    flex: 1 1 0;
-    margin-bottom: 0;
-  }
 }
 
 /* ==========================================
@@ -141,6 +110,7 @@ footer .section:last-child ul {
   gap: 0;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 footer .section:last-child li {
   display: flex;
   align-items: center;
