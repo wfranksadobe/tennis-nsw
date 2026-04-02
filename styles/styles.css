@@ -172,7 +172,7 @@ main {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 0;
 }
 
 input,

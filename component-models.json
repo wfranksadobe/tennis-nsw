@@ -148,14 +148,6 @@
           {
             "name": "Blue",
             "value": "blue"
-          },
-          {
-            "name": "White",
-            "value": "white"
-          },
-          {
-            "name": "Center",
-            "value": "center"
           }
         ]
       }
@@ -177,6 +169,25 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktop",
+        "label": "Desktop Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile",
+        "label": "Mobile Image",
+        "multi": false
       }
     ]
   },
