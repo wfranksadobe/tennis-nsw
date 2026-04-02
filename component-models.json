@@ -176,6 +176,12 @@
     "id": "card",
     "fields": [
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title"
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -188,6 +194,12 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
       }
     ]
   },

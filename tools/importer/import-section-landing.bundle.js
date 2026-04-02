@@ -39,6 +39,14 @@ var CustomImportScript = (() => {
     const tiles = element.querySelectorAll(".promo--row__container__tile");
     const cells = [];
     tiles.forEach((tile) => {
+      const heading = tile.querySelector(".promo--row__container__tile__heading");
+      const titleCell = document.createDocumentFragment();
+      titleCell.appendChild(document.createComment(" field:title "));
+      if (heading) {
+        const p = document.createElement("p");
+        p.textContent = heading.textContent.trim();
+        titleCell.appendChild(p);
+      }
       const img = tile.querySelector("img");
       const imageCell = document.createDocumentFragment();
       imageCell.appendChild(document.createComment(" field:image "));
@@ -50,33 +58,29 @@ var CustomImportScript = (() => {
         picture.appendChild(newImg);
         imageCell.appendChild(picture);
       }
-      const heading = tile.querySelector(".promo--row__container__tile__heading");
       const text = tile.querySelector(".promo--row__container__tile__text");
-      const ctaLink = tile.querySelector('a.promo--row__container__tile__button, a[class*="button"]');
       const textCell = document.createDocumentFragment();
       textCell.appendChild(document.createComment(" field:text "));
-      if (heading) {
-        const h3 = document.createElement("h3");
-        h3.textContent = heading.textContent.trim();
-        textCell.appendChild(h3);
-      }
       if (text) {
-        const p = document.createElement("p");
         const textContent = Array.from(text.childNodes).filter((n) => n.nodeType === 3 || n.nodeType === 1 && n.tagName !== "IMG").map((n) => n.textContent?.trim()).filter(Boolean).join(" ");
         if (textContent) {
+          const p = document.createElement("p");
           p.textContent = textContent;
           textCell.appendChild(p);
         }
       }
+      const ctaLink = tile.querySelector('a.promo--row__container__tile__button, a[class*="button"]');
+      const linkCell = document.createDocumentFragment();
+      linkCell.appendChild(document.createComment(" field:link "));
       if (ctaLink) {
         const p = document.createElement("p");
         const a = document.createElement("a");
         a.href = ctaLink.href;
         a.textContent = ctaLink.textContent.trim();
         p.appendChild(a);
-        textCell.appendChild(p);
+        linkCell.appendChild(p);
       }
-      cells.push([imageCell, textCell]);
+      cells.push([titleCell, imageCell, textCell, linkCell]);
     });
     const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);

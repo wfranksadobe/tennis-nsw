@@ -1,7 +1,7 @@
 /* ==========================================
    CARDS BLOCK — base + Standard variant (default)
-   Standard: 3-col (300px), heading above image, no separator, navy colour
-   Used on homepage /nsw/
+   4-field model: title, image, text, link
+   Standard: 3-col (300px), heading above image, no separator, navy
    ========================================== */
 .cards > ul {
   list-style: none;
@@ -24,13 +24,8 @@
   width: 300px;
 }
 
-/* Card heading — extracted above image by JS */
-.cards .cards-card-heading {
-  padding: 0;
-}
-
-.cards .cards-card-heading h3,
-.cards .cards-card-heading h4 {
+/* Card heading */
+.cards .cards-card-heading h3 {
   font-size: 27px;
   font-weight: 700;
   line-height: 27px;
@@ -38,8 +33,6 @@
   padding: 14px 0;
   color: var(--color-navy, #001f3d);
 }
-
-/* Standard variant: NO separator line under heading */
 
 /* Card image */
 .cards .cards-card-image {
@@ -53,7 +46,7 @@
   object-fit: cover;
 }
 
-/* Card body — description text */
+/* Card body (description) */
 .cards .cards-card-body {
   padding: 0;
 }
@@ -68,7 +61,7 @@
 }
 
 /* CTA link — absolute positioned at bottom of card */
-.cards .cards-card-body a:any-link {
+.cards .cards-card-cta {
   display: block;
   position: absolute;
   bottom: 0;
@@ -82,39 +75,33 @@
   font-weight: 400;
   color: var(--color-white, #fff);
   text-decoration: none;
-  border-radius: 0;
+  background-color: var(--color-navy, #001f3d);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  background-color: var(--color-navy, #001f3d);
 }
 
-/* Right arrow on CTA */
-.cards .cards-card-body a:any-link::after {
+.cards .cards-card-cta::after {
   content: '\203A';
   position: absolute;
   right: 23px;
   font-size: 1.4em;
 }
 
-.cards .cards-card-body a:hover,
-.cards .cards-card-body a:focus {
+.cards .cards-card-cta:hover {
   background-color: var(--color-shadow-blue, #0059cc);
 }
 
 /* ==========================================
    COMPACT variant — 2-col, heading with separator, small image floated left
-   Used on players /nsw/players, clubs /nsw/clubs, our-work /nsw/our-work
    ========================================== */
 .cards.compact > ul > li {
   width: 460px;
 }
 
 /* Compact: separator line under heading */
-.cards.compact .cards-card-heading h3,
-.cards.compact .cards-card-heading h4 {
-  border-bottom: 1px solid;
-  border-bottom-color: var(--color-blue, #0a6dff);
+.cards.compact .cards-card-heading h3 {
+  border-bottom: 1px solid var(--color-blue, #0a6dff);
 }
 
 .cards.compact .cards-card-image {
@@ -134,13 +121,10 @@
 
 /* ==========================================
    FEATURE variant — 2-col, heading above large full-width image, no separator
-   Used on about-us page /nsw/about-us
    ========================================== */
 .cards.feature > ul > li {
   width: 460px;
 }
-
-/* Feature: NO separator line under heading */
 
 .cards.feature > ul > li img {
   aspect-ratio: auto;
@@ -148,10 +132,9 @@
 }
 
 /* ==========================================
-   COLOUR VARIANT: Blue — blue text/CTA instead of navy
+   COLOUR: Blue — blue text/CTA instead of navy
    ========================================== */
-.cards.blue .cards-card-heading h3,
-.cards.blue .cards-card-heading h4 {
+.cards.blue .cards-card-heading h3 {
   color: var(--color-blue, #0a6dff);
 }
 
@@ -160,19 +143,17 @@
   color: var(--color-blue, #0a6dff);
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.cards.blue .cards-card-body a:any-link {
+.cards.blue .cards-card-cta {
   background-color: var(--color-blue, #0a6dff);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.cards.blue .cards-card-body a:hover,
-.cards.blue .cards-card-body a:focus {
+.cards.blue .cards-card-cta:hover {
   background-color: var(--color-shadow-blue, #0059cc);
 }
 
 /* ==========================================
-   MOBILE RESPONSIVE — stack single column
+   MOBILE — stack single column
    ========================================== */
 @media (width < 600px) {
   .cards > ul > li,

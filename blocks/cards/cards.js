@@ -6,31 +6,70 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
 
-    // Move heading from body to before the image — matches original site order:
-    // heading → image → description → CTA
-    const body = li.querySelector('.cards-card-body');
-    const image = li.querySelector('.cards-card-image');
-    const heading = body?.querySelector('h3, h4');
-    if (heading && image) {
-      const headingWrapper = document.createElement('div');
-      headingWrapper.className = 'cards-card-heading';
-      headingWrapper.append(heading);
-      li.insertBefore(headingWrapper, image);
+    const cells = [...row.children];
+
+    // 4-field model: title (0), image (1), text (2), link (3)
+    const titleCell = cells[0];
+    const imageCell = cells[1];
+    const textCell = cells[2];
+    const linkCell = cells[3];
+
+    // Title
+    if (titleCell) {
+      const heading = document.createElement('div');
+      heading.className = 'cards-card-heading';
+      const h3 = document.createElement('h3');
+      h3.textContent = titleCell.textContent.trim();
+      heading.append(h3);
+      li.append(heading);
+    }
+
+    // Image
+    if (imageCell) {
+      const imgDiv = document.createElement('div');
+      imgDiv.className = 'cards-card-image';
+      const pic = imageCell.querySelector('picture');
+      if (pic) {
+        imgDiv.append(pic);
+      } else {
+        const img = imageCell.querySelector('img');
+        if (img) imgDiv.append(img);
+      }
+      li.append(imgDiv);
+    }
+
+    // Text (description)
+    if (textCell) {
+      const bodyDiv = document.createElement('div');
+      bodyDiv.className = 'cards-card-body';
+      bodyDiv.innerHTML = textCell.innerHTML;
+      li.append(bodyDiv);
+    }
+
+    // Link (CTA button)
+    if (linkCell) {
+      const linkText = linkCell.textContent.trim();
+      const linkHref = linkCell.querySelector('a')?.href || linkText;
+      if (linkText) {
+        const cta = document.createElement('a');
+        cta.className = 'cards-card-cta';
+        cta.href = linkHref;
+        cta.textContent = linkText.startsWith('http') ? 'Find out more' : linkText;
+        li.append(cta);
+      }
     }
 
     ul.append(li);
   });
+
+  // Optimize images
   ul.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
+
   block.textContent = '';
   block.append(ul);
 }

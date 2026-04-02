@@ -24,7 +24,9 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "name": "Card",
-              "model": "card"
+              "model": "card",
+              "title": "Card Title",
+              "link": "Find out more"
             }
           }
         }
@@ -35,6 +37,12 @@
     {
       "id": "card",
       "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title"
+        },
         {
           "component": "reference",
           "valueType": "string",
@@ -48,6 +56,12 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "link",
+          "label": "Link"
         }
       ]
     }
