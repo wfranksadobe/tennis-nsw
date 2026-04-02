@@ -43,19 +43,57 @@
     "id": "title",
     "fields": [
       {
-        "component": "richtext",
+        "component": "text",
         "name": "title",
         "label": "Title",
         "valueType": "string"
       },
       {
         "component": "select",
-        "name": "classes",
+        "name": "type",
+        "label": "Heading Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "H1",
+            "value": "h1"
+          },
+          {
+            "name": "H2",
+            "value": "h2"
+          },
+          {
+            "name": "H3",
+            "value": "h3"
+          },
+          {
+            "name": "H4",
+            "value": "h4"
+          },
+          {
+            "name": "H5",
+            "value": "h5"
+          },
+          {
+            "name": "H6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "select",
+        "name": "position",
         "label": "Position",
+        "valueType": "string",
         "options": [
           {
             "name": "Left",
-            "value": ""
+            "value": "left"
           },
           {
             "name": "Centered",
@@ -69,12 +107,13 @@
       },
       {
         "component": "select",
-        "name": "titleColor",
+        "name": "colour",
         "label": "Colour",
+        "valueType": "string",
         "options": [
           {
             "name": "Black",
-            "value": ""
+            "value": "black"
           },
           {
             "name": "White",

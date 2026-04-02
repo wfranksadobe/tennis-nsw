@@ -1,23 +1,31 @@
 export default function decorate(block) {
-  const row = block.children[0];
-  if (!row) return;
+  const rows = [...block.children];
 
-  const titleCell = row.children[0];
-  if (!titleCell) return;
+  // 5-field model as rows: title, type, link, position, colour
+  const titleText = rows[0]?.textContent?.trim() || '';
+  const headingType = rows[1]?.textContent?.trim() || 'h2';
+  const linkHref = rows[2]?.querySelector('a')?.href || rows[2]?.textContent?.trim() || '';
+  const position = rows[3]?.textContent?.trim() || 'left';
+  const colour = rows[4]?.textContent?.trim() || 'black';
 
-  // Position and colour are CSS classes via the 'classes' multiselect field
-  // Default to left if no position set
-  const hasPosition = block.classList.contains('left')
-    || block.classList.contains('center')
-    || block.classList.contains('right');
-  if (!hasPosition) block.classList.add('left');
+  // Apply position and colour as CSS classes
+  if (position) block.classList.add(position);
+  if (colour) block.classList.add(colour);
 
-  // Default to black if no colour set
-  const hasColour = block.classList.contains('black')
-    || block.classList.contains('white')
-    || block.classList.contains('blue');
-  if (!hasColour) block.classList.add('black');
+  // Build the heading element
+  const validTypes = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const tag = validTypes.includes(headingType) ? headingType : 'h2';
+  const heading = document.createElement(tag);
+
+  if (linkHref) {
+    const a = document.createElement('a');
+    a.href = linkHref;
+    a.textContent = titleText;
+    heading.append(a);
+  } else {
+    heading.textContent = titleText;
+  }
 
   block.textContent = '';
-  block.innerHTML = titleCell.innerHTML;
+  block.append(heading);
 }
