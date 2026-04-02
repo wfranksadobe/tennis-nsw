@@ -2,6 +2,13 @@
    Desktop (>=768px): wide image, scales proportionally
    Mobile (<768px): narrow image, scales proportionally
    No cropping — always maintains natural aspect ratio */
+
+/* Remove all spacing from the banner's parent section */
+main > .section.banner-container {
+  padding: 0;
+  margin: 0;
+}
+
 .banner {
   width: 100%;
   line-height: 0;
