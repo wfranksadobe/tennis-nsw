@@ -81,11 +81,33 @@
   text-overflow: ellipsis;
 }
 
-.cards .cards-card-cta::after {
-  content: '\203A';
+/* Arrow icon background square (darker blue) */
+.cards .cards-card-cta::before {
+  content: '';
   position: absolute;
-  right: 23px;
-  font-size: 1.4em;
+  right: 0;
+  top: 0;
+  width: 66px;
+  height: 66px;
+  background-color: var(--color-shadow-blue, #0059cc);
+}
+
+/* Arrow icon (tennis font) */
+.cards .cards-card-cta::after {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: tennis;
+  content: '\E014';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 66px;
+  height: 66px;
+  line-height: 66px;
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: normal;
+  color: var(--color-white, #fff);
 }
 
 .cards .cards-card-cta:hover {

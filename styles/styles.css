@@ -166,6 +166,11 @@ pre {
   white-space: pre;
 }
 
+main {
+  background-image: url('https://www.tennis.com.au/wp-content/themes/tennis_australia_2013/img/background.png');
+  background-repeat: repeat;
+}
+
 main > div {
   margin: 40px 16px;
 }
