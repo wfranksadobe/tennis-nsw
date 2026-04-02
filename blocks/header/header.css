@@ -51,11 +51,10 @@ header .nav-utility-container {
 
 /* Portal links (left side of utility bar) */
 header .nav-portal-links ul {
-  display: flex;
+  display: table;
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
 header .nav-portal-links li {
@@ -64,9 +63,12 @@ header .nav-portal-links li {
   display: table-cell;
   padding: 0;
   border-right: 1px solid rgb(0 67 153);
+  border-left: 1px solid rgb(0 0 0);
 }
 
-/* Keep border-right on ALL items including last — matches original site */
+header .nav-portal-links li:first-child {
+  border-left: none;
+}
 
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-portal-links a {
@@ -739,6 +741,11 @@ header nav .nav-actions a.nav-start-playing:hover .smaller {
 }
 
 @media (width >= 900px) {
+  header .nav-actions {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
   header nav .nav-actions a.nav-start-playing {
     display: flex;
   }
