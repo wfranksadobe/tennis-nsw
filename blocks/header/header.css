@@ -455,7 +455,7 @@ header nav[aria-expanded='true'] .nav-actions {
   /* Primary nav links — 20px, weight 400, vertically centered in 90px bar */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > a {
-    padding: 0 18px;
+    padding: 0 30px;
     display: flex;
     align-items: center;
     font-size: 20px;
