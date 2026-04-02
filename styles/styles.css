@@ -296,6 +296,16 @@ main .section h2 {
   color: var(--color-blue);
 }
 
+/* Center-aligned section */
+main .section.center {
+  text-align: center;
+}
+
+main .section.center img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Tennis NSW blue section */
 main .section.blue {
   background-color: var(--color-blue);

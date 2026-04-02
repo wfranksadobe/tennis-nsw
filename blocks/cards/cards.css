@@ -69,6 +69,6 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 14 / 9;
   object-fit: cover;
 }

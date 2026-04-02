@@ -153,6 +153,10 @@
           {
             "name": "Blue",
             "value": "blue"
+          },
+          {
+            "name": "Center",
+            "value": "center"
           }
         ]
       }

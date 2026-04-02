@@ -31,7 +31,7 @@ export default function transform(hookName, element, payload) {
     ]);
 
     // Remove tracking pixels (1x1 images from ad networks found in captured DOM)
-    const trackingImgs = element.querySelectorAll('img[src*="doubleclick"], img[src*="openx"], img[src*="analytics.yahoo"]');
+    const trackingImgs = element.querySelectorAll('img[src*="doubleclick"], img[src*="openx"], img[src*="analytics.yahoo"], img[src*="facebook.com/tr"]');
     trackingImgs.forEach((img) => img.remove());
 
     // Fix overflow issues if present
@@ -41,13 +41,6 @@ export default function transform(hookName, element, payload) {
   }
 
   if (hookName === TransformHook.afterTransform) {
-    // Remove tournament table section — dynamic data, not suitable for static import
-    // md2jcr does not support the 'table' element type
-    WebImporter.DOMUtils.remove(element, [
-      '.table--blue.tournament',
-      '.banner-ranking',
-    ]);
-
     // Remove non-authorable content (header, footer, nav, mobile elements)
     // Selectors from captured DOM: .nav, .footer, .header-mobile, breadcrumbs
     WebImporter.DOMUtils.remove(element, [

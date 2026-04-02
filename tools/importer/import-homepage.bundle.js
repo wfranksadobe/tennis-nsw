@@ -224,10 +224,6 @@ var CustomImportScript = (() => {
     }
     if (hookName === TransformHook.afterTransform) {
       WebImporter.DOMUtils.remove(element, [
-        ".table--blue.tournament",
-        ".banner-ranking"
-      ]);
-      WebImporter.DOMUtils.remove(element, [
         ".nav",
         ".nav__nav-external",
         ".nav__nav-main",
