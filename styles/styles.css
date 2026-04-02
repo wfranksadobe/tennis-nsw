@@ -259,7 +259,7 @@ main img {
 /* sections */
 main > .section {
   max-width: 1400px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
 main > .section > div {
