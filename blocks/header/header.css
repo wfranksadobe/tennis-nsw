@@ -74,7 +74,7 @@ header .nav-portal-links li:first-child {
 header .nav-portal-links a {
   color: var(--color-white, #fff);
   white-space: nowrap;
-  padding: 8px;
+  padding: 8px 12px;
   display: block;
 }
 
@@ -658,7 +658,6 @@ header .nav-search-toggle {
   line-height: 1;
   box-sizing: border-box;
   border-bottom: 9px solid rgb(10 109 255);
-  border-left: 1px solid rgb(0 89 204 / 70%);
 }
 
 header .nav-search-toggle::before {
