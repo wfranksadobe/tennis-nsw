@@ -15,43 +15,49 @@ footer a:hover {
   text-decoration: underline;
 }
 
-footer .footer > div {
-  margin: 0 auto;
+footer .section {
   max-width: 960px;
+  margin: 0 auto;
   padding: 0 24px;
   box-sizing: border-box;
 }
 
-footer .footer p {
+footer p {
   margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer li {
+  padding: 0;
 }
 
 /* ==========================================
    TOP SECTION — logo + 4 nav columns
    ========================================== */
-footer .footer > div:first-child {
+footer .section:first-child {
   padding-top: 30px;
   padding-bottom: 45px;
 }
 
-/* On mobile — stack vertically */
-footer .footer > div:first-child > div {
-  margin-bottom: 20px;
-}
-
-/* Logo area — first child div */
-footer .footer > div:first-child > div:first-child {
+/* Logo area — first div in the content wrapper */
+footer .section:first-child .default-content-wrapper > div:first-child {
   margin-bottom: 24px;
 }
 
-footer .footer > div:first-child > div:first-child img {
+footer .section:first-child .default-content-wrapper > div:first-child img {
   width: 150px;
   height: auto;
   display: block;
 }
 
 /* NSW badge below logo */
-footer .footer > div:first-child > div:first-child > p:last-child {
+footer .section:first-child .default-content-wrapper > div:first-child > p:last-child {
   background-color: var(--color-green, #aef500);
   color: var(--color-navy, #001f3d);
   font-size: 21px;
@@ -63,7 +69,7 @@ footer .footer > div:first-child > div:first-child > p:last-child {
 }
 
 /* Column headings */
-footer .footer h2 {
+footer h2 {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-grey-footer, #bebfbf);
@@ -72,46 +78,40 @@ footer .footer h2 {
   text-transform: none;
 }
 
-footer .footer h2 a {
+footer h2 a {
   color: var(--color-grey, #6c6f6f);
 }
 
 /* Column link lists */
-footer .footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-footer .footer li {
-  padding: 0;
-}
-
-footer .footer > div:first-child li a {
+footer .section:first-child .default-content-wrapper > div:not(:first-child) li a {
   display: block;
   padding: 4px 0;
   font-size: 14px;
   line-height: 18px;
 }
 
+/* Nav columns — on mobile, add spacing */
+footer .section:first-child .default-content-wrapper > div:not(:first-child) {
+  margin-bottom: 16px;
+}
+
 /* Desktop — logo left, 4 columns right */
 @media (width >= 900px) {
-  footer .footer > div:first-child {
+  footer .section:first-child .default-content-wrapper {
     display: flex;
     gap: 0;
     align-items: flex-start;
   }
 
-  /* Logo column — fixed width matching header brand */
-  footer .footer > div:first-child > div:first-child {
+  /* Logo column — fixed width */
+  footer .section:first-child .default-content-wrapper > div:first-child {
     flex: 0 0 150px;
     margin-bottom: 0;
     padding-right: 30px;
   }
 
-  /* Nav columns — equal width, fill remaining space */
-  footer .footer > div:first-child > div:not(:first-child) {
+  /* Nav columns — equal width */
+  footer .section:first-child .default-content-wrapper > div:not(:first-child) {
     flex: 1 1 0;
     margin-bottom: 0;
   }
@@ -120,56 +120,57 @@ footer .footer > div:first-child li a {
 /* ==========================================
    BOTTOM BAR — copyright left, links right
    ========================================== */
-/* stylelint-disable-next-line no-descending-specificity */
-footer .footer > div:last-child {
+footer .section:last-child {
   border-top: 1px solid #d3d4d4;
   padding-top: 12px;
   padding-bottom: 24px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-footer .footer > div:last-child > p {
+footer .section:last-child p {
   font-size: 14px;
   color: var(--color-grey-footer, #bebfbf);
   margin-bottom: 8px;
 }
 
 /* Bottom links — inline with pipe separators */
-footer .footer > div:last-child ul {
+footer .section:last-child ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
 }
 
-footer .footer > div:last-child li {
+footer .section:last-child li {
   display: flex;
   align-items: center;
 }
 
-footer .footer > div:last-child li::before {
+footer .section:last-child li::before {
   content: '|';
   padding: 0 4px;
   color: var(--color-grey-footer, #bebfbf);
 }
 
-footer .footer > div:last-child li:first-child::before {
+footer .section:last-child li:first-child::before {
   content: none;
 }
 
-footer .footer > div:last-child li a {
+/* stylelint-disable-next-line no-descending-specificity */
+footer .section:last-child li a {
   padding: 2px 4px;
   font-size: 14px;
 }
 
 /* Desktop — copyright left, links right */
 @media (width >= 900px) {
-  footer .footer > div:last-child {
+  footer .section:last-child .default-content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
 
-  footer .footer > div:last-child > p {
+  /* stylelint-disable-next-line no-descending-specificity */
+  footer .section:last-child p {
     margin-bottom: 0;
   }
 }
