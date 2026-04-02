@@ -311,6 +311,13 @@ main .section.center img {
   margin-right: auto;
 }
 
+/* White section — white background, constrains width, hides criss-cross pattern */
+main .section.white {
+  background-color: var(--color-white, #fff);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 /* Tennis NSW blue section */
 main .section.blue {
   background-color: var(--color-blue);

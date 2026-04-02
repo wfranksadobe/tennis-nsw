@@ -148,6 +148,14 @@
           {
             "name": "Blue",
             "value": "blue"
+          },
+          {
+            "name": "White",
+            "value": "white"
+          },
+          {
+            "name": "Center",
+            "value": "center"
           }
         ]
       }

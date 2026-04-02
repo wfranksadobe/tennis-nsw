@@ -74,7 +74,7 @@ header .nav-portal-links li:first-child {
 header .nav-portal-links a {
   color: var(--color-white, #fff);
   white-space: nowrap;
-  padding: 8px 12px;
+  padding: 8px;
   display: block;
 }
 

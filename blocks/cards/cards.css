@@ -34,18 +34,15 @@
   color: var(--color-navy, #001f3d);
 }
 
-/* Card image */
+/* Card image — 12px left/right margin via container padding */
 .cards .cards-card-image {
   line-height: 0;
+  padding: 0 12px;
 }
 
 .cards > ul > li img {
   width: 100%;
   display: block;
-  aspect-ratio: 14 / 9;
-  object-fit: cover;
-  padding: 0 12px;
-  box-sizing: border-box;
 }
 
 /* Card body (description) */
@@ -132,13 +129,11 @@
   float: left;
   width: 45%;
   margin: 14px 8px 18px 0;
+  padding: 0 0 0 12px;
 }
 
 .cards.compact > ul > li img {
-  aspect-ratio: auto;
-  object-fit: fill;
   box-shadow: -5px 5px 0 0 #dbdbdb;
-  padding: 0;
 }
 
 .cards.compact .cards-card-body {
@@ -152,10 +147,7 @@
   width: 460px;
 }
 
-.cards.feature > ul > li img {
-  aspect-ratio: auto;
-  object-fit: fill;
-}
+/* Feature images use natural ratio — no overrides needed */
 
 /* ==========================================
    COLOUR: Blue — blue text/CTA instead of navy
