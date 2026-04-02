@@ -78,6 +78,7 @@ footer h2 {
   text-transform: none;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 footer h2 a {
   color: var(--color-grey, #6c6f6f);
 }
