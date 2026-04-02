@@ -466,11 +466,11 @@ header nav[aria-expanded='true'] .nav-actions {
     box-sizing: border-box;
   }
 
-  /* Hover / dropdown active — green bar */
+  /* Hover / dropdown active — semi-transparent navy bar */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li:hover > a,
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > a {
-    border-bottom-color: rgb(174 245 0);
+    border-bottom-color: rgb(0 31 61 / 40%);
   }
 
   /* Current section — dark navy bar */
