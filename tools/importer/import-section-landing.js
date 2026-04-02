@@ -133,10 +133,10 @@ export default {
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
-    // 6. Generate sanitized path
-    const path = WebImporter.FileUtils.sanitizePath(
-      new URL(params.originalURL).pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/nsw/index'
-    );
+    // 6. Generate sanitized path (flat file, no folder/index pattern)
+    let pathname = new URL(params.originalURL).pathname;
+    pathname = pathname.replace(/\/$/, '').replace(/\.html$/, '');
+    const path = WebImporter.FileUtils.sanitizePath(pathname || '/nsw');
 
     return [{
       element: main,

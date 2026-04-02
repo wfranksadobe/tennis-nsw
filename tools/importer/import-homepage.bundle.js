@@ -1,25 +1,8 @@
 var CustomImportScript = (() => {
   var __defProp = Object.defineProperty;
-  var __defProps = Object.defineProperties;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-  var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
   var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues = (a, b) => {
-    for (var prop in b || (b = {}))
-      if (__hasOwnProp.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    if (__getOwnPropSymbols)
-      for (var prop of __getOwnPropSymbols(b)) {
-        if (__propIsEnum.call(b, prop))
-          __defNormalProp(a, prop, b[prop]);
-      }
-    return a;
-  };
-  var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
   var __export = (target, all) => {
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
@@ -132,13 +115,22 @@ var CustomImportScript = (() => {
         visibleHeaderIndices.push(index);
         const frag = document.createDocumentFragment();
         frag.appendChild(document.createComment(" field:column" + (headerCells.length + 1) + "text "));
+        const p = document.createElement("p");
         const strong = document.createElement("strong");
         strong.textContent = th.textContent.trim();
-        frag.appendChild(strong);
+        p.appendChild(strong);
+        frag.appendChild(p);
         headerCells.push(frag);
       }
     });
     const cells = [];
+    while (headerCells.length < 6) {
+      const frag = document.createDocumentFragment();
+      frag.appendChild(document.createComment(" field:column" + (headerCells.length + 1) + "text "));
+      const p = document.createElement("p");
+      frag.appendChild(p);
+      headerCells.push(frag);
+    }
     if (headerCells.length > 0) {
       cells.push(headerCells);
     }
@@ -147,42 +139,60 @@ var CustomImportScript = (() => {
       const tds = Array.from(tr.querySelectorAll("td"));
       const rowCells = [];
       visibleHeaderIndices.forEach((colIndex, cellIdx) => {
+        const frag = document.createDocumentFragment();
+        frag.appendChild(document.createComment(" field:column" + (cellIdx + 1) + "text "));
         if (colIndex < tds.length) {
           const td = tds[colIndex];
           if (td.classList.contains("hidden") || td.classList.contains("description")) {
+            const p = document.createElement("p");
+            frag.appendChild(p);
+            rowCells.push(frag);
             return;
           }
-          const frag = document.createDocumentFragment();
-          frag.appendChild(document.createComment(" field:column" + (cellIdx + 1) + "text "));
           if (colIndex === 2) {
             const link = td.querySelector("a.url.summary, a");
             const venue = td.querySelector("span.location");
             if (link) {
+              const p = document.createElement("p");
               const a = document.createElement("a");
               a.href = link.href;
               a.textContent = link.textContent.trim();
-              frag.appendChild(a);
+              p.appendChild(a);
+              frag.appendChild(p);
             }
             if (venue) {
-              const br = document.createElement("br");
-              frag.appendChild(br);
-              const span = document.createElement("span");
-              span.textContent = "Venue: " + venue.textContent.trim();
-              frag.appendChild(span);
+              const p = document.createElement("p");
+              p.textContent = "Venue: " + venue.textContent.trim();
+              frag.appendChild(p);
+            }
+            if (!link && !venue) {
+              const p = document.createElement("p");
+              p.textContent = td.textContent.trim();
+              frag.appendChild(p);
             }
           } else {
-            const span = document.createElement("span");
-            span.textContent = td.textContent.trim();
-            frag.appendChild(span);
+            const p = document.createElement("p");
+            p.textContent = td.textContent.trim();
+            frag.appendChild(p);
           }
-          rowCells.push(frag);
+        } else {
+          const p = document.createElement("p");
+          frag.appendChild(p);
         }
+        rowCells.push(frag);
       });
+      while (rowCells.length < 6) {
+        const frag = document.createDocumentFragment();
+        frag.appendChild(document.createComment(" field:column" + (rowCells.length + 1) + "text "));
+        const p = document.createElement("p");
+        frag.appendChild(p);
+        rowCells.push(frag);
+      }
       if (rowCells.length > 0) {
         cells.push(rowCells);
       }
     });
-    const block = WebImporter.Blocks.createBlock(document, { name: "table", cells });
+    const block = WebImporter.Blocks.createBlock(document, { name: "Table (6 Columns)", cells });
     element.replaceWith(block);
   }
 
@@ -190,14 +200,21 @@ var CustomImportScript = (() => {
   var TransformHook = { beforeTransform: "beforeTransform", afterTransform: "afterTransform" };
   function transform(hookName, element, payload) {
     if (hookName === TransformHook.beforeTransform) {
+      element.querySelectorAll("noscript").forEach((ns) => {
+        const temp = element.ownerDocument.createElement("div");
+        temp.innerHTML = ns.textContent || ns.innerHTML;
+        while (temp.firstChild) {
+          ns.parentNode.insertBefore(temp.firstChild, ns);
+        }
+        ns.remove();
+      });
       WebImporter.DOMUtils.remove(element, [
         'iframe[src*="criteo"]',
         'iframe[src*="openx"]',
         'iframe[src*="doubleclick"]',
         ".modal",
         ".gallery--modal",
-        ".gallery--modal__overlay",
-        "noscript"
+        ".gallery--modal__overlay"
       ]);
       const trackingImgs = element.querySelectorAll('img[src*="doubleclick"], img[src*="openx"], img[src*="analytics.yahoo"]');
       trackingImgs.forEach((img) => img.remove());
@@ -206,6 +223,10 @@ var CustomImportScript = (() => {
       }
     }
     if (hookName === TransformHook.afterTransform) {
+      WebImporter.DOMUtils.remove(element, [
+        ".table--blue.tournament",
+        ".banner-ranking"
+      ]);
       WebImporter.DOMUtils.remove(element, [
         ".nav",
         ".nav__nav-external",
@@ -344,9 +365,10 @@ var CustomImportScript = (() => {
     ...PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [transform2] : []
   ];
   function executeTransformers(hookName, element, payload) {
-    const enhancedPayload = __spreadProps(__spreadValues({}, payload), {
+    const enhancedPayload = {
+      ...payload,
       template: PAGE_TEMPLATE
-    });
+    };
     transformers.forEach((transformerFn) => {
       try {
         transformerFn.call(null, hookName, element, enhancedPayload);
@@ -401,11 +423,8 @@ var CustomImportScript = (() => {
       WebImporter.rules.transformBackgroundImages(main, document);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
       let pathname = new URL(params.originalURL).pathname;
-      if (pathname.endsWith("/")) {
-        pathname = pathname + "index";
-      }
-      pathname = pathname.replace(/\.html$/, "");
-      const path = WebImporter.FileUtils.sanitizePath(pathname || "/nsw/index");
+      pathname = pathname.replace(/\/$/, "").replace(/\.html$/, "");
+      const path = WebImporter.FileUtils.sanitizePath(pathname || "/nsw");
       return [{
         element: main,
         path,

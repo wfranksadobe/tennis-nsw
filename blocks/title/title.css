@@ -2,12 +2,22 @@
   padding: 0;
 }
 
+/* Position */
+.title.left {
+  text-align: left;
+}
+
 .title.center {
   text-align: center;
 }
 
 .title.right {
   text-align: right;
+}
+
+/* Colour */
+.title.black h2 {
+  color: #000;
 }
 
 .title.white h2 {
