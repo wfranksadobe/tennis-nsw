@@ -15,7 +15,6 @@ export default async function decorate(block) {
   // Model fields: first 2 rows are classes and filter (if model is present)
   // Detect by checking if the first row has a single cell with no field:column hint
   let dataStartIndex = 0;
-  const firstRowText = rows[0]?.textContent?.trim() || '';
   const firstRowHasFieldHint = rows[0]?.innerHTML?.includes('field:column');
 
   if (!firstRowHasFieldHint && rows.length > 2) {
