@@ -462,6 +462,26 @@ header nav[aria-expanded='true'] .nav-actions {
     font-weight: 400;
     line-height: 20px;
     height: 100%;
+    border-bottom: 9px solid rgb(10 109 255);
+    box-sizing: border-box;
+  }
+
+  /* Hover / dropdown active — green bar */
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > a,
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > a {
+    border-bottom-color: rgb(174 245 0);
+  }
+
+  /* Current section — dark navy bar */
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-current-section > a {
+    border-bottom-color: rgb(0 31 61);
+  }
+
+  /* Current section + hover/active — maintain dark navy (not green) */
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-current-section:hover > a,
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-current-section[aria-expanded='true'] > a {
+    border-bottom-color: rgb(0 31 61);
   }
 
   /* ==========================================

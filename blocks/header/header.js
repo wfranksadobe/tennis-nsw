@@ -330,6 +330,16 @@ export default async function decorate(block) {
         toggleAllNavSections(navSections);
       }
     });
+
+    // Mark current section nav item based on URL path
+    const path = window.location.pathname;
+    const sectionMap = { clubs: 0, players: 1, 'our-work': 2, 'about-us': 3 };
+    Object.entries(sectionMap).forEach(([section, index]) => {
+      if (path.includes(`/${section}`) || path.includes(`/nsw/${section}`)) {
+        const items = navSections.querySelectorAll(':scope .default-content-wrapper > ul > li');
+        if (items[index]) items[index].classList.add('nav-current-section');
+      }
+    });
   }
 
   // --- Tools decoration (split into utility bar + actions) ---
