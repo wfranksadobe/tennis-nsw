@@ -1,6 +1,6 @@
 /* ==========================================
    CARDS BLOCK — base + Standard variant (default)
-   Standard: 3-col (300px), image above text, navy colour
+   Standard: 3-col (300px), heading above image, no separator, navy colour
    Used on homepage /nsw/
    ========================================== */
 .cards > ul {
@@ -24,6 +24,24 @@
   width: 300px;
 }
 
+/* Card heading — extracted above image by JS */
+.cards .cards-card-heading {
+  padding: 0;
+}
+
+.cards .cards-card-heading h3,
+.cards .cards-card-heading h4 {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 27px;
+  margin: 0 12px;
+  padding: 14px 0;
+  color: var(--color-navy, #001f3d);
+}
+
+/* Standard variant: NO separator line under heading */
+
+/* Card image */
 .cards .cards-card-image {
   line-height: 0;
 }
@@ -35,21 +53,9 @@
   object-fit: cover;
 }
 
-/* Card body — heading, text, CTA */
+/* Card body — description text */
 .cards .cards-card-body {
   padding: 0;
-}
-
-.cards .cards-card-body h3,
-.cards .cards-card-body h4 {
-  font-size: 27px;
-  font-weight: 700;
-  line-height: 27px;
-  margin: 0 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid;
-  color: var(--color-navy, #001f3d);
-  border-bottom-color: var(--color-navy, #001f3d);
 }
 
 .cards .cards-card-body p {
@@ -97,11 +103,18 @@
 }
 
 /* ==========================================
-   COMPACT variant — 2-col, small image floated left beside text
-   Used on players page /nsw/players
+   COMPACT variant — 2-col, heading with separator, small image floated left
+   Used on players /nsw/players, clubs /nsw/clubs, our-work /nsw/our-work
    ========================================== */
 .cards.compact > ul > li {
   width: 460px;
+}
+
+/* Compact: separator line under heading */
+.cards.compact .cards-card-heading h3,
+.cards.compact .cards-card-heading h4 {
+  border-bottom: 1px solid;
+  border-bottom-color: var(--color-blue, #0a6dff);
 }
 
 .cards.compact .cards-card-image {
@@ -120,12 +133,14 @@
 }
 
 /* ==========================================
-   FEATURE variant — 2-col, large full-width image above text
+   FEATURE variant — 2-col, heading above large full-width image, no separator
    Used on about-us page /nsw/about-us
    ========================================== */
 .cards.feature > ul > li {
   width: 460px;
 }
+
+/* Feature: NO separator line under heading */
 
 .cards.feature > ul > li img {
   aspect-ratio: auto;
@@ -135,14 +150,12 @@
 /* ==========================================
    COLOUR VARIANT: Blue — blue text/CTA instead of navy
    ========================================== */
-
-/* stylelint-disable-next-line no-descending-specificity */
-.cards.blue .cards-card-body h3,
-.cards.blue .cards-card-body h4 {
+.cards.blue .cards-card-heading h3,
+.cards.blue .cards-card-heading h4 {
   color: var(--color-blue, #0a6dff);
-  border-bottom-color: var(--color-blue, #0a6dff);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .cards.blue .cards-card-body p {
   color: var(--color-blue, #0a6dff);
 }
