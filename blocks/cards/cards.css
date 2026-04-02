@@ -1,7 +1,7 @@
 /* ==========================================
-   CARDS BLOCK — shared base styles
-   All variants: white card, blue shadow, separator under heading,
-   absolute CTA button at bottom
+   CARDS BLOCK — base + Standard variant (default)
+   Standard: 3-col (300px), image above text, navy colour
+   Used on homepage /nsw/
    ========================================== */
 .cards > ul {
   list-style: none;
@@ -21,6 +21,7 @@
   position: relative;
   padding-bottom: 66px;
   margin: 20px 10px 0;
+  width: 300px;
 }
 
 .cards .cards-card-image {
@@ -30,6 +31,8 @@
 .cards > ul > li img {
   width: 100%;
   display: block;
+  aspect-ratio: 14 / 9;
+  object-fit: cover;
 }
 
 /* Card body — heading, text, CTA */
@@ -45,6 +48,8 @@
   margin: 0 12px;
   padding: 14px 0;
   border-bottom: 1px solid;
+  color: var(--color-navy, #001f3d);
+  border-bottom-color: var(--color-navy, #001f3d);
 }
 
 .cards .cards-card-body p {
@@ -53,6 +58,7 @@
   line-height: 20px;
   margin: 0;
   padding: 14px 14px 0;
+  color: var(--color-navy, #001f3d);
 }
 
 /* CTA link — absolute positioned at bottom of card */
@@ -74,6 +80,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  background-color: var(--color-navy, #001f3d);
 }
 
 /* Right arrow on CTA */
@@ -82,35 +89,6 @@
   position: absolute;
   right: 23px;
   font-size: 1.4em;
-}
-
-/* ==========================================
-   STANDARD variant (default) — 3-col, image above text
-   Used on homepage /nsw/
-   ========================================== */
-.cards > ul > li {
-  width: 300px;
-}
-
-.cards > ul > li img {
-  aspect-ratio: 14 / 9;
-  object-fit: cover;
-}
-
-/* Default colour: Navy */
-.cards .cards-card-body h3,
-.cards .cards-card-body h4 {
-  color: var(--color-navy, #001f3d);
-  border-bottom-color: var(--color-navy, #001f3d);
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.cards .cards-card-body p {
-  color: var(--color-navy, #001f3d);
-}
-
-.cards .cards-card-body a:any-link {
-  background-color: var(--color-navy, #001f3d);
 }
 
 .cards .cards-card-body a:hover,
