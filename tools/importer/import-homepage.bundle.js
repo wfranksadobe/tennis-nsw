@@ -61,6 +61,17 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/cards.js
   function parse2(element, { document }) {
+    const section = element.closest(".promo--row") || element.parentElement;
+    const isMonotone = section?.classList?.contains("tile--monotone");
+    const is2Col = element.classList.contains("autoAdjust-2");
+    const firstTile = element.querySelector(".promo--row__container__tile");
+    const textContainer = firstTile?.querySelector(".promo--row__container__tile__text");
+    const imgInsideText = textContainer?.querySelector("img");
+    const isCompact = is2Col && isMonotone && imgInsideText;
+    const isFeature = is2Col && isMonotone && !imgInsideText;
+    let blockName = "Cards";
+    if (isCompact) blockName = "Cards (compact, blue)";
+    else if (isFeature) blockName = "Cards (feature, blue)";
     const tiles = element.querySelectorAll(".promo--row__container__tile");
     const cells = [];
     tiles.forEach((tile) => {
@@ -87,8 +98,11 @@ var CustomImportScript = (() => {
       }
       if (text) {
         const p = document.createElement("p");
-        p.textContent = text.textContent.trim();
-        textCell.appendChild(p);
+        const textContent = Array.from(text.childNodes).filter((n) => n.nodeType === 3 || n.nodeType === 1 && n.tagName !== "IMG").map((n) => n.textContent?.trim()).filter(Boolean).join(" ");
+        if (textContent) {
+          p.textContent = textContent;
+          textCell.appendChild(p);
+        }
       }
       if (ctaLink) {
         const p = document.createElement("p");
@@ -100,7 +114,7 @@ var CustomImportScript = (() => {
       }
       cells.push([imageCell, textCell]);
     });
-    const block = WebImporter.Blocks.createBlock(document, { name: "cards", cells });
+    const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);
   }
 

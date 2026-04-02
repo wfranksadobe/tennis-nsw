@@ -49,45 +49,40 @@
         "valueType": "string"
       },
       {
-        "component": "multiselect",
+        "component": "select",
         "name": "classes",
-        "value": "",
-        "label": "Options",
-        "valueType": "string",
+        "label": "Position",
         "options": [
           {
-            "name": "Position",
-            "children": [
-              {
-                "name": "Left",
-                "value": "left"
-              },
-              {
-                "name": "Centered",
-                "value": "center"
-              },
-              {
-                "name": "Right",
-                "value": "right"
-              }
-            ]
+            "name": "Left",
+            "value": ""
           },
           {
-            "name": "Colour",
-            "children": [
-              {
-                "name": "Black",
-                "value": "black"
-              },
-              {
-                "name": "White",
-                "value": "white"
-              },
-              {
-                "name": "Blue",
-                "value": "blue"
-              }
-            ]
+            "name": "Centered",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "titleColor",
+        "label": "Colour",
+        "options": [
+          {
+            "name": "Black",
+            "value": ""
+          },
+          {
+            "name": "White",
+            "value": "white"
+          },
+          {
+            "name": "Blue",
+            "value": "blue"
           }
         ]
       }
@@ -153,10 +148,6 @@
           {
             "name": "Blue",
             "value": "blue"
-          },
-          {
-            "name": "Center",
-            "value": "center"
           }
         ]
       }

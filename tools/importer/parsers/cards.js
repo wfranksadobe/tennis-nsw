@@ -7,21 +7,34 @@
  * Selector: .promo--row__container .flex-wrapper
  * xwalk model: card (fields: image, text)
  *
- * Block library structure: 2 columns per row.
- *   Col 1: Image
- *   Col 2: Text content (heading, description, CTA link)
+ * Variants detected from source DOM:
+ *   Standard (3-col): .autoAdjust-3 + .tile--contrast → class="cards"
+ *   Compact (2-col, floated image): .autoAdjust-2 + .tile--monotone → class="cards compact blue"
+ *   Feature (2-col, large image): .autoAdjust-2 + .tile--monotone → class="cards feature blue"
  *
- * Source DOM structure:
- *   .flex-wrapper.autoAdjust-3 > .promo--row__container__tile (×3)
- *     Each tile contains:
- *       .promo--row__container__tile__heading (title text)
- *       img (card image)
- *       .promo--row__container__tile__text (excerpt)
- *       a.promo--row__container__tile__button (Read more CTA)
+ * Compact vs Feature detection: if the source has images floated inside
+ * the text container it's Compact; if images are direct children of the tile it's Feature.
+ * Heuristic: if tile has .promo--row__container__tile__text containing an img, it's Compact.
  */
 export default function parse(element, { document }) {
+  // Detect variant from source DOM classes
+  const section = element.closest('.promo--row') || element.parentElement;
+  const isMonotone = section?.classList?.contains('tile--monotone');
+  const is2Col = element.classList.contains('autoAdjust-2');
+
+  // Check if images are floated inside text (Compact) vs block-level (Feature)
+  const firstTile = element.querySelector('.promo--row__container__tile');
+  const textContainer = firstTile?.querySelector('.promo--row__container__tile__text');
+  const imgInsideText = textContainer?.querySelector('img');
+  const isCompact = is2Col && isMonotone && imgInsideText;
+  const isFeature = is2Col && isMonotone && !imgInsideText;
+
+  // Build block name with variant
+  let blockName = 'Cards';
+  if (isCompact) blockName = 'Cards (compact, blue)';
+  else if (isFeature) blockName = 'Cards (feature, blue)';
+
   // Extract card tiles from source DOM
-  // Selector from captured DOM: .promo--row__container__tile
   const tiles = element.querySelectorAll('.promo--row__container__tile');
   const cells = [];
 
@@ -58,8 +71,16 @@ export default function parse(element, { document }) {
 
     if (text) {
       const p = document.createElement('p');
-      p.textContent = text.textContent.trim();
-      textCell.appendChild(p);
+      // For compact variant, text may contain the image — get only the text nodes
+      const textContent = Array.from(text.childNodes)
+        .filter((n) => n.nodeType === 3 || (n.nodeType === 1 && n.tagName !== 'IMG'))
+        .map((n) => n.textContent?.trim())
+        .filter(Boolean)
+        .join(' ');
+      if (textContent) {
+        p.textContent = textContent;
+        textCell.appendChild(p);
+      }
     }
 
     if (ctaLink) {
@@ -74,6 +95,6 @@ export default function parse(element, { document }) {
     cells.push([imageCell, textCell]);
   });
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'cards', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
   element.replaceWith(block);
 }

@@ -1,11 +1,15 @@
+/* ==========================================
+   CARDS BLOCK — shared base styles
+   All variants: white card, blue shadow, separator under heading,
+   absolute CTA button at bottom
+   ========================================== */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(257px, 316px));
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
 }
 
 .cards > ul > li {
@@ -13,54 +17,10 @@
   border-radius: 0;
   background-color: var(--color-white, #fff);
   box-shadow: -5px 5px 0 0 var(--color-shadow-blue, #0059cc);
-  color: var(--color-navy, #001f3d);
   overflow: hidden;
-}
-
-.cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-body h3,
-.cards .cards-card-body h4 {
-  font-size: var(--body-font-size-m);
-  font-weight: 700;
-  color: var(--color-navy, #001f3d);
-  line-height: 1.2;
-  margin-top: 0;
-}
-
-.cards .cards-card-body p {
-  font-size: var(--body-font-size-s);
-  color: var(--color-navy, #001f3d);
-  line-height: 1.25;
-}
-
-.cards .cards-card-body a:any-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 38px 4px 8px;
-  background-color: var(--color-navy, #001f3d);
-  color: var(--color-white, #fff);
-  font-size: var(--body-font-size-m);
-  font-weight: 400;
-  text-decoration: none;
-  border-radius: 0;
-  margin: 8px 0 0;
   position: relative;
-}
-
-.cards .cards-card-body a:any-link::after {
-  content: '\203A';
-  position: absolute;
-  right: 12px;
-  font-size: 1.2em;
-}
-
-.cards .cards-card-body a:hover,
-.cards .cards-card-body a:focus {
-  background-color: var(--color-shadow-blue, #0059cc);
+  padding-bottom: 66px;
+  margin: 20px 10px 0;
 }
 
 .cards .cards-card-image {
@@ -69,6 +29,171 @@
 
 .cards > ul > li img {
   width: 100%;
+  display: block;
+}
+
+/* Card body — heading, text, CTA */
+.cards .cards-card-body {
+  padding: 0;
+}
+
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 27px;
+  margin: 0 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid;
+}
+
+.cards .cards-card-body p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  padding: 14px 14px 0;
+}
+
+/* CTA link — absolute positioned at bottom of card */
+.cards .cards-card-body a:any-link {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+  text-align: left;
+  padding: 0 76px 0 23px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-white, #fff);
+  text-decoration: none;
+  border-radius: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Right arrow on CTA */
+.cards .cards-card-body a:any-link::after {
+  content: '\203A';
+  position: absolute;
+  right: 23px;
+  font-size: 1.4em;
+}
+
+/* ==========================================
+   STANDARD variant (default) — 3-col, image above text
+   Used on homepage /nsw/
+   ========================================== */
+.cards > ul > li {
+  width: 300px;
+}
+
+.cards > ul > li img {
   aspect-ratio: 14 / 9;
   object-fit: cover;
+}
+
+/* Default colour: Navy */
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  color: var(--color-navy, #001f3d);
+  border-bottom-color: var(--color-navy, #001f3d);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards .cards-card-body p {
+  color: var(--color-navy, #001f3d);
+}
+
+.cards .cards-card-body a:any-link {
+  background-color: var(--color-navy, #001f3d);
+}
+
+.cards .cards-card-body a:hover,
+.cards .cards-card-body a:focus {
+  background-color: var(--color-shadow-blue, #0059cc);
+}
+
+/* ==========================================
+   COMPACT variant — 2-col, small image floated left beside text
+   Used on players page /nsw/players
+   ========================================== */
+.cards.compact > ul > li {
+  width: 460px;
+}
+
+.cards.compact .cards-card-image {
+  float: left;
+  width: 45%;
+  margin: 0 8px 18px 0;
+}
+
+.cards.compact > ul > li img {
+  aspect-ratio: auto;
+  object-fit: fill;
+}
+
+.cards.compact .cards-card-body {
+  overflow: hidden;
+}
+
+/* ==========================================
+   FEATURE variant — 2-col, large full-width image above text
+   Used on about-us page /nsw/about-us
+   ========================================== */
+.cards.feature > ul > li {
+  width: 460px;
+}
+
+.cards.feature > ul > li img {
+  aspect-ratio: auto;
+  object-fit: fill;
+}
+
+/* ==========================================
+   COLOUR VARIANT: Blue — blue text/CTA instead of navy
+   ========================================== */
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards.blue .cards-card-body h3,
+.cards.blue .cards-card-body h4 {
+  color: var(--color-blue, #0a6dff);
+  border-bottom-color: var(--color-blue, #0a6dff);
+}
+
+.cards.blue .cards-card-body p {
+  color: var(--color-blue, #0a6dff);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards.blue .cards-card-body a:any-link {
+  background-color: var(--color-blue, #0a6dff);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards.blue .cards-card-body a:hover,
+.cards.blue .cards-card-body a:focus {
+  background-color: var(--color-shadow-blue, #0059cc);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE — stack single column
+   ========================================== */
+@media (width < 600px) {
+  .cards > ul > li,
+  .cards.compact > ul > li,
+  .cards.feature > ul > li {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .cards.compact .cards-card-image {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
 }
