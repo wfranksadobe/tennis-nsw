@@ -44,6 +44,8 @@
   display: block;
   aspect-ratio: 14 / 9;
   object-fit: cover;
+  padding: 0 12px;
+  box-sizing: border-box;
 }
 
 /* Card body (description) */
@@ -135,6 +137,8 @@
 .cards.compact > ul > li img {
   aspect-ratio: auto;
   object-fit: fill;
+  box-shadow: -5px 5px 0 0 #dbdbdb;
+  padding: 0;
 }
 
 .cards.compact .cards-card-body {
