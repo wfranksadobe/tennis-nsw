@@ -110,41 +110,41 @@ header .nav-social-links a {
 }
 
 header .nav-social-links a::before {
-  font-size: 34px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: tennis;
+  font-style: normal;
+  font-weight: normal;
   line-height: 34px;
 }
 
-/* Email icon — grey background (#5f6262) */
+/* Email icon — grey background, tennis font \e011 at 26px */
 header .nav-social-links .social-email {
   background-color: #5f6262;
 }
 
 header .nav-social-links .social-email::before {
-  content: '\2709';
-  font-size: 34px;
+  content: '\E011';
+  font-size: 26px;
 }
 
-/* Facebook icon — blue background (#537bbd) */
+/* Facebook icon — blue background, tennis font \e010 at 34px */
 header .nav-social-links .social-facebook {
   background-color: #537bbd;
 }
 
 header .nav-social-links .social-facebook::before {
-  content: 'f';
-  font-family: Arial, sans-serif;
-  font-weight: 700;
+  content: '\E010';
   font-size: 34px;
 }
 
-/* Twitter/X icon — light blue background (#78cdf0) */
+/* Twitter icon — light blue background, tennis font \e001 at 34px */
 header .nav-social-links .social-twitter {
   background-color: #78cdf0;
 }
 
 header .nav-social-links .social-twitter::before {
-  content: '\1D54F';
-  font-size: 28px;
-  font-weight: 700;
+  content: '\E001';
+  font-size: 34px;
 }
 
 /* ==========================================
