@@ -82,17 +82,19 @@ export default function parse(element, { document }) {
           return;
         }
 
-        // For the Events column (index 2), preserve links and venue info
+        // For the Events column (index 2), use <ul><li> for green triangle marker
         if (colIndex === 2) {
           const link = td.querySelector('a.url.summary, a');
           const venue = td.querySelector('span.location');
           if (link) {
-            const p = document.createElement('p');
+            const ul = document.createElement('ul');
+            const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = link.href;
             a.textContent = link.textContent.trim();
-            p.appendChild(a);
-            frag.appendChild(p);
+            li.appendChild(a);
+            ul.appendChild(li);
+            frag.appendChild(ul);
           }
           if (venue) {
             const p = document.createElement('p');

@@ -66,9 +66,7 @@ header .nav-portal-links li {
   border-right: 1px solid rgb(0 67 153);
 }
 
-header .nav-portal-links li:last-child {
-  border-right: none;
-}
+/* Keep border-right on ALL items including last — matches original site */
 
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-portal-links a {
@@ -100,35 +98,50 @@ header .nav-social-links li {
 
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
+  display: block;
+  width: 35px;
   height: 34px;
+  line-height: 34px;
+  text-align: center;
   color: var(--color-white, #fff);
   font-size: 0;
 }
 
 header .nav-social-links a::before {
-  font-size: 16px;
-  line-height: 1;
+  font-size: 34px;
+  line-height: 34px;
+}
+
+/* Email icon — grey background (#5f6262) */
+header .nav-social-links .social-email {
+  background-color: #5f6262;
 }
 
 header .nav-social-links .social-email::before {
   content: '\2709';
-  font-size: 18px;
+  font-size: 34px;
+}
+
+/* Facebook icon — blue background (#537bbd) */
+header .nav-social-links .social-facebook {
+  background-color: #537bbd;
 }
 
 header .nav-social-links .social-facebook::before {
   content: 'f';
   font-family: Arial, sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 34px;
+}
+
+/* Twitter/X icon — light blue background (#78cdf0) */
+header .nav-social-links .social-twitter {
+  background-color: #78cdf0;
 }
 
 header .nav-social-links .social-twitter::before {
   content: '\1D54F';
-  font-size: 14px;
+  font-size: 28px;
   font-weight: 700;
 }
 
@@ -395,6 +408,7 @@ header nav[aria-expanded='true'] .nav-actions {
     white-space: nowrap;
     align-items: center;
     margin-left: 150px;
+    flex: 0 0 auto;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -434,9 +448,7 @@ header nav[aria-expanded='true'] .nav-actions {
     border-left: none;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li:last-child {
-    border-right: none;
-  }
+  /* Keep border-right on last primary nav item — matches original site */
 
   /* Primary nav links — 20px, weight 400, vertically centered in 90px bar */
   /* stylelint-disable-next-line no-descending-specificity */
@@ -644,6 +656,7 @@ header .nav-search-toggle {
   line-height: 1;
   box-sizing: border-box;
   border-bottom: 9px solid rgb(10 109 255);
+  border-left: 1px solid rgb(0 89 204 / 70%);
 }
 
 header .nav-search-toggle::before {

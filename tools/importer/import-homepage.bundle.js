@@ -153,12 +153,14 @@ var CustomImportScript = (() => {
             const link = td.querySelector("a.url.summary, a");
             const venue = td.querySelector("span.location");
             if (link) {
-              const p = document.createElement("p");
+              const ul = document.createElement("ul");
+              const li = document.createElement("li");
               const a = document.createElement("a");
               a.href = link.href;
               a.textContent = link.textContent.trim();
-              p.appendChild(a);
-              frag.appendChild(p);
+              li.appendChild(a);
+              ul.appendChild(li);
+              frag.appendChild(ul);
             }
             if (venue) {
               const p = document.createElement("p");
@@ -216,7 +218,7 @@ var CustomImportScript = (() => {
         ".gallery--modal",
         ".gallery--modal__overlay"
       ]);
-      const trackingImgs = element.querySelectorAll('img[src*="doubleclick"], img[src*="openx"], img[src*="analytics.yahoo"]');
+      const trackingImgs = element.querySelectorAll('img[src*="doubleclick"], img[src*="openx"], img[src*="analytics.yahoo"], img[src*="facebook.com/tr"]');
       trackingImgs.forEach((img) => img.remove());
       if (element.style && element.style.overflow === "hidden") {
         element.style.overflow = "scroll";

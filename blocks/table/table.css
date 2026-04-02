@@ -1,3 +1,4 @@
+/* Table block — base styles */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -8,6 +9,8 @@
   max-width: 100%;
   border-collapse: collapse;
   font-size: var(--body-font-size-xs);
+  background-color: #0a68f2;
+  color: var(--color-white, #fff);
 }
 
 @media (width >= 600px) {
@@ -18,56 +21,87 @@
 
 @media (width >= 900px) {
   .table.block table {
-    font-size: var(--body-font-size-m);
+    font-size: 14px;
   }
+}
+
+/* Header row */
+.table.block table thead tr {
+  background-color: transparent;
+  border: 0;
 }
 
 .table.block table th {
   font-weight: 400;
   text-transform: uppercase;
-  font-size: var(--body-font-size-m);
-}
-
-.table.block table th,
-.table.block table td {
-  padding: 5px 14px;
+  font-size: 18px;
+  color: var(--color-white, #fff);
+  padding: 8px 14px;
   text-align: left;
 }
 
-.table.block table thead tr {
-  background-color: var(--color-navy, #001f3d);
-  color: var(--color-white, #fff);
-  border: 0;
-}
-
-.table.block table thead tr th {
-  color: var(--color-white, #fff);
-}
-
+/* Data rows — alternating stripe */
 .table.block table tbody tr {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgb(255 255 255 / 30%);
+}
+
+.table.block table tbody tr:nth-child(odd) {
+  background-color: #095dd9;
 }
 
 .table.block table tbody tr:nth-child(even) {
-  background-color: rgb(10 109 255 / 5%);
+  background-color: transparent;
 }
 
+.table.block table td {
+  padding: 5px 14px;
+  text-align: left;
+  color: var(--color-white, #fff);
+}
+
+/* Links inside table — white */
 .table.block table td a:any-link {
-  color: var(--color-link-blue, #004399);
+  color: var(--color-white, #fff);
+  text-decoration: none;
 }
 
-.table table th p,
-.table table td p {
+.table.block table td a:hover {
+  text-decoration: underline;
+}
+
+/* Green triangle list marker for event links (authored as <ul><li>) */
+.table.block table td ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-.table table td p + p {
+.table.block table td li {
+  padding-left: 0;
+}
+
+.table.block table td li::before {
+  content: '\2023';
+  color: #31d800;
+  font-size: 32px;
+  line-height: 14px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+/* Paragraphs in cells */
+.table.block table th p,
+.table.block table td p {
+  margin: 0;
+}
+
+.table.block table td p + p {
   margin-top: 0.25em;
 }
 
 /* no header variant */
 .table.block.no-header table tbody tr {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid rgb(255 255 255 / 30%);
 }
 
 /* striped variant */
