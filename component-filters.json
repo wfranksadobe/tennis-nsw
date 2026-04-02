@@ -9,7 +9,6 @@
     "id": "section",
     "components": [
       "accordion",
-      "banner",
       "button",
       "cards",
       "carousel",
