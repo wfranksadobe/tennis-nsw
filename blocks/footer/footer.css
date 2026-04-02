@@ -65,18 +65,26 @@ footer .columns > div > div:first-child > p:last-child {
 }
 
 /* Column headings */
+/* Column headings — AEM promotes h2 to h1 in markdown round-trip */
+footer h1,
 footer h2 {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-grey-footer, #bebfbf);
-  margin: 12px 0 6px;
+  margin: 0 0 6px;
   padding: 0;
   text-transform: none;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
+footer h1 a,
 footer h2 a {
   color: var(--color-grey, #6c6f6f);
+}
+
+/* Top-align columns */
+footer .columns > div {
+  align-items: flex-start;
 }
 
 /* Column link lists */
