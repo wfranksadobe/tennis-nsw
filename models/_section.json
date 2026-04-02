@@ -37,6 +37,14 @@
             {
               "name": "Blue",
               "value": "blue"
+            },
+            {
+              "name": "White",
+              "value": "white"
+            },
+            {
+              "name": "Center",
+              "value": "center"
             }
           ]
         }
@@ -48,6 +56,7 @@
       "id": "section",
       "components": [
         "accordion",
+        "banner",
         "button",
         "cards",
         "carousel",

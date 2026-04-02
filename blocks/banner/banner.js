@@ -1,17 +1,16 @@
 export default function decorate(block) {
   const rows = [...block.children];
-  const desktopCell = rows[0]?.children[0];
-  const mobileCell = rows[0]?.children[1];
+  // Model fields as rows: row 0 = desktop image, row 1 = mobile image
+  const desktopRow = rows[0];
+  const mobileRow = rows[1];
 
-  const desktopImg = desktopCell?.querySelector('img');
-  const mobileImg = mobileCell?.querySelector('img');
+  const desktopImg = desktopRow?.querySelector('img');
+  const mobileImg = mobileRow?.querySelector('img');
 
   if (!desktopImg) return;
 
-  // Build picture element with source for desktop and mobile
   const picture = document.createElement('picture');
 
-  // Mobile source (default, < 768px)
   if (mobileImg) {
     const mobileSource = document.createElement('source');
     mobileSource.srcset = mobileImg.src;
@@ -19,13 +18,11 @@ export default function decorate(block) {
     picture.append(mobileSource);
   }
 
-  // Desktop source (>= 768px)
   const desktopSource = document.createElement('source');
   desktopSource.srcset = desktopImg.src;
   desktopSource.media = '(min-width: 768px)';
   picture.append(desktopSource);
 
-  // Fallback img (desktop)
   const img = document.createElement('img');
   img.src = desktopImg.src;
   img.alt = desktopImg.alt || '';
