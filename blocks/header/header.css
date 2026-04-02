@@ -741,8 +741,9 @@ header nav .nav-actions a.nav-start-playing:hover .smaller {
 }
 
 @media (width >= 900px) {
-  header nav[aria-expanded='true'] .nav-actions,
-  header .nav-actions {
+  /* stylelint-disable-next-line no-descending-specificity */
+  header .nav-actions,
+  header nav[aria-expanded='true'] .nav-actions {
     flex: 0 0 auto;
     margin-left: auto;
   }
