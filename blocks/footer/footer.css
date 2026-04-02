@@ -120,12 +120,14 @@ footer .footer > div:first-child li a {
 /* ==========================================
    BOTTOM BAR — copyright left, links right
    ========================================== */
+/* stylelint-disable-next-line no-descending-specificity */
 footer .footer > div:last-child {
   border-top: 1px solid #d3d4d4;
   padding-top: 12px;
   padding-bottom: 24px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 footer .footer > div:last-child > p {
   font-size: 14px;
   color: var(--color-grey-footer, #bebfbf);
