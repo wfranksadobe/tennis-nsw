@@ -192,6 +192,7 @@ header nav .nav-hamburger button {
   cursor: pointer;
 }
 
+/* Always show 3 lines (never X) */
 header nav .nav-hamburger-icon,
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
@@ -199,22 +200,15 @@ header nav .nav-hamburger-icon::after {
   display: block;
   position: relative;
   width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentcolor;
 }
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: currentcolor;
-}
-
-/* Always show 3 lines (never X) */
-header nav .nav-hamburger-icon,
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
 }
 
 header nav .nav-hamburger-icon::before {
@@ -245,17 +239,14 @@ header .nav-brand {
 
 header .nav-brand .default-content-wrapper {
   position: relative;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-brand p {
   margin: 0;
   line-height: 1;
-}
-
-header .nav-brand .default-content-wrapper {
-  display: flex;
-  align-items: flex-start;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */

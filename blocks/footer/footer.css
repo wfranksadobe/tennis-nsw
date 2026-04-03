@@ -65,9 +65,9 @@ footer .columns > div > div:first-child > p:last-child {
 }
 
 /* Column headings */
+
 /* Column headings — AEM promotes h2 to h1 in markdown round-trip */
-footer h1,
-footer h2 {
+footer :is(h1, h2) {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-grey-footer, #bebfbf);
@@ -76,9 +76,7 @@ footer h2 {
   text-transform: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-footer h1 a,
-footer h2 a {
+footer :is(h1, h2) a {
   color: var(--color-grey, #6c6f6f);
 }
 
