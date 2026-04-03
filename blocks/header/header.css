@@ -168,12 +168,14 @@ header .nav-main-bar {
 }
 
 /* ==========================================
-   HAMBURGER
+   HAMBURGER — right-aligned on mobile
    ========================================== */
 header nav .nav-hamburger {
   display: flex;
   align-items: center;
   height: 22px;
+  margin-left: auto;
+  order: 3;
 }
 
 header nav .nav-hamburger button {
@@ -196,7 +198,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 24px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -206,41 +208,21 @@ header nav .nav-hamburger-icon::after {
   background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
+/* Always show 3 lines (never X) */
+header nav .nav-hamburger-icon,
+header nav .nav-hamburger-icon::before,
+header nav .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
   background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
+header nav .nav-hamburger-icon::before {
+  top: -8px;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::before,
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
-  transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
-  height: 2px;
-  border-radius: 2px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
-  transform: rotate(-45deg);
+header nav .nav-hamburger-icon::after {
+  top: 8px;
 }
 
 @media (width >= 900px) {
@@ -271,9 +253,15 @@ header .nav-brand p {
   line-height: 1;
 }
 
+header .nav-brand .default-content-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-brand a {
-  display: block;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 header .nav-brand img {
@@ -296,6 +284,7 @@ header .nav-brand img {
 
   header .nav-brand .default-content-wrapper {
     position: static;
+    display: block;
   }
 
   header .nav-brand img {
@@ -304,18 +293,17 @@ header .nav-brand img {
   }
 }
 
-/* NSW badge — green tab below the logo, same width as logo (150px) */
+/* NSW badge — mobile: inline with logo, green text, no background */
 header .nav-brand-badge {
-  display: block;
-  background-color: var(--color-green, #aef500);
-  color: var(--color-navy, #001f3d);
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-green, #aef500);
   font-size: 14px;
-  font-weight: 400;
-  text-align: center;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 0 0 0 4px;
   line-height: 1;
-  width: fit-content;
+  vertical-align: top;
 }
 
 @media (width >= 900px) {
@@ -382,25 +370,70 @@ header nav .nav-sections ul ul a {
   padding: 8px 0 8px 16px;
 }
 
-/* mobile expanded — full screen overlay */
-header nav[aria-expanded='true'] .nav-main-bar {
-  flex-wrap: wrap;
-  align-content: flex-start;
-  min-height: 100dvh;
-  overflow-y: auto;
-}
+/* mobile expanded — scoped to < 900px only */
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-sections {
+    display: block;
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    max-width: 280px;
+    height: 100dvh;
+    background-color: var(--color-navy, #001f3d);
+    overflow-y: auto;
+    z-index: 100;
+    padding: 60px 0 20px;
+    box-shadow: -5px 0 15px rgb(0 0 0 / 30%);
+  }
 
-/* stylelint-disable-next-line no-duplicate-selectors */
-header nav[aria-expanded='true'] .nav-sections {
-  flex-basis: 100%;
-  order: 3;
-  padding-bottom: 80px;
-}
+  /* Hide actions in mobile expanded */
+  header nav[aria-expanded='true'] .nav-actions {
+    display: none;
+  }
 
-/* mobile: show utility links at bottom of mobile menu */
-header nav[aria-expanded='true'] .nav-actions {
-  flex-basis: 100%;
-  order: 4;
+  /* Mobile nav sections — accordion style */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li {
+    border-bottom: 1px solid rgb(0 67 153);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 20px;
+  }
+
+  /* Chevron for accordion items */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li.nav-drop > a::after {
+    content: '\276F';
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li.nav-drop[aria-expanded='true'] > a::after {
+    transform: rotate(90deg);
+  }
+
+  /* Sub-menus hidden by default in mobile */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > ul {
+    display: none;
+    background-color: rgb(0 20 50);
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+    display: block;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+    padding: 10px 20px 10px 30px;
+    font-size: 16px;
+    display: block;
+  }
 }
 
 @media (width >= 900px) {
@@ -650,7 +683,7 @@ header nav[aria-expanded='true'] .nav-actions {
    ========================================== */
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-actions {
-  display: flex;
+  display: none;
   align-items: center;
   flex-shrink: 0;
   margin-left: auto;
@@ -765,6 +798,7 @@ header nav .nav-actions a.nav-start-playing:hover .smaller {
   /* stylelint-disable-next-line no-descending-specificity */
   header .nav-actions,
   header nav[aria-expanded='true'] .nav-actions {
+    display: flex;
     flex: 0 0 auto;
     margin-left: auto;
   }
