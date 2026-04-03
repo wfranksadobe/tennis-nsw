@@ -459,12 +459,7 @@ main > .section .button-container:has(a.button:empty) {
   margin: 0;
 }
 
-/* partners + acknowledgement sections — flush together, centered */
-main > .section.table-container ~ .section {
-  margin: 0 auto;
-  padding: 40px 0;
-  text-align: center;
-}
+/* sections after table — no special padding */
 
 /* acknowledgement text */
 main em {
