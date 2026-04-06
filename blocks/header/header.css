@@ -240,7 +240,7 @@ header .nav-brand {
 header .nav-brand .default-content-wrapper {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -285,6 +285,7 @@ header .nav-brand img {
 }
 
 /* NSW badge — mobile: inline with logo, green text, no background */
+
 /* Mobile: NSW text beside logo, bigger, vertically centered */
 header .nav-brand-badge {
   display: inline-block;
