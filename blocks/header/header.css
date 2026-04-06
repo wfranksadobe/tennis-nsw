@@ -285,22 +285,29 @@ header .nav-brand img {
 }
 
 /* NSW badge — mobile: inline with logo, green text, no background */
+/* Mobile: NSW text beside logo, bigger, vertically centered */
 header .nav-brand-badge {
   display: inline-block;
   background-color: transparent;
   color: var(--color-green, #aef500);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0 0 0 4px;
+  padding: 0 0 0 6px;
   line-height: 1;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
+/* Desktop: green background, dark blue text, positioned below logo */
 @media (width >= 900px) {
   header .nav-brand-badge {
+    display: block;
+    background-color: var(--color-green, #aef500);
+    color: var(--color-navy, #001f3d);
     font-size: 21px;
     line-height: 21px;
+    font-weight: 400;
+    text-align: center;
     padding: 5px 0;
     width: 150px;
     position: absolute;
