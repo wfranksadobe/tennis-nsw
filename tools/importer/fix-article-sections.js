@@ -65,25 +65,40 @@ function fixFile(filePath) {
     if (s.includes('class="metadata"')) return { type: 'metadata', html: s };
     if (s.includes('section-metadata')) {
       if (s.includes('grey')) return { type: 'also-in', html: s };
-      if (s.includes('blue')) return { type: 'cards', html: s };
-      if (s.includes('white')) return { type: 'article-with-meta', html: s };
+      if (s.includes('blue') && s.includes('class="cards')) return { type: 'cards', html: s };
+      if (s.includes('white')) {
+        // Article section with white style — check if it needs merging with adjacent content
+        return { type: 'article-content', html: s };
+      }
       return { type: 'styled-section', html: s };
     }
-    // Sections without section-metadata that contain article content
-    if (s.includes('<p>') || s.includes('<h1') || s.includes('<h2') || s.includes('class="table"')) {
+    // Sections without section-metadata that contain article content or table blocks
+    if (s.includes('<p>') || s.includes('<h1') || s.includes('<h2') || s.includes('<h3')
+        || s.includes('<h4') || s.includes('class="table"') || s.includes('<ul>') || s.includes('<ol>')) {
+      return { type: 'article-content', html: s };
+    }
+    // Empty or near-empty sections (just whitespace or empty divs) — treat as article content
+    const stripped = s.replace(/<\/?div>/g, '').trim();
+    if (stripped === '' || stripped.length < 10) {
       return { type: 'article-content', html: s };
     }
     return { type: 'unknown', html: s };
   });
 
-  // Find consecutive article-content sections (including table-only sections) and merge them
+  // Find consecutive article-content sections and merge them into one
   const merged = [];
   let articleBuffer = [];
 
+  function stripSectionMeta(html) {
+    // Remove section-metadata div from inner content before merging
+    return html.replace(/<div class="section-metadata">.*?<\/div><\/div><\/div>/g, '');
+  }
+
   for (const section of classified) {
     if (section.type === 'article-content') {
-      // Extract inner content (strip outer <div>...</div>)
-      const inner = section.html.replace(/^<div>/, '').replace(/<\/div>$/, '');
+      // Extract inner content (strip outer <div>...</div> and any section-metadata)
+      let inner = section.html.replace(/^<div>/, '').replace(/<\/div>$/, '');
+      inner = stripSectionMeta(inner);
       articleBuffer.push(inner);
     } else {
       // Flush article buffer if we have one
@@ -91,8 +106,8 @@ function fixFile(filePath) {
         const mergedContent = articleBuffer.join('\n');
         const mergedSection = `<div>${mergedContent}<div class="section-metadata"><div><div>style</div><div>white</div></div></div></div>`;
         merged.push(mergedSection);
+        if (articleBuffer.length > 1) changed = true;
         articleBuffer = [];
-        changed = true;
       }
       merged.push(section.html);
     }
@@ -103,16 +118,14 @@ function fixFile(filePath) {
     const mergedContent = articleBuffer.join('\n');
     const mergedSection = `<div>${mergedContent}<div class="section-metadata"><div><div>style</div><div>white</div></div></div></div>`;
     merged.push(mergedSection);
-    changed = true;
+    if (articleBuffer.length > 1) changed = true;
   }
 
-  // Also fix: article sections that already exist but lack section-metadata style: white
-  // (single article section that was never split)
+  // Also fix: single article sections that lack section-metadata style: white
   const finalSections = merged.map((s) => {
-    // If it's an article section without section-metadata, add white style
     if (!s.includes('section-metadata') && !s.includes('class="breadcrumb"')
         && !s.includes('class="banner"') && !s.includes('class="metadata"')
-        && (s.includes('<p>') || s.includes('<h1') || s.includes('<h2'))) {
+        && (s.includes('<p>') || s.includes('<h1') || s.includes('<h2') || s.includes('class="table"'))) {
       changed = true;
       return s.replace(/<\/div>$/, '<div class="section-metadata"><div><div>style</div><div>white</div></div></div></div>');
     }

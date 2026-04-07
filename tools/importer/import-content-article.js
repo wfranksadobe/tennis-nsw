@@ -230,6 +230,7 @@ function parsePage(html, url) {
 
 function convertTablesToEdsBlocks(html) {
   // Convert HTML <table> elements to EDS table block format
+  // Table block stays INSIDE the article section as a sibling element
   return html.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, (tableHtml) => {
     const rows = [];
     const trRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
@@ -245,7 +246,11 @@ function convertTablesToEdsBlocks(html) {
     }
     if (rows.length === 0) return tableHtml;
 
-    let eds = '</div>\n<div><div class="table">';
+    const colCount = rows[0].length;
+    const filterVal = colCount <= 1 ? 'table' : (colCount >= 6 ? 'table-6-columns' : `table-${colCount}-columns`);
+
+    // Model config rows + data rows, all inside the same section
+    let eds = `<div class="table"><div><div></div></div><div><div>${filterVal}</div></div>`;
     rows.forEach((row, rowIdx) => {
       eds += '<div>';
       for (const cell of row) {
@@ -257,7 +262,7 @@ function convertTablesToEdsBlocks(html) {
       }
       eds += '</div>';
     });
-    eds += '</div></div>\n<div>';
+    eds += '</div>';
     return eds;
   });
 }
