@@ -314,6 +314,7 @@ main .section.center img {
 /* White section — white background, hides criss-cross pattern */
 main .section.white {
   background-color: var(--color-white, #fff);
+  background-image: none;
 }
 
 /* Grey section — "Also In" navigation, light grey background */
