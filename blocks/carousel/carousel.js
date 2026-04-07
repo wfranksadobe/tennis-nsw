@@ -163,14 +163,14 @@ export default async function decorate(block) {
     // Auto-rotate every 3 seconds
     let autoRotate = setInterval(() => {
       showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-    }, 3000);
+    }, 5000);
 
     // Pause on hover, resume on leave
     block.addEventListener('mouseenter', () => clearInterval(autoRotate));
     block.addEventListener('mouseleave', () => {
       autoRotate = setInterval(() => {
         showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-      }, 3000);
+      }, 5000);
     });
   }
 }
