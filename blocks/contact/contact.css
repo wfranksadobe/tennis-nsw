@@ -84,40 +84,28 @@
 
 /* 2-column grid layout for contact sections */
 
-/* Contact-wrappers are direct children of .section after EDS decoration */
-.section.contact-grid {
+/* Contact-wrappers sit inside .section > div (EDS inner wrapper) */
+.section.contact-grid > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
   gap: 0;
   padding: 0 24px;
-  align-items: stretch;
-}
-
-/* Each wrapper and card stretches to fill the row height */
-.section.contact-grid > .contact-wrapper {
-  display: flex;
-}
-
-.section.contact-grid > .contact-wrapper > .contact {
-  display: flex;
-  width: 100%;
 }
 
 @media (width >= 900px) {
-  .section.contact-grid {
+  .section.contact-grid > div {
     padding: 0 32px;
   }
 }
 
 @media (width < 600px) {
-  .section.contact-grid {
+  .section.contact-grid > div {
     grid-template-columns: 1fr;
   }
 }
 
 /* Section-metadata and default-content span full width across both columns */
-.section.contact-grid > .section-metadata-container,
-.section.contact-grid > .default-content-wrapper {
+.section.contact-grid > div > .section-metadata-container,
+.section.contact-grid > div > .default-content-wrapper {
   grid-column: 1 / -1;
 }
