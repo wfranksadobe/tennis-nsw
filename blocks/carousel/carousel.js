@@ -160,17 +160,15 @@ export default async function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
 
-    // Auto-rotate every 3 seconds
-    let autoRotate = setInterval(() => {
-      showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-    }, 5000);
+    // Auto-rotate
+    const autoRotateDelay = 5000;
+    const nextSlide = () => showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+    let autoRotate = setInterval(nextSlide, autoRotateDelay);
 
     // Pause on hover, resume on leave
     block.addEventListener('mouseenter', () => clearInterval(autoRotate));
     block.addEventListener('mouseleave', () => {
-      autoRotate = setInterval(() => {
-        showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-      }, 5000);
+      autoRotate = setInterval(nextSlide, autoRotateDelay);
     });
   }
 }
