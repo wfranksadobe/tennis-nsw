@@ -148,11 +148,7 @@
   width: 460px;
 }
 
-/* Feature: no description text, no separator line on heading */
-.cards.feature .cards-card-body {
-  display: none;
-}
-
+/* Feature: no separator line on heading */
 .cards.feature .cards-card-heading h3 {
   border-bottom: none;
 }
