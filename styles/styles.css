@@ -266,12 +266,13 @@ main img {
   width: 100%;
 }
 
-/* sections — zero vertical padding universally */
+/* sections — zero spacing between sections universally */
 main > .section {
   max-width: 1400px;
   margin: 0 auto;
   padding-top: 0;
   padding-bottom: 0;
+  overflow: hidden; /* prevent child margin collapse creating gaps */
 }
 
 main > .section > div {
