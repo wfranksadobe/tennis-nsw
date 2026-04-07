@@ -83,8 +83,8 @@
 }
 
 /* 2-column grid layout for contact sections */
-/* EDS wraps each block in .contact-wrapper inside the section's inner div */
-.section.contact-grid > div {
+/* Contact-wrappers are direct children of .section after EDS decoration */
+.section.contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
@@ -92,23 +92,19 @@
 }
 
 @media (width >= 900px) {
-  .section.contact-grid > div {
+  .section.contact-grid {
     padding: 0 32px;
   }
 }
 
 @media (width < 600px) {
-  .section.contact-grid > div {
+  .section.contact-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Section-metadata wrapper must span full width */
-.section.contact-grid > div > .section-metadata-container {
+/* Section-metadata and default-content span full width across both columns */
+.section.contact-grid > .section-metadata-container,
+.section.contact-grid > .default-content-wrapper {
   grid-column: 1 / -1;
-}
-
-/* Remove extra padding from individual contact wrappers inside grid */
-.section.contact-grid .contact-wrapper {
-  padding: 0;
 }
