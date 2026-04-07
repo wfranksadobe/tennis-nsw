@@ -2,6 +2,14 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  // Auto-detect variant when classes are missing (e.g. after AEM md2jcr round-trip)
+  // Sub-page cards in blue sections with 4+ items should be compact
+  const isInBlueSection = block.closest('.section')?.classList.contains('blue');
+  const cardCount = block.children.length;
+  if (isInBlueSection && cardCount > 3 && !block.classList.contains('compact') && !block.classList.contains('feature')) {
+    block.classList.add('compact', 'blue');
+  }
+
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');

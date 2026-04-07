@@ -151,24 +151,34 @@
 /* Feature images use natural ratio — no overrides needed */
 
 /* ==========================================
-   COLOUR: Blue — blue text/CTA instead of navy
+   COLOUR: Blue — via .cards.blue class OR parent .section.blue
+   Works both locally (class on block) and on AEM (class on section)
    ========================================== */
-.cards.blue .cards-card-heading h3 {
+.cards.blue .cards-card-heading h3,
+.section.blue .cards .cards-card-heading h3 {
   color: var(--color-blue, #0a6dff);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.cards.blue .cards-card-body p {
+.cards.blue .cards-card-body p,
+.section.blue .cards .cards-card-body p {
   color: var(--color-blue, #0a6dff);
 }
 
-.cards.blue .cards-card-cta {
+.cards.blue .cards-card-cta,
+.section.blue .cards .cards-card-cta {
   background-color: var(--color-blue, #0a6dff);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.cards.blue .cards-card-cta:hover {
+.cards.blue .cards-card-cta:hover,
+.section.blue .cards .cards-card-cta:hover {
   background-color: var(--color-shadow-blue, #0059cc);
+}
+
+/* Section-driven heading border colour for blue sections */
+.section.blue .cards .cards-card-heading h3 {
+  border-bottom-color: var(--color-blue, #0a6dff);
 }
 
 /* ==========================================
