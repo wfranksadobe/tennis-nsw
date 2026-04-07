@@ -342,12 +342,12 @@ main .section.grey ul {
 main .section.grey li {
   padding: 6px 0;
   font-size: 16px;
-  color: var(--color-blue, #0a6dff);
+  color: var(--color-grey, #6c6f6f);
 }
 
-/* Links are grey, current page (no link) is blue */
+/* Links are blue, current page (no link) stays grey */
 main .section.grey a {
-  color: var(--color-grey, #6c6f6f);
+  color: var(--color-blue, #0a6dff);
   text-decoration: none;
 }
 
