@@ -28,7 +28,7 @@
   --background-color: var(--color-white);
   --light-color: #f8f8f8;
   --dark-color: var(--color-navy);
-  --text-color: var(--color-black);
+  --text-color: var(--color-grey);
   --link-color: var(--color-link-blue);
   --link-hover-color: var(--color-shadow-blue);
   --overlay-background-color: lightgrey;
@@ -330,7 +330,7 @@ main .section.white {
 /* Grey section — "Also In" navigation, light grey background */
 main .section.grey {
   background-color: rgb(248 248 248);
-  padding: 22px 0 10px;
+  padding: 0 24px;
 }
 
 main .section.grey h3 {
@@ -371,7 +371,7 @@ main .section.blue {
   background-color: var(--color-blue);
   color: var(--color-white);
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0;
 }
 
 main .section.blue h2 {
