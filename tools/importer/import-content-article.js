@@ -228,8 +228,44 @@ function parsePage(html, url) {
   return result;
 }
 
+function convertTablesToEdsBlocks(html) {
+  // Convert HTML <table> elements to EDS table block format
+  return html.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, (tableHtml) => {
+    const rows = [];
+    const trRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+    let trMatch;
+    while ((trMatch = trRegex.exec(tableHtml)) !== null) {
+      const cells = [];
+      const cellRegex = /<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi;
+      let cellMatch;
+      while ((cellMatch = cellRegex.exec(trMatch[1])) !== null) {
+        cells.push(cellMatch[1].trim());
+      }
+      if (cells.length > 0) rows.push(cells);
+    }
+    if (rows.length === 0) return tableHtml;
+
+    let eds = '</div>\n<div><div class="table">';
+    rows.forEach((row, rowIdx) => {
+      eds += '<div>';
+      for (const cell of row) {
+        if (rowIdx === 0) {
+          eds += `<div><!-- field:column -->${cell}</div>`;
+        } else {
+          eds += `<div>${cell}</div>`;
+        }
+      }
+      eds += '</div>';
+    });
+    eds += '</div></div>\n<div>';
+    return eds;
+  });
+}
+
 function cleanArticleHtml(html) {
   if (!html) return '';
+  // Convert tables first, then clean
+  html = convertTablesToEdsBlocks(html);
   return html
     .replace(/<p>\s*<\/p>/g, '')
     .replace(/<p>&nbsp;<\/p>/g, '')
