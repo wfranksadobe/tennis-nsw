@@ -6,8 +6,16 @@
   height: 100%;
 }
 
-.contact-wrapper {
+/* stylelint-disable-next-line no-descending-specificity */
+.section.contact-grid .contact-wrapper {
   padding: 0;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.section.contact-grid .contact {
+  width: 100%;
 }
 
 .contact-card {
@@ -15,8 +23,9 @@
   flex-direction: row;
   align-items: flex-start;
   text-align: left;
-  padding: 16px 8px;
+  padding: 16px;
   gap: 12px;
+  box-sizing: border-box;
 }
 
 /* Photo — fixed size, 2:3 portrait, crops non-conforming images */
