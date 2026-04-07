@@ -132,8 +132,18 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
+h1 {
+  font-size: 50px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--color-blue);
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 100;
+  text-transform: uppercase;
+}
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
