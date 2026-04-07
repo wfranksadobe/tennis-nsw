@@ -1,0 +1,83 @@
+{
+  "url": "https://www.tennis.com.au/nsw/our-work/rally-as-one",
+  "template": "content-article",
+  "sections": [
+    {
+      "id": "section-1-breadcrumb",
+      "authoringDecision": "block",
+      "blockName": "breadcrumb",
+      "variantName": "breadcrumb",
+      "notes": "Existing breadcrumb block with levels property. Auto-generates from URL path.",
+      "fields": {
+        "levels": "4"
+      }
+    },
+    {
+      "id": "section-2-banner",
+      "authoringDecision": "block",
+      "blockName": "banner",
+      "variantName": "banner",
+      "notes": "Optional. Present on some content-article pages, absent on others. Uses desktop/mobile image pair from .banner-article.",
+      "optional": true,
+      "fields": {
+        "desktop": "img from span[data-media='(min-width:768px)'] data-src",
+        "mobile": "img from span:first-child[data-src]"
+      }
+    },
+    {
+      "id": "section-3-also-in",
+      "authoringDecision": "default-content",
+      "sectionStyle": "grey",
+      "notes": "Default content in grey section. h3 heading + ul list of sibling page links. Current page has no link (plain text).",
+      "content": [
+        {"type": "heading", "level": 3, "pattern": "Also in {Parent Section Name}"},
+        {"type": "list", "pattern": "ul of sibling page links, current page as plain text li"}
+      ]
+    },
+    {
+      "id": "section-4-article",
+      "authoringDecision": "default-content",
+      "sectionStyle": null,
+      "notes": "Main article body. Rich text content: headings (h1 title, h4 subheadings), paragraphs, inline links, lists, tables, images. All rendered as default content - no blocks needed.",
+      "content": [
+        {"type": "heading", "level": 1, "pattern": "Page title"},
+        {"type": "paragraphs", "pattern": "Rich text with inline links, strong, em"},
+        {"type": "heading", "level": 4, "pattern": "Subheadings"},
+        {"type": "table", "pattern": "HTML table for structured data (schedules, lists)"},
+        {"type": "images", "pattern": "Inline images with alt text"},
+        {"type": "lists", "pattern": "ul/ol lists"}
+      ]
+    },
+    {
+      "id": "section-5-cards",
+      "authoringDecision": "block",
+      "blockName": "cards",
+      "variantName": "cards",
+      "sectionStyle": "blue",
+      "notes": "Optional. Card tiles at bottom of some pages. Uses existing cards block with standard variant (no images) or compact variant (with images). Blue section style drives colour.",
+      "optional": true,
+      "fields": {
+        "title": "Card heading",
+        "image": "Optional card image",
+        "text": "Card description",
+        "link": "CTA link and text"
+      }
+    }
+  ],
+  "blockInventory": {
+    "existing": ["breadcrumb", "banner", "cards", "table", "title"],
+    "new": [],
+    "notes": "All blocks needed for content-article pages already exist. No new blocks or variants required."
+  },
+  "contentPatterns": {
+    "alsoInNav": {
+      "clubs": ["Membership", "Regional Coach Support Grant", "Tennis NSW Facility Enhancement Fund", "Tennis Connect", "Member Protection", "Club Resources", "Digital Products", "Thriving Tennis Venues"],
+      "play": ["Competitive Play", "Performance Support Program", "School Tennis", "Women and Girls", "Community Tennis", "Hot Shots", "Social Play", "Find A Coach", "Become a Pro"],
+      "ourWork": ["Inclusion & Diversity", "Safeguarding Children", "Youth Hub", "Get Involved Off Court", "Rally as One", "Partners", "First Nations", "Active Kids"],
+      "aboutUs": ["A New Constitution for Tennis NSW", "News", "Events", "Ken Rosewall Arena", "Meet The Team", "Regions", "Tennis NSW Director Elections", "Vision 2030"]
+    },
+    "subNavigation": {
+      "notes": "Some sub-sections have their own Also In nav (e.g., 'Also in Thriving Tennis Venues', 'Also in Competitive Play', 'Also in Member Protection'). The nav heading and items come from the parent page's sidebar."
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "url": "https://www.tennis.com.au/nsw/our-work/rally-as-one",
+  "title": "Rally as One | Our Work | Tennis NSW",
+  "template": "content-article",
+  "sections": [
+    {
+      "id": "section-1-breadcrumb",
+      "name": "Breadcrumb",
+      "selector": "div.breadcrumbs",
+      "style": null,
+      "content": ["breadcrumb block with levels=4"]
+    },
+    {
+      "id": "section-2-also-in",
+      "name": "Also In Navigation",
+      "selector": "div.nav--internal",
+      "style": "grey",
+      "content": [
+        "h3: Also in Our Work",
+        "ul: 8 sibling links, current = Rally as One (no href)"
+      ]
+    },
+    {
+      "id": "section-3-article",
+      "name": "Article Content",
+      "selector": "div.two-column__main > div.wysiwyg",
+      "style": null,
+      "content": [
+        "h1: Rally as One Northern NSW Roadshow",
+        "p: description paragraphs with inline links",
+        "h4: 2024 Rally as One FREE events",
+        "p: event description",
+        "table: 5 rows (Date, Time, Location, Register columns)",
+        "h4: Australian Tennis Foundation Lottery",
+        "p: multiple paragraphs about ATF lottery",
+        "p: link to ausopen.com/win",
+        "p: draw date"
+      ]
+    },
+    {
+      "id": "section-4-cards",
+      "name": "Card Tiles",
+      "selector": "div.promo--row.bg--blue.tile--monotone",
+      "style": "blue",
+      "content": [
+        "cards block: 3 cards (no images, blue monotone)",
+        "Card 1: Australian Tennis Foundation - Find out more",
+        "Card 2: ATF Lottery - Find out more",
+        "Card 3: Claim your Rally as One offer here - Find out more"
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Rally as One | Our Work | Tennis NSW",
+    "description": "Rally as One Northern NSW Roadshow"
+  },
+  "notes": [
+    "No banner image on this page (some content-article pages have banners, some don't)",
+    "Article body uses h1 for title, h4 for subheadings",
+    "Table in article body for event schedule",
+    "Card tiles section at bottom uses blue monotone style (no images)",
+    "Also In nav has 8 items for Our Work section"
+  ]
+}
