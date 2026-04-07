@@ -81,4 +81,10 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.append(card);
+
+  // Ensure the parent section has the grid layout class
+  const section = block.closest('.section');
+  if (section && !section.classList.contains('contact-grid')) {
+    section.classList.add('contact-grid');
+  }
 }

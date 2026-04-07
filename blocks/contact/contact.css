@@ -45,6 +45,7 @@
 /* Details */
 .contact-card-details {
   width: 100%;
+  min-width: 0;
 }
 
 .contact-card-name {
@@ -81,8 +82,9 @@
   opacity: 1;
 }
 
-/* 2-column grid — applied to the section > div that contains contact-wrappers */
-.section.contact-container > div {
+/* 2-column grid layout for contact sections */
+/* EDS wraps each block in .contact-wrapper inside the section's inner div */
+.section.contact-grid > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
@@ -90,20 +92,23 @@
 }
 
 @media (width >= 900px) {
-  .section.contact-container > div {
+  .section.contact-grid > div {
     padding: 0 32px;
   }
 }
 
-/* Single column on small screens */
 @media (width < 600px) {
-  .section.contact-container > div {
+  .section.contact-grid > div {
     grid-template-columns: 1fr;
   }
 }
 
-/* Ensure default-content-wrapper (if any) and section-metadata span full width */
-.section.contact-container > div > .default-content-wrapper,
-.section.contact-container > div > .section-metadata-container {
+/* Section-metadata wrapper must span full width */
+.section.contact-grid > div > .section-metadata-container {
   grid-column: 1 / -1;
+}
+
+/* Remove extra padding from individual contact wrappers inside grid */
+.section.contact-grid .contact-wrapper {
+  padding: 0;
 }
