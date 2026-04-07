@@ -316,6 +316,49 @@ main .section.white {
   background-color: var(--color-white, #fff);
 }
 
+/* Grey section — "Also In" navigation, light grey background */
+main .section.grey {
+  background-color: rgb(238 242 245);
+  padding: 20px 0;
+}
+
+main .section.grey h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-navy, #001f3d);
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+main .section.grey ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 20px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.grey li {
+  padding: 4px 0;
+  font-size: 14px;
+  break-inside: avoid;
+}
+
+main .section.grey a {
+  color: var(--color-blue, #0a6dff);
+  text-decoration: none;
+}
+
+main .section.grey a:hover {
+  text-decoration: underline;
+}
+
+/* Current page item — no link, grey text */
+main .section.grey li:not(:has(a)) {
+  color: var(--color-grey, #6c6f6f);
+}
+
 /* Tennis NSW blue section */
 main .section.blue {
   background-color: var(--color-blue);

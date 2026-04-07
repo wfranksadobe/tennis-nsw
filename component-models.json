@@ -195,6 +195,10 @@
           {
             "name": "Center",
             "value": "center"
+          },
+          {
+            "name": "Grey",
+            "value": "grey"
           }
         ]
       }
@@ -235,6 +239,40 @@
         "name": "mobile",
         "label": "Mobile Image",
         "multi": false
+      }
+    ]
+  },
+  {
+    "id": "breadcrumb",
+    "fields": [
+      {
+        "component": "select",
+        "name": "levels",
+        "label": "Levels",
+        "valueType": "string",
+        "value": "5",
+        "options": [
+          {
+            "name": "1",
+            "value": "1"
+          },
+          {
+            "name": "2",
+            "value": "2"
+          },
+          {
+            "name": "3",
+            "value": "3"
+          },
+          {
+            "name": "4",
+            "value": "4"
+          },
+          {
+            "name": "5",
+            "value": "5"
+          }
+        ]
       }
     ]
   },

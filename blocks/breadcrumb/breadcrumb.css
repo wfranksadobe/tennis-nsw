@@ -1,0 +1,52 @@
+/* Breadcrumb block — full-width grey bar */
+main > .section.breadcrumb-container {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+.breadcrumb {
+  background-color: rgb(238 242 245);
+  padding: 18px 0 10px;
+  width: 100%;
+}
+
+.breadcrumb nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.breadcrumb li {
+  font-size: 14px;
+  color: var(--color-grey, #6c6f6f);
+  padding: 0;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '>';
+  padding: 0 6px;
+  color: var(--color-grey, #6c6f6f);
+}
+
+.breadcrumb a {
+  color: var(--color-blue, #0a6dff);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb li[aria-current='page'] {
+  color: var(--color-grey, #6c6f6f);
+}
