@@ -266,10 +266,12 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections — zero vertical padding universally */
 main > .section {
   max-width: 1400px;
   margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 main > .section > div {
@@ -303,7 +305,7 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 0;
 }
 
 /* section heading color */
@@ -400,7 +402,7 @@ main .section.dark {
   background-color: var(--color-navy);
   color: var(--color-white);
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 0;
 }
 
 main .section.dark h2 {
@@ -429,7 +431,7 @@ main > .section.carousel-container .default-content-wrapper {
 /* tournaments section — blue background only when section has .blue style */
 main > .section.blue.table-container {
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0;
 }
 
 main > .section.blue.table-container .table.block table tbody tr {
