@@ -462,6 +462,7 @@ header nav .nav-sections ul ul a {
   }
 
   /* Items with sub-menus get chevron */
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav[aria-expanded='true'] .nav-sections .has-slide-out > a::after {
     content: '\276F';
     font-size: 12px;
@@ -473,6 +474,7 @@ header nav .nav-sections ul ul a {
   }
 
   /* Hide 3rd-level nested lists that aren't slide-outs */
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > ul > li > ul {
     display: none;
   }
