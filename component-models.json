@@ -353,6 +353,40 @@
     ]
   },
   {
+    "id": "contact",
+    "fields": [
+      {
+        "component": "text",
+        "name": "name",
+        "label": "Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "jobtitle",
+        "label": "Job Title",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "image",
+        "label": "Photo"
+      },
+      {
+        "component": "text",
+        "name": "mobile",
+        "label": "Mobile",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "email",
+        "label": "Email",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "embed",
     "fields": [
       {

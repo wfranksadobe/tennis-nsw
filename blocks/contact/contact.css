@@ -1,0 +1,99 @@
+/* Contact Block — staff/team member card */
+
+.contact {
+  padding: 0;
+  margin: 0;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+/* Photo — fixed size, 2:3 portrait, crops non-conforming images */
+.contact-card-photo {
+  width: 120px;
+  height: 180px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-bottom: 12px;
+  background-color: #e8ecf0;
+}
+
+.contact-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder silhouette for missing photos */
+.contact-card-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #d0d5db;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='%23a0a8b0'%3E%3Ccircle cx='60' cy='60' r='28'/%3E%3Cellipse cx='60' cy='155' rx='42' ry='35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Details */
+.contact-card-details {
+  width: 100%;
+}
+
+.contact-card-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 2px;
+  color: var(--color-white, #fff);
+}
+
+.contact-card-title {
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: var(--color-white, #fff);
+  opacity: 0.85;
+}
+
+.contact-card-mobile,
+.contact-card-email {
+  font-size: 13px;
+  margin: 0 0 2px;
+  color: var(--color-white, #fff);
+}
+
+.contact-card-mobile a,
+.contact-card-email a {
+  color: var(--color-white, #fff);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.contact-card-mobile a:hover,
+.contact-card-email a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Grid layout — contact blocks in a section stack into 2-3 columns */
+.section > .contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  .section > .contact-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 32px;
+  }
+}
+
+/* Blue section overrides already handle headings and text colour */
