@@ -3,6 +3,11 @@
 .contact {
   padding: 0;
   margin: 0;
+  height: 100%;
+}
+
+.contact-wrapper {
+  padding: 0;
 }
 
 .contact-card {
@@ -84,28 +89,30 @@
 
 /* 2-column grid layout for contact sections */
 
-/* Contact-wrappers sit inside .section > div (EDS inner wrapper) */
-.section.contact-grid > div {
+/* Contact-wrappers are direct children of .section (no inner div wrapper) */
+.section.contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   padding: 0 24px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 @media (width >= 900px) {
-  .section.contact-grid > div {
+  .section.contact-grid {
     padding: 0 32px;
   }
 }
 
 @media (width < 600px) {
-  .section.contact-grid > div {
+  .section.contact-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* Section-metadata and default-content span full width across both columns */
-.section.contact-grid > div > .section-metadata-container,
-.section.contact-grid > div > .default-content-wrapper {
+.section.contact-grid > .section-metadata-container,
+.section.contact-grid > .default-content-wrapper {
   grid-column: 1 / -1;
 }
