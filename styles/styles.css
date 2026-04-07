@@ -334,6 +334,8 @@ main .section.grey ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  columns: 2;
+  column-gap: 20px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
