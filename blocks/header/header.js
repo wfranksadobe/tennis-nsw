@@ -74,7 +74,8 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  // Mobile: start with all sections collapsed (accordion); Desktop: expand all
+  toggleAllNavSections(navSections, 'false');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -303,15 +304,12 @@ export default async function decorate(block) {
         decorateDropdown(navSection);
       }
       navSection.addEventListener('click', (e) => {
-        if (isDesktop.matches) {
-          // Only toggle dropdown when clicking the top-level nav link, not dropdown items
-          const topLink = navSection.querySelector(':scope > a');
-          if (e.target === topLink || e.target === navSection) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            e.preventDefault();
-          }
+        const topLink = navSection.querySelector(':scope > a');
+        if (e.target === topLink || e.target === navSection) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          e.preventDefault();
         }
       });
 
