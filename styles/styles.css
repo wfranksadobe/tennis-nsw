@@ -416,38 +416,25 @@ main > .section.carousel-container .default-content-wrapper {
   display: none;
 }
 
-/* tournaments section — blue background matching live site */
-main > .section.table-container {
-  background-color: var(--color-blue);
-  color: var(--color-white);
+/* tournaments section — blue background only when section has .blue style */
+main > .section.blue.table-container {
   margin: 0 auto;
   padding: 60px 0;
 }
 
-main > .section.table-container h2 {
-  color: var(--color-white);
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: var(--heading-font-size-xxl);
-}
-
-main > .section.table-container a:any-link {
-  color: var(--color-white);
-}
-
-main > .section.table-container .table.block table tbody tr {
+main > .section.blue.table-container .table.block table tbody tr {
   border-bottom-color: rgb(255 255 255 / 20%);
 }
 
-main > .section.table-container .table.block table tbody tr:nth-child(even) {
+main > .section.blue.table-container .table.block table tbody tr:nth-child(even) {
   background-color: rgb(255 255 255 / 10%);
 }
 
-main > .section.table-container .table.block table td {
+main > .section.blue.table-container .table.block table td {
   color: var(--color-white);
 }
 
-main > .section.table-container .table.block table td a:any-link {
+main > .section.blue.table-container .table.block table td a:any-link {
   color: var(--color-white);
   text-decoration: underline;
 }
@@ -472,7 +459,7 @@ main .section.blue .button-container:last-child a.button:focus {
 /* stylelint-disable no-descending-specificity -- section-specific button overrides */
 
 /* "Full Calendar" link — simple text link, not button */
-main > .section.table-container .button-container a.button:any-link {
+main > .section.blue.table-container .button-container a.button:any-link {
   background-color: transparent;
   color: var(--color-white);
   padding: 0;
@@ -482,8 +469,8 @@ main > .section.table-container .button-container a.button:any-link {
   text-decoration: none;
 }
 
-main > .section.table-container .button-container a.button:hover,
-main > .section.table-container .button-container a.button:focus {
+main > .section.blue.table-container .button-container a.button:hover,
+main > .section.blue.table-container .button-container a.button:focus {
   background-color: transparent;
   text-decoration: underline;
 }
