@@ -81,8 +81,8 @@
   opacity: 1;
 }
 
-/* Grid layout — contact blocks in a section stack into 2-3 columns */
-.section > .contact-wrapper {
+/* 2-column grid — applied to the section > div that contains contact-wrappers */
+.section.contact-container > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
@@ -90,10 +90,20 @@
 }
 
 @media (width >= 900px) {
-  .section > .contact-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+  .section.contact-container > div {
     padding: 0 32px;
   }
 }
 
-/* Blue section overrides already handle headings and text colour */
+/* Single column on small screens */
+@media (width < 600px) {
+  .section.contact-container > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure default-content-wrapper (if any) and section-metadata span full width */
+.section.contact-container > div > .default-content-wrapper,
+.section.contact-container > div > .section-metadata-container {
+  grid-column: 1 / -1;
+}
