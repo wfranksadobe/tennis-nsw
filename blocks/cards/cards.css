@@ -258,11 +258,6 @@
 
 /* Body — contact details */
 .cards.contact .cards-card-body {
-  display: none;
-}
-
-/* Use the text field for title + contact, shown after heading */
-.cards.contact .cards-card-heading + .cards-card-body {
   display: block;
 }
 
