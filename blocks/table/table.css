@@ -11,6 +11,7 @@
   font-size: var(--body-font-size-xs);
   background-color: #0a68f2;
   color: var(--color-white, #fff);
+  margin: 0 auto;
 }
 
 @media (width >= 600px) {
