@@ -131,8 +131,9 @@
 }
 
 /* bordered variant */
-/* stylelint-disable-next-line no-descending-specificity */
+/* stylelint-disable no-descending-specificity */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
 }
+/* stylelint-enable no-descending-specificity */
