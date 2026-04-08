@@ -4,7 +4,10 @@
 }
 
 .columns img {
-  width: 100%;
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  border-radius: 4px;
 }
 
 .columns > div > div {
@@ -19,13 +22,6 @@
   display: block;
 }
 
-/* Staff contact photos in blue sections — constrain to portrait size */
-.section.blue .columns img {
-  width: 120px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 4px;
-}
 
 @media (width >= 900px) {
   .columns > div {
