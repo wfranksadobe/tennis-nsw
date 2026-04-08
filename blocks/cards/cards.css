@@ -206,6 +206,7 @@
    Contact variant — horizontal card (photo left, details right)
    Used for staff directories on blue table background
    ========================================== */
+/* stylelint-disable no-descending-specificity */
 .cards.contact > ul {
   max-width: 100%;
   display: grid;
@@ -300,3 +301,4 @@
     grid-template-columns: 1fr;
   }
 }
+/* stylelint-enable no-descending-specificity */
