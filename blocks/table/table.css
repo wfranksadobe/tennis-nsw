@@ -5,7 +5,7 @@
 }
 
 .table.block table {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   border-collapse: collapse;
   font-size: var(--body-font-size-xs);
@@ -104,25 +104,18 @@
   border-top: 1px solid rgb(255 255 255 / 30%);
 }
 
-/* no-header variant — constrain images (staff photos) */
+/* no-header images — natural size, capped portrait */
 .table.block.no-header table td img {
-  width: 120px;
-  height: 180px;
+  max-width: 120px;
+  height: auto;
   object-fit: cover;
   border-radius: 4px;
   display: block;
 }
 
-/* no-header first column — fixed width for photo column */
-.table.block.no-header table td:first-child {
-  width: 140px;
+/* no-header cells — align top, let content drive width */
+.table.block.no-header table td {
   vertical-align: top;
-}
-
-/* no-header second column — align text top */
-.table.block.no-header table td:nth-child(2) {
-  vertical-align: top;
-  padding: 8px 14px;
 }
 
 /* striped variant */
