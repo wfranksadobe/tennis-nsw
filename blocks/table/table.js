@@ -12,25 +12,37 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default async function decorate(block) {
   const rows = [...block.children];
 
-  // Model fields: first 2 rows are classes and filter (if model is present)
-  // Detect by checking if the first row has a single cell with no field:column hint
+  // Model fields: first 2 rows may be classes and filter config.
+  // Detect config rows by checking for field:column hints OR table-* filter pattern.
   let dataStartIndex = 0;
   const firstRowHasFieldHint = rows[0]?.innerHTML?.includes('field:column');
 
-  if (!firstRowHasFieldHint && rows.length > 2) {
+  // Check if any of the first 2 rows contain a table filter value (e.g. "table-6-columns")
+  // On AEM, config rows may have filter value in first cell with defaults in other cells
+  const row0Text = rows[0]?.textContent?.trim() || '';
+  const row1Text = rows[1]?.textContent?.trim() || '';
+  const row0FirstCell = rows[0]?.children?.[0]?.textContent?.trim() || '';
+  const row1FirstCell = rows[1]?.children?.[0]?.textContent?.trim() || '';
+  const filterPattern = /^table(-\d+-columns)?$/;
+  const hasFilterRow = rows.length > 2
+    && (filterPattern.test(row0Text) || filterPattern.test(row0FirstCell)
+      || filterPattern.test(row1Text) || filterPattern.test(row1FirstCell)
+      || row0Text === '' || row0FirstCell === '');
+
+  if (!firstRowHasFieldHint && hasFilterRow && rows.length > 2) {
     // First 2 rows are model fields: classes (row 0) and filter (row 1)
     const classesValue = rows[0]?.textContent?.trim();
     const filterValue = rows[1]?.textContent?.trim();
 
-    if (classesValue) {
+    if (classesValue && !classesValue.startsWith('table')) {
       classesValue.split(',').forEach((c) => {
         const cls = c.trim();
         if (cls) block.classList.add(cls);
       });
     }
 
-    if (filterValue && filterValue.startsWith('table-')) {
-      block.classList.add(filterValue.replace('table-', '').replace('-columns', '-columns'));
+    if (filterValue && filterValue.startsWith('table')) {
+      // Config rows detected — skip them
     }
 
     dataStartIndex = 2;
