@@ -70,6 +70,12 @@
     ]
   },
   {
+    "id": "table-image-text",
+    "components": [
+      "table-image-col"
+    ]
+  },
+  {
     "id": "table-2-columns",
     "components": [
       "table-col-2"

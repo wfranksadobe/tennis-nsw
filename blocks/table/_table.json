@@ -33,6 +33,23 @@
       }
     },
     {
+      "title": "Image + Text Row",
+      "id": "table-image-col",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Row",
+              "model": "table-image-col",
+              "column1image": "",
+              "column2text": ""
+            }
+          }
+        }
+      }
+    },
+    {
       "title": "Row",
       "id": "table-col-2",
       "plugins": {
@@ -175,6 +192,10 @@
               "value": "table"
             },
             {
+              "name": "Image + Text",
+              "value": "table-image-text"
+            },
+            {
               "name": "2 Columns",
               "value": "table-2-columns"
             },
@@ -206,6 +227,24 @@
           "valueType": "string",
           "name": "column1text",
           "label": "Column1"
+        }
+      ]
+    },
+    {
+      "id": "table-image-col",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "column1image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "column2text",
+          "label": "Details"
         }
       ]
     },
@@ -359,6 +398,10 @@
     {
       "id": "table",
       "components": ["table-row"]
+    },
+    {
+      "id": "table-image-text",
+      "components": ["table-image-col"]
     },
     {
       "id": "table-2-columns",

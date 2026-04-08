@@ -379,6 +379,23 @@
           }
         },
         {
+          "title": "Image + Text Row",
+          "id": "table-image-col",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Row",
+                  "model": "table-image-col",
+                  "column1image": "",
+                  "column2text": ""
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Row",
           "id": "table-col-2",
           "plugins": {

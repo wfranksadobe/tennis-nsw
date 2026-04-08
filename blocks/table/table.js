@@ -23,7 +23,7 @@ export default async function decorate(block) {
   const row1Text = rows[1]?.textContent?.trim() || '';
   const row0FirstCell = rows[0]?.children?.[0]?.textContent?.trim() || '';
   const row1FirstCell = rows[1]?.children?.[0]?.textContent?.trim() || '';
-  const filterPattern = /^table(-\d+-columns)?$/;
+  const filterPattern = /^table(-[\w-]+)?$/;
   const hasFilterRow = rows.length > 2
     && (filterPattern.test(row0Text) || filterPattern.test(row0FirstCell)
       || filterPattern.test(row1Text) || filterPattern.test(row1FirstCell)

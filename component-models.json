@@ -572,6 +572,10 @@
             "value": "table"
           },
           {
+            "name": "Image + Text",
+            "value": "table-image-text"
+          },
+          {
             "name": "2 Columns",
             "value": "table-2-columns"
           },
@@ -603,6 +607,24 @@
         "valueType": "string",
         "name": "column1text",
         "label": "Column1"
+      }
+    ]
+  },
+  {
+    "id": "table-image-col",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "column1image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Details"
       }
     ]
   },
