@@ -201,3 +201,102 @@
     margin: 0;
   }
 }
+
+/* ==========================================
+   Contact variant — horizontal card (photo left, details right)
+   Used for staff directories on blue table background
+   ========================================== */
+.cards.contact > ul {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.cards.contact > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 12px 16px;
+  margin: 0;
+  width: auto;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+  color: var(--color-white, #fff);
+}
+
+/* Photo — portrait, constrained */
+.cards.contact .cards-card-image {
+  flex-shrink: 0;
+  width: 120px;
+  order: 0;
+}
+
+.cards.contact .cards-card-image img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Heading — name */
+.cards.contact .cards-card-heading {
+  order: 1;
+}
+
+.cards.contact .cards-card-heading h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  margin: 0 0 2px;
+  text-transform: none;
+}
+
+/* Body — contact details */
+.cards.contact .cards-card-body {
+  display: none;
+}
+
+/* Use the text field for title + contact, shown after heading */
+.cards.contact .cards-card-heading + .cards-card-body {
+  display: block;
+}
+
+/* Details wrapper — sits next to photo */
+.cards.contact > ul > li > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.cards.contact .cards-card-body p {
+  font-size: 14px;
+  margin: 0 0 2px;
+  color: var(--color-white, #fff);
+  opacity: 0.85;
+}
+
+.cards.contact .cards-card-body a {
+  color: var(--color-white, #fff);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.cards.contact .cards-card-body a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* CTA link hidden for contact cards */
+.cards.contact .cards-card-cta {
+  display: none;
+}
+
+/* Single column on mobile */
+@media (width < 600px) {
+  .cards.contact > ul {
+    grid-template-columns: 1fr;
+  }
+}
