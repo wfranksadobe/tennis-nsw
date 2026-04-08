@@ -39,8 +39,39 @@ function stripTags(html) {
   return html.replace(/<[^>]+>/g, '').trim();
 }
 
+function convertTablesToEdsBlocks(html) {
+  return html.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, (tableHtml) => {
+    const rows = [];
+    const trRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+    let trMatch;
+    while ((trMatch = trRegex.exec(tableHtml)) !== null) {
+      const cells = [];
+      const cellRegex = /<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi;
+      let cellMatch;
+      while ((cellMatch = cellRegex.exec(trMatch[1])) !== null) {
+        cells.push(cellMatch[1].trim().replace(/<br\s*\/?>/gi, ' ').replace(/\n/g, ' '));
+      }
+      if (cells.length > 0) rows.push(cells);
+    }
+    if (rows.length === 0) return tableHtml;
+    const colCount = rows[0].length;
+    const filterVal = colCount <= 1 ? 'table' : (colCount >= 6 ? 'table-6-columns' : `table-${colCount}-columns`);
+    let eds = `<div class="table"><div><div></div></div><div><div>${filterVal}</div></div>`;
+    rows.forEach((row, rowIdx) => {
+      eds += '<div>';
+      for (const cell of row) {
+        eds += rowIdx === 0 ? `<div><!-- field:column -->${cell}</div>` : `<div>${cell}</div>`;
+      }
+      eds += '</div>';
+    });
+    eds += '</div>';
+    return eds;
+  });
+}
+
 function cleanArticleHtml(html) {
   if (!html) return '';
+  html = convertTablesToEdsBlocks(html);
   return html
     .replace(/<p>\s*<\/p>/g, '')
     .replace(/<p>&nbsp;<\/p>/g, '')
