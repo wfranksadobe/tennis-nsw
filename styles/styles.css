@@ -204,18 +204,44 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
-a.button:any-link,
+/* buttons — render as regular links (matching original Tennis NSW site) */
+a.button:any-link {
+  display: inline;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: left;
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--link-color);
+  cursor: pointer;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+}
+
+a.button:hover,
+a.button:focus {
+  background-color: transparent;
+  color: var(--link-hover-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* actual form buttons keep button styling */
 button {
   box-sizing: border-box;
   display: inline-block;
-  max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 0;
   padding: 0.5em 1.5em;
   font-family: var(--body-font-family);
-  font-style: normal;
   font-weight: 400;
   line-height: 1.25;
   text-align: center;
@@ -223,13 +249,8 @@ button {
   background-color: var(--color-navy);
   color: var(--color-white);
   cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-a.button:hover,
-a.button:focus,
 button:hover,
 button:focus {
   background-color: var(--color-shadow-blue);
@@ -240,13 +261,6 @@ button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
   cursor: unset;
-}
-
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
 }
 
 main img {
