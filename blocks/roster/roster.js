@@ -7,9 +7,7 @@ export default function decorate(block) {
   if (block.classList.contains('reversed')) {
     block.querySelectorAll('table tbody tr').forEach((tr) => {
       if (tr.cells.length >= 2) {
-        const first = tr.cells[0];
-        const second = tr.cells[1];
-        tr.append(first); // move first cell to end
+        tr.append(tr.cells[0]); // move first cell to end
       }
     });
   }
