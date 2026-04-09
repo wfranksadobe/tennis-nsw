@@ -1,1 +1,3 @@
-export { default } from '../table/table.js';
+import decorate from '../table/table.js';
+
+export default decorate;
