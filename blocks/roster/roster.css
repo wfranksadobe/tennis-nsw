@@ -86,7 +86,7 @@
   opacity: 1;
 }
 
-/* Paragraphs and pictures in cells — kill all margins */
+/* stylelint-disable-next-line no-descending-specificity */
 .roster table td p,
 .roster table td picture {
   margin: 0;
