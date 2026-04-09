@@ -33,14 +33,15 @@
   font-size: var(--body-font-size-s, 16px);
 }
 
-/* Image column — fixed width, placeholder for empty cells */
+/* Image column — fixed size, centered, with placeholder for empty cells */
 .roster table td:first-child {
   width: 100px;
-  min-height: 150px;
+  height: 150px;
   padding-right: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150' fill='%23a0a8b0'%3E%3Crect width='100' height='150' fill='%23d0d5db'/%3E%3Ccircle cx='50' cy='45' r='20'/%3E%3Cellipse cx='50' cy='120' rx='35' ry='30'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150' fill='%23a0a8b0'%3E%3Crect width='100' height='150' rx='4' fill='%23d0d5db'/%3E%3Ccircle cx='50' cy='45' r='20'/%3E%3Cellipse cx='50' cy='120' rx='35' ry='30'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100px 150px;
+  background-position: center;
 }
 
 /* Hide placeholder when real image is present */
@@ -57,6 +58,12 @@
   object-fit: cover;
   border-radius: 4px;
   display: block;
+  margin: 0 auto;
+}
+
+.roster table td:first-child picture {
+  display: block;
+  text-align: center;
 }
 
 /* Details column — name bold */
