@@ -48,5 +48,6 @@ main > .section.breadcrumb-container {
 }
 
 .breadcrumb li[aria-current='page'] {
-  color: var(--color-grey, #6c6f6f);
+  color: var(--color-blue, #0a6dff);
+  font-weight: 700;
 }
