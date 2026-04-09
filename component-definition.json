@@ -331,6 +331,22 @@
           }
         },
         {
+          "title": "Table (Image + Text)",
+          "id": "roster",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Roster",
+                  "model": "roster",
+                  "filter": "table-image-text"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Search",
           "id": "search",
           "plugins": {
@@ -341,22 +357,6 @@
                   "name": "Search",
                   "model": "search",
                   "filter": "search"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Table (Image + Text)",
-          "id": "table-image",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Table Image",
-                  "model": "table-image",
-                  "filter": "table-image-text"
                 }
               }
             }
