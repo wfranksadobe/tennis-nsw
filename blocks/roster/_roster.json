@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "Table (Image + Text)",
+      "title": "Roster",
       "id": "roster",
       "plugins": {
         "xwalk": {
