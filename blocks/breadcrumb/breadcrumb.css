@@ -35,7 +35,7 @@ main > .section.breadcrumb-container {
 .breadcrumb li:not(:last-child)::after {
   content: '>';
   padding: 0 6px;
-  color: var(--color-grey, #6c6f6f);
+  color: var(--color-blue, #0a6dff);
 }
 
 .breadcrumb a {

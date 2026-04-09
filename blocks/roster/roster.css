@@ -86,7 +86,11 @@
   opacity: 1;
 }
 
-/* Paragraphs in cells */
-.roster table td p {
+/* Paragraphs and pictures in cells — kill all margins */
+.roster table td p,
+.roster table td picture {
   margin: 0;
+  padding: 0;
+  display: block;
+  line-height: 0;
 }
