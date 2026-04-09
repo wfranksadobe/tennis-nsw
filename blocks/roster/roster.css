@@ -36,7 +36,7 @@
 /* Image column — fixed size, with placeholder for empty cells */
 .roster table td:first-child {
   width: 100px;
-  min-height: 174px; /* 150px image + 12px top + 12px bottom padding */
+  height: 174px; /* 150px image + 12px top + 12px bottom padding */
   padding: 12px 16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150' fill='%23a0a8b0'%3E%3Crect width='100' height='150' rx='4' fill='%23d0d5db'/%3E%3Ccircle cx='50' cy='45' r='20'/%3E%3Cellipse cx='50' cy='120' rx='35' ry='30'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
