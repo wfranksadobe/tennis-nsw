@@ -5,8 +5,17 @@ export default function decorate(block) {
   const maxLevels = parseInt(rows[0]?.textContent?.trim(), 10) || 5;
 
   // Build breadcrumb from URL path
-  const path = window.location.pathname;
+  const path = window.location.pathname
+    .replace(/\.html$/, '') // strip .html extension
+    .replace(/\/$/, ''); // strip trailing slash
   const segments = path.split('/').filter(Boolean);
+
+  // Remove "content" prefix if present (AEM content path)
+  if (segments[0] === 'content') segments.shift();
+
+  // Get page title and extract the part before '|'
+  const pageTitle = document.title || '';
+  const pageTitleClean = pageTitle.split('|')[0].trim();
 
   // Build crumb items from path segments
   const crumbs = [];
@@ -19,9 +28,14 @@ export default function decorate(block) {
     crumbs.push({ label, href });
   });
 
-  // First crumb should be "Tennis NSW" pointing to /nsw
-  if (crumbs.length > 0 && crumbs[0].href === '/nsw') {
+  // First crumb: "Tennis NSW" for /nsw
+  if (crumbs.length > 0 && crumbs[0].label.toLowerCase() === 'nsw') {
     crumbs[0].label = 'Tennis NSW';
+  }
+
+  // Last crumb: use page title (before |) if available
+  if (crumbs.length > 0 && pageTitleClean) {
+    crumbs[crumbs.length - 1].label = pageTitleClean;
   }
 
   // Trim to max levels (from the end)
