@@ -33,6 +33,10 @@
   font-size: var(--body-font-size-s, 16px);
 }
 
+.roster table td:nth-child(2) {
+  line-height: 1.4;
+}
+
 /* Image column — fixed size, with placeholder for empty cells */
 .roster table td:first-child {
   width: 100px;
@@ -59,11 +63,6 @@
   border-radius: 4px;
   display: block;
   margin: 0 auto;
-}
-
-/* Details column */
-.roster table td:nth-child(2) {
-  line-height: 1.4;
 }
 
 .roster-name {
