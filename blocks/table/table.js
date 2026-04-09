@@ -18,20 +18,15 @@ function getColumnsToRemove(rows) {
   const defaultPattern = /^Column\d+$/;
 
   const remove = new Set();
-  for (let col = 0; col < colCount; col++) {
-    let allDefault = true;
-    for (const row of rows) {
+  Array.from({ length: colCount }, (_, col) => {
+    const allDefault = rows.every((row) => {
       const cell = row.children[col];
-      if (!cell) continue;
-      const text = cell.textContent.trim();
-      // Only mark as default if text is literally "ColumnN" — empty or real content keeps it
-      if (!defaultPattern.test(text)) {
-        allDefault = false;
-        break;
-      }
-    }
+      if (!cell) return true;
+      return defaultPattern.test(cell.textContent.trim());
+    });
     if (allDefault) remove.add(col);
-  }
+    return col;
+  });
   return remove;
 }
 
