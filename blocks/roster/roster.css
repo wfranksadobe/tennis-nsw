@@ -20,9 +20,10 @@
   display: none;
 }
 
-/* Data rows */
+/* Data rows — min height to fit 150px image + padding */
 .roster table tbody tr {
   border-bottom: 1px solid rgb(255 255 255 / 20%);
+  height: 174px;
 }
 
 /* All cells */
