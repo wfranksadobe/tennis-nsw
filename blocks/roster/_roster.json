@@ -48,6 +48,10 @@
             {
               "name": "No Header",
               "value": "no-header"
+            },
+            {
+              "name": "Reversed (image right)",
+              "value": "reversed"
             }
           ]
         }

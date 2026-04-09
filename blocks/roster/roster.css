@@ -83,4 +83,51 @@
 .roster table td a:hover {
   text-decoration: underline;
 }
+/* ==========================================
+   Reversed variant — text left, image right, bigger photos
+   ========================================== */
+.roster.reversed table tbody tr {
+  height: 210px;
+}
+
+/* In reversed, JS swaps columns so image becomes td:last-child */
+.roster.reversed table td:last-child {
+  width: 140px;
+  padding: 12px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 190' fill='%23a0a8b0'%3E%3Crect width='140' height='190' rx='4' fill='%23d0d5db'/%3E%3Ccircle cx='70' cy='60' r='28'/%3E%3Cellipse cx='70' cy='160' rx='50' ry='40'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 140px 190px;
+  background-position: 16px 12px;
+}
+
+.roster.reversed table td:last-child:has(picture),
+.roster.reversed table td:last-child:has(img) {
+  background-image: none;
+}
+
+.roster.reversed table td:last-child img {
+  width: 140px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.roster.reversed table td:last-child picture {
+  display: block;
+}
+
+.roster.reversed table td:last-child p {
+  margin: 0;
+}
+
+/* Reversed text column is now first child */
+.roster.reversed table td:first-child {
+  width: auto;
+  background-image: none;
+}
+
+.roster.reversed table td:first-child p {
+  margin: 0 0 1px;
+}
 /* stylelint-enable no-descending-specificity */
