@@ -61,11 +61,24 @@
   margin: 0 auto;
 }
 
-/* Details column — name bold */
-.roster table td:nth-child(2) strong {
+/* Details column */
+.roster table td:nth-child(2) {
+  line-height: 1.4;
+}
+
+.roster-name {
   font-size: 16px;
-  display: block;
-  margin-bottom: 2px;
+}
+
+.roster-title {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.roster-contact {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.8;
 }
 
 /* Links white */
@@ -81,10 +94,10 @@
   opacity: 1;
 }
 
-.roster table td p {
+/* Image cell paragraphs — no spacing around picture */
+.roster table td:first-child p {
   margin: 0;
   padding: 0;
-  display: block;
   line-height: 0;
 }
 
