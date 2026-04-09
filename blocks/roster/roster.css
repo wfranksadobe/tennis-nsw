@@ -1,1 +1,75 @@
-@import url('../table/table.css');
+/* Roster Block — staff directory with image + text rows */
+
+.roster {
+  overflow-x: auto;
+}
+
+.roster table {
+  width: auto;
+  min-width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #0a68f2;
+  color: var(--color-white, #fff);
+  border-radius: 4px;
+}
+
+/* Hide the header row (contains "no-header" classes config) */
+.roster table thead {
+  display: none;
+}
+
+/* Data rows */
+.roster table tbody tr {
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+.roster table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--color-white, #fff);
+  font-size: var(--body-font-size-s, 16px);
+}
+
+/* Image column — fixed width */
+.roster table td:first-child {
+  width: 100px;
+  padding-right: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.roster table td:first-child img,
+.roster table td:first-child picture img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Details column — name bold */
+.roster table td:nth-child(2) strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Links white */
+/* stylelint-disable-next-line no-descending-specificity */
+.roster table td a {
+  color: var(--color-white, #fff);
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.roster table td a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Paragraphs in cells */
+.roster table td p {
+  margin: 0;
+}
