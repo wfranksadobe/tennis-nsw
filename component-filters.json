@@ -25,7 +25,6 @@
       "search",
       "tabs",
       "table",
-      "table-image",
       "text",
       "title",
       "video"
@@ -65,15 +64,15 @@
     ]
   },
   {
-    "id": "table",
-    "components": [
-      "table-row"
-    ]
-  },
-  {
     "id": "table-image-text",
     "components": [
       "table-image-col"
+    ]
+  },
+  {
+    "id": "table",
+    "components": [
+      "table-row"
     ]
   },
   {
