@@ -57,13 +57,16 @@ export default function decorate(block) {
 
     // Link (CTA button)
     if (linkCell) {
-      const linkText = linkCell.textContent.trim();
-      const linkHref = linkCell.querySelector('a')?.href || linkText;
-      if (linkText) {
+      const linkAnchor = linkCell.querySelector('a');
+      const linkHref = linkAnchor?.href || linkCell.textContent.trim();
+      const linkText = linkAnchor?.textContent?.trim() || linkCell.textContent.trim();
+      if (linkHref) {
         const cta = document.createElement('a');
         cta.className = 'cards-card-cta';
         cta.href = linkHref;
-        cta.textContent = linkText.startsWith('http') ? 'Find out more' : linkText;
+        // On AEM, md2jcr replaces link text with the URL — detect and fix
+        const isUrlText = linkText.startsWith('http') || linkText.startsWith('/');
+        cta.textContent = isUrlText ? 'Find out more' : linkText;
         li.append(cta);
       }
     }
