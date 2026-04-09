@@ -15,7 +15,7 @@
   border-radius: 4px;
 }
 
-/* Hide the header row (contains "no-header" classes config) */
+/* Hide the header row (contains config) */
 .roster table thead {
   display: none;
 }
@@ -25,22 +25,19 @@
   border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
+/* All cells */
 .roster table td {
   padding: 12px 16px;
   text-align: left;
   vertical-align: top;
   color: var(--color-white, #fff);
-  font-size: var(--body-font-size-s, 16px);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.roster table td:nth-child(2) {
-  line-height: 1.4;
-}
-
-/* Image column — fixed size, with placeholder for empty cells */
+/* Image column */
 .roster table td:first-child {
   width: 100px;
-  height: 174px; /* 150px image + 12px top + 12px bottom padding */
   padding: 12px 16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150' fill='%23a0a8b0'%3E%3Crect width='100' height='150' rx='4' fill='%23d0d5db'/%3E%3Ccircle cx='50' cy='45' r='20'/%3E%3Cellipse cx='50' cy='120' rx='35' ry='30'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -48,62 +45,41 @@
   background-position: 16px 12px;
 }
 
-/* Hide placeholder when real image is present */
+/* Hide placeholder when image present */
 .roster table td:first-child:has(picture),
 .roster table td:first-child:has(img) {
   background-image: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.roster table td:first-child img,
-.roster table td:first-child picture img {
+/* Image sizing — works for both <img> (local) and <picture><img> (AEM) */
+/* stylelint-disable no-descending-specificity */
+.roster table td:first-child img {
   width: 100px;
   height: 150px;
   object-fit: cover;
   border-radius: 4px;
   display: block;
-  margin: 0 auto;
 }
 
-.roster-name {
-  font-size: 16px;
+.roster table td:first-child picture {
+  display: block;
 }
 
-.roster-title {
-  font-size: 14px;
-  opacity: 0.85;
+.roster table td:first-child p {
+  margin: 0;
 }
 
-.roster-contact {
-  margin-top: 8px;
-  font-size: 13px;
-  opacity: 0.8;
+/* Text column — richtext controls layout via <p> and <strong> */
+.roster table td:nth-child(2) p {
+  margin: 0 0 1px;
 }
 
-/* Links white */
-/* stylelint-disable-next-line no-descending-specificity */
 .roster table td a {
   color: var(--color-white, #fff);
   text-decoration: none;
-  opacity: 0.85;
 }
 
 .roster table td a:hover {
   text-decoration: underline;
-  opacity: 1;
 }
-
-/* Image cell paragraphs — no spacing around picture */
-.roster table td:first-child p {
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-
-.roster table td:first-child picture {
-  margin: 0;
-  padding: 0;
-  display: block;
-  text-align: center;
-  line-height: 0;
-}
+/* stylelint-enable no-descending-specificity */
