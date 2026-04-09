@@ -61,11 +61,6 @@
   margin: 0 auto;
 }
 
-.roster table td:first-child picture {
-  display: block;
-  text-align: center;
-}
-
 /* Details column — name bold */
 .roster table td:nth-child(2) strong {
   font-size: 16px;
@@ -86,11 +81,17 @@
   opacity: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.roster table td p,
-.roster table td picture {
+.roster table td p {
   margin: 0;
   padding: 0;
   display: block;
+  line-height: 0;
+}
+
+.roster table td:first-child picture {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
   line-height: 0;
 }
