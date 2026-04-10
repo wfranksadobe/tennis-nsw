@@ -4,6 +4,7 @@ This project is the Tennis Australia / Tennis NSW migration of the Tennis NSW we
 
 For the complete migration architecture, see the skills resource at `.skills/aem/edge-delivery-services/skills/page-import/resources/ta-architecture.md`.
 
+For comprehensive details on the current status of the migration see: https://github.com/wfranksadobe/tennis-nsw/blob/main/PROJECT-GUIDE.md
 ---
 
 ## Project Overview
