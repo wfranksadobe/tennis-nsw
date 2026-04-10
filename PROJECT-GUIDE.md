@@ -391,6 +391,85 @@ The `.table-container` auto-class was forcing blue on all sections with tables. 
 
 ---
 
+## Navigation (`content/nav.plain.html`)
+
+The nav file has 3 top-level `<div>` sections that the `blocks/header/header.js` parses:
+
+### Section 1: Brand Logo
+```html
+<div>
+  <p><a href="/nsw"></a></p>
+  <p>NSW</p>
+</div>
+```
+- Empty link text = logo image (handled by header JS)
+- Second `<p>` = "NSW" badge text
+
+### Section 2: Main Navigation Menu
+```html
+<div>
+  <ul>
+    <li>
+      <p><a href="/nsw/clubs">Clubs</a></p>
+      <ul>
+        <li><p><a href="...">Child</a></p>
+          <ul>
+            <li><a href="...">Grandchild</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <!-- Play, Our Work, About Us -->
+  </ul>
+</div>
+```
+- 4 main sections: Clubs, Play, Our Work, About Us
+- Up to 3 levels deep (section → child → grandchild)
+- Links wrapped in `<p>` tags for items that have children
+- Leaf items are plain `<li><a>` without `<p>`
+
+### Section 3: Utility Bar + Actions
+```html
+<div>
+  <ul>
+    <li><a href="/nsw/coaches">Coaches</a></li>
+    <li><a href="...">Regions</a></li>
+    <!-- more portal links -->
+  </ul>
+  <ul>
+    <li><a href="#search">Search</a></li>
+    <li><a href="https://www.tennis.com.au/play">Start Playing</a></li>
+  </ul>
+</div>
+```
+
+**CRITICAL: Exactly 2 `<ul>` lists required.** The header JS expects:
+- `lists[0]` = portal/utility links (top bar: Coaches, Regions, Competitive Play, Officials, Visit Tennis Australia)
+- `lists[1]` = action links (Search icon + Start Playing button)
+
+Adding a third `<ul>` breaks Search and Start Playing icons — the JS only reads `lists[1]` for actions.
+
+Social links (Contact, Facebook, Twitter) are **hardcoded in header.js** (not from nav content).
+
+### Header JS Processing
+1. Section 1 → brand logo + NSW badge
+2. Section 2 → desktop mega-menu + mobile accordion
+3. Section 3 → utility bar at top + search/start playing on right
+4. Mobile: hamburger menu, accordion sub-menus, blue background
+
+### Link Types in Nav
+- **Relative** (`/nsw/...`) — migrated pages
+- **Absolute** (`https://www.tennis.com.au/nsw/...`) — unmigrated pages only (regions, contacts)
+- **External** (`https://hotshots.tennis.com.au/`) — Hot Shots, Social Play, Find A Coach, external partners
+
+---
+
+## Footer (`content/footer.plain.html`)
+
+Uses a columns-based layout with 4 columns (Clubs, Play, Our Work, About Us) + copyright row. Headings use `<h2>` (not linked — `<h2><a>` breaks on AEM round-trip). Footer logo is a standalone `<img>` (not wrapped in `<a>` — images inside links get stripped by AEM).
+
+---
+
 ## Import Tools
 
 | Tool | Purpose | Location |
