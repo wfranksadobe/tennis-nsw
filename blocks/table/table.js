@@ -56,7 +56,7 @@ export default async function decorate(block) {
         if (cls) block.classList.add(cls);
       });
     }
-    dataStartIndex = 2;
+    dataStartIndex = 1;
   }
 
   const dataRows = rows.slice(dataStartIndex);
