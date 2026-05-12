@@ -355,8 +355,8 @@ main .section.white {
   background-image: none;
 }
 
-/* Latest news sidebar in white sections */
-main .section.white .default-content-wrapper > h3 {
+/* Latest news sidebar — h3 followed by ul pattern */
+main .default-content-wrapper > h3:has(+ ul) {
   background-color: var(--color-blue);
   color: var(--color-white);
   font-size: 15px;
@@ -367,27 +367,27 @@ main .section.white .default-content-wrapper > h3 {
   margin: 0;
 }
 
-main .section.white .default-content-wrapper > ul {
+main .default-content-wrapper > h3 + ul {
   list-style: none;
   padding: 5px 0 0;
   margin: 0;
   background-color: #eef2f5;
 }
 
-main .section.white .default-content-wrapper > ul li {
+main .default-content-wrapper > h3 + ul li {
   padding: 10px;
   border-bottom: 1px solid #dde3e8;
 }
 
-main .section.white .default-content-wrapper > ul li:last-child {
+main .default-content-wrapper > h3 + ul li:last-child {
   border-bottom: none;
 }
 
-main .section.white .default-content-wrapper > ul li p {
+main .default-content-wrapper > h3 + ul li p {
   margin: 0;
 }
 
-main .section.white .default-content-wrapper > ul li a {
+main .default-content-wrapper > h3 + ul li a {
   color: var(--color-blue);
   font-size: 16px;
   font-weight: 400;
@@ -395,22 +395,22 @@ main .section.white .default-content-wrapper > ul li a {
   line-height: 1.3;
 }
 
-main .section.white .default-content-wrapper > ul li a:hover {
+main .default-content-wrapper > h3 + ul li a:hover {
   text-decoration: underline;
 }
 
-main .section.white .default-content-wrapper > ul li img {
+main .default-content-wrapper > h3 + ul li img {
   width: 100%;
   height: auto;
   display: block;
   margin-bottom: 8px;
 }
 
-main .section.white .default-content-wrapper > ul + p {
+main .default-content-wrapper > h3 + ul + p {
   margin: 0;
 }
 
-main .section.white .default-content-wrapper > ul + p a {
+main .default-content-wrapper > h3 + ul + p a {
   display: block;
   position: relative;
   background-color: var(--color-blue);
@@ -421,7 +421,7 @@ main .section.white .default-content-wrapper > ul + p a {
   text-decoration: none;
 }
 
-main .section.white .default-content-wrapper > ul + p a::before {
+main .default-content-wrapper > h3 + ul + p a::before {
   content: '';
   position: absolute;
   right: 0;
@@ -431,7 +431,7 @@ main .section.white .default-content-wrapper > ul + p a::before {
   background-color: var(--color-shadow-blue);
 }
 
-main .section.white .default-content-wrapper > ul + p a::after {
+main .default-content-wrapper > h3 + ul + p a::after {
   content: '\203A';
   position: absolute;
   right: 0;
@@ -444,13 +444,13 @@ main .section.white .default-content-wrapper > ul + p a::after {
   line-height: 18px;
 }
 
-main .section.white .default-content-wrapper > ul + p a:hover {
+main .default-content-wrapper > h3 + ul + p a:hover {
   background-color: var(--color-shadow-blue);
   color: var(--color-white);
   text-decoration: none;
 }
 
-main .section.white .default-content-wrapper > ul + p a:hover::before {
+main .default-content-wrapper > h3 + ul + p a:hover::before {
   background-color: var(--color-navy);
 }
 
