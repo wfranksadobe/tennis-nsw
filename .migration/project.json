@@ -7,5 +7,7 @@
   "aemAssetsFolderPath": "/content/dam/tennis-nsw",
   "aemSiteName": "tennis-nsw",
   "aemSiteTitle": "Tennis NSW",
-  "baseUrl": "https://www.tennis.com.au/nsw/"
+  "baseUrl": "https://www.tennis.com.au/nsw/",
+  "previewOrg": "wfranksadobe",
+  "previewSite": "tennis-nsw"
 }
