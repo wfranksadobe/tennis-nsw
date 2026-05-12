@@ -76,13 +76,14 @@
 }
 
 .roster table td a {
-  color: var(--color-white, #fff);
+  color: rgb(49 216 0);
   text-decoration: none;
 }
 
 .roster table td a:hover {
   text-decoration: underline;
 }
+
 /* ==========================================
    Reversed variant — text left, image right, bigger photos
    ========================================== */
