@@ -7,17 +7,14 @@ export default async function decorate(block) {
 
   const articleRefs = [];
   let viewMoreHref = '';
-  let viewMoreText = 'View more';
+  const viewMoreText = 'View more';
 
-  rows.forEach((row) => {
+  rows.forEach((row, idx) => {
     const link = row.querySelector('a');
     if (!link) return;
     const href = link.getAttribute('href') || '';
-    const text = link.textContent.trim();
-    // "View more" is the row that doesn't point to a news article
-    if (text.toLowerCase().startsWith('view more') || !href.includes('/news/')) {
+    if (idx === rows.length - 1) {
       viewMoreHref = href;
-      if (text) viewMoreText = text;
     } else {
       articleRefs.push(href);
     }
