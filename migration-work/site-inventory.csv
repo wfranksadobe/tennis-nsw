@@ -4,8 +4,8 @@ section-landing,"Clubs",https://www.tennis.com.au/nsw/clubs,migrated
 section-landing,"Play",https://www.tennis.com.au/nsw/players,migrated
 section-landing,"Our Work",https://www.tennis.com.au/nsw/our-work,migrated
 section-landing,"About Us",https://www.tennis.com.au/nsw/about-us,migrated
-section-landing,"Regions",https://www.tennis.com.au/nsw/regions,pending
-content-cards,"Regions (About Us)",https://www.tennis.com.au/nsw/about-us/regions,pending
+section-landing,"Regions",https://www.tennis.com.au/nsw/regions,migrated
+content-cards,"Regions (About Us)",https://www.tennis.com.au/nsw/about-us/regions,migrated
 content-cards,"Membership",https://www.tennis.com.au/nsw/clubs/membership,migrated
 content-cards,"Member Protection",https://www.tennis.com.au/nsw/clubs/member-protection,migrated
 content-cards,"Safeguarding Children",https://www.tennis.com.au/nsw/clubs/member-protection/safeguarding-children,migrated
@@ -108,8 +108,8 @@ content-article,"Policies & Guidelines",https://www.tennis.com.au/nsw/about-us/p
 content-article,"Annual General Meeting",https://www.tennis.com.au/nsw/about-us/annual-general-meeting,migrated
 content-article,"Life Membership",https://www.tennis.com.au/nsw/about-us/life-membership,migrated
 content-article,"Hall of Fame",https://www.tennis.com.au/nsw/about-us/hall-of-fame,migrated
-content-mixed,"Rally as One - Redeem your tennis offer!",https://www.tennis.com.au/nsw/our-work/rally-as-one/rally-as-one-redeem-your-tennis-offer,pending
-content-contact,"Contacts",https://www.tennis.com.au/nsw/contacts,pending
+content-mixed,"Rally as One - Redeem your tennis offer!",https://www.tennis.com.au/nsw/our-work/rally-as-one/rally-as-one-redeem-your-tennis-offer,migrated
+content-contact,"Contacts",https://www.tennis.com.au/nsw/contacts,migrated
 news-article,"Olivia Thornton Appointed CEO of Tennis NSW",https://www.tennis.com.au/nsw/news/2026/03/31/olivia-thornton-appointed-chief-executive-officer-of-tennis-nsw,migrated
 news-article,"2026-2028 NSW Metropolitan Hardcourt Championships",https://www.tennis.com.au/nsw/news/2026/03/12/opportunity-to-host-the-2026-2028-nsw-metropolitan-hardcourt-closed-championships,migrated
 news-article,"Statement from the Board",https://www.tennis.com.au/nsw/news/2026/01/23/statement-from-the-board-of-tennis-nsw-2,migrated
@@ -217,50 +217,50 @@ external,"Tournament Calendar",https://www.tennis.com.au/tournaments/calendar?to
 external,"Find A Coach",https://www.tennis.com.au/play/coaching,ignore
 external,"Officials",https://www.tennis.com.au/learn/ballkids-officials-coaches-and-volunteers/officials,ignore
 external,"Staying Alive Health",https://stayingalivehealth.com.au/,ignore
-news-article,"Tennis NSW retains Gold Tier Status in Pride in Sport Index",https://www.tennis.com.au/nsw/news/2026/04/17/tennis-nsw-retains-gold-tier-status-in-pride-in-sport-index-for-third-consecutive-year,new
-content-article,"Junior Events & Leagues",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues,new
-content-article,"Senior Events & Leagues",https://www.tennis.com.au/nsw/players/competitive-play/events/senior-events-leagues,new
-content-article,"Inclusion & Diversity Events",https://www.tennis.com.au/nsw/players/competitive-play/events/inclusion-diversity-events,new
-content-article,"NSW De Minaur Junior Tour",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour,new
-content-article,"NSW Junior 125 Tournaments",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/nsw-junior-125-tournaments,new
-content-article,"Premier 250 Tournaments",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/premier-250-tournaments,new
-content-article,"J500 NSW Events",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/j500-nsw-events,new
-content-article,"NSW Country Championships",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-country-championships,new
-content-article,"Tennis Country Series",https://www.tennis.com.au/nsw/players/competitive-play/events/tennis-country-series,new
-content-article,"Tennis Seniors",https://www.tennis.com.au/nsw/players/competitive-play/events/tennis-seniors,new
-content-article,"National Championships Qualification Criteria",https://www.tennis.com.au/nsw/players/competitive-play/events/national-championships-qualification-criteria,new
-content-article,"Tournament Director Resources",https://www.tennis.com.au/nsw/players/competitive-play/events/tournament-director-resources,new
-content-article,"Metro Junior Development Series",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues/metro-junior-development-series,new
-content-article,"10U Green Ball Nationals NSW Qualifying",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues/10u-green-ball-nationals-nsw-qualifying-event,new
-content-article,"Sydney Badge",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-badge,new
-content-article,"Sydney Badge Reserve Players",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-badge/sydney-badge-reserve-players,new
-content-article,"Interdistrict",https://www.tennis.com.au/nsw/players/competitive-play/leagues/interdistrict,new
-content-article,"Premier League",https://www.tennis.com.au/nsw/players/competitive-play/leagues/premier-league,new
-content-cards,"Sydney Junior Team Tennis",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis,new
-content-article,"SJTT Northern Suburbs",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/northern-suburbs,new
-content-article,"SJTT Northern Beaches",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/northern-beaches,new
-content-article,"SJTT Eastern Suburbs",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/eastern-suburbs,new
-content-article,"SJTT Greater West",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/greater-west,new
-content-article,"SJTT Canterbury Bankstown",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/canterbury-bankstown,new
-content-article,"SJTT Illawarra Sutherland",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/illawarra-sutherland,new
-content-article,"SJTT South West",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/south-west-2,new
-content-article,"SJTT Parramatta Ryde",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/parramatta-ryde-sjtt,new
-content-article,"Regional State League",https://www.tennis.com.au/nsw/players/competitive-play/tennis-country/regional-state-league,new
-content-article,"Northumberland Interclub",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/northumberland-interclub,new
-content-article,"South Coloured Ball Series",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/south-coloured-ball-series,new
-content-article,"Regional State League (Tennis Country)",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/regional-state-league,new
-content-article,"Primary School Tennis Trials - Bruce Cup",https://www.tennis.com.au/nsw/players/school-tennis/primary-schools/primary-school-tennis-trials-the-bruce-cup,new
-content-article,"Women in Coaching",https://www.tennis.com.au/nsw/coaches/women-in-coaching,new
-content-article,"Coaching Resources (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/coaching-resources,new
-content-article,"Participant Resources (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/participant-resources,new
-content-article,"Planning Programs Delivery (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/planning-programs-delivery,new
-content-article,"Promotion & Marketing (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/promotion-marketing,new
-document,"Extreme Weather Policy",https://www.tennis.com.au/nsw/doc/extreme-weather-policy-2,new
-document,"Editing Online Factsheets",https://www.tennis.com.au/nsw/doc/editing-online-factsheets,new
-document,"Sign In Consolation Events",https://www.tennis.com.au/nsw/doc/sign-in-consolation-events,new
-document,"Garman Table 1",https://www.tennis.com.au/nsw/doc/garman-table-1,new
-document,"Garman Table 2",https://www.tennis.com.au/nsw/doc/garman-table-2,new
-document,"NSW Round Robin Template",https://www.tennis.com.au/nsw/doc/nsw-round-robin-template,new
-document,"NSW Goal Setting Match Review",https://www.tennis.com.au/nsw/doc/nsw-goal-setting-match-review,new
-document,"Tournaments Incident Report Form",https://www.tennis.com.au/nsw/doc/tournaments-incident-report-form,new
-document,"Spectator Behaviour",https://www.tennis.com.au/nsw/doc/spectator-behaviour,new
+news-article,"Tennis NSW retains Gold Tier Status in Pride in Sport Index",https://www.tennis.com.au/nsw/news/2026/04/17/tennis-nsw-retains-gold-tier-status-in-pride-in-sport-index-for-third-consecutive-year,migrated
+content-article,"Junior Events & Leagues",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues,migrated
+content-article,"Senior Events & Leagues",https://www.tennis.com.au/nsw/players/competitive-play/events/senior-events-leagues,migrated
+content-article,"Inclusion & Diversity Events",https://www.tennis.com.au/nsw/players/competitive-play/events/inclusion-diversity-events,migrated
+content-article,"NSW De Minaur Junior Tour",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour,migrated
+content-article,"NSW Junior 125 Tournaments",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/nsw-junior-125-tournaments,migrated
+content-article,"Premier 250 Tournaments",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/premier-250-tournaments,migrated
+content-article,"J500 NSW Events",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-de-minaur-junior-tour/j500-nsw-events,migrated
+content-article,"NSW Country Championships",https://www.tennis.com.au/nsw/players/competitive-play/events/nsw-country-championships,migrated
+content-article,"Tennis Country Series",https://www.tennis.com.au/nsw/players/competitive-play/events/tennis-country-series,migrated
+content-article,"Tennis Seniors",https://www.tennis.com.au/nsw/players/competitive-play/events/tennis-seniors,migrated
+content-article,"National Championships Qualification Criteria",https://www.tennis.com.au/nsw/players/competitive-play/events/national-championships-qualification-criteria,migrated
+content-article,"Tournament Director Resources",https://www.tennis.com.au/nsw/players/competitive-play/events/tournament-director-resources,migrated
+content-article,"Metro Junior Development Series",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues/metro-junior-development-series,migrated
+content-article,"10U Green Ball Nationals NSW Qualifying",https://www.tennis.com.au/nsw/players/competitive-play/events/junior-events-leagues/10u-green-ball-nationals-nsw-qualifying-event,migrated
+content-article,"Sydney Badge",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-badge,migrated
+content-article,"Sydney Badge Reserve Players",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-badge/sydney-badge-reserve-players,migrated
+content-article,"Interdistrict",https://www.tennis.com.au/nsw/players/competitive-play/leagues/interdistrict,migrated
+content-article,"Premier League",https://www.tennis.com.au/nsw/players/competitive-play/leagues/premier-league,migrated
+content-cards,"Sydney Junior Team Tennis",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis,migrated
+content-article,"SJTT Northern Suburbs",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/northern-suburbs,migrated
+content-article,"SJTT Northern Beaches",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/northern-beaches,migrated
+content-article,"SJTT Eastern Suburbs",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/eastern-suburbs,migrated
+content-article,"SJTT Greater West",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/greater-west,migrated
+content-article,"SJTT Canterbury Bankstown",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/canterbury-bankstown,migrated
+content-article,"SJTT Illawarra Sutherland",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/illawarra-sutherland,migrated
+content-article,"SJTT South West",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/south-west-2,migrated
+content-article,"SJTT Parramatta Ryde",https://www.tennis.com.au/nsw/players/competitive-play/leagues/sydney-junior-team-tennis/parramatta-ryde-sjtt,migrated
+content-article,"Regional State League",https://www.tennis.com.au/nsw/players/competitive-play/tennis-country/regional-state-league,redirect
+content-article,"Northumberland Interclub",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/northumberland-interclub,migrated
+content-article,"South Coloured Ball Series",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/south-coloured-ball-series,migrated
+content-article,"Regional State League (Tennis Country)",https://www.tennis.com.au/nsw/about-us/regions/tennis-country/regional-state-league,migrated
+content-article,"Primary School Tennis Trials - Bruce Cup",https://www.tennis.com.au/nsw/players/school-tennis/primary-schools/primary-school-tennis-trials-the-bruce-cup,migrated
+content-article,"Women in Coaching",https://www.tennis.com.au/nsw/coaches/women-in-coaching,migrated
+content-article,"Coaching Resources (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/coaching-resources,migrated
+content-article,"Participant Resources (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/participant-resources,migrated
+content-article,"Planning Programs Delivery (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/planning-programs-delivery,migrated
+content-article,"Promotion & Marketing (Inclusion)",https://www.tennis.com.au/nsw/our-work/inclusion-diversity/promotion-marketing,migrated
+document,"Extreme Weather Policy",https://www.tennis.com.au/nsw/doc/extreme-weather-policy-2,migrated
+document,"Editing Online Factsheets",https://www.tennis.com.au/nsw/doc/editing-online-factsheets,migrated
+document,"Sign In Consolation Events",https://www.tennis.com.au/nsw/doc/sign-in-consolation-events,migrated
+document,"Garman Table 1",https://www.tennis.com.au/nsw/doc/garman-table-1,migrated
+document,"Garman Table 2",https://www.tennis.com.au/nsw/doc/garman-table-2,migrated
+document,"NSW Round Robin Template",https://www.tennis.com.au/nsw/doc/nsw-round-robin-template,migrated
+document,"NSW Goal Setting Match Review",https://www.tennis.com.au/nsw/doc/nsw-goal-setting-match-review,migrated
+document,"Tournaments Incident Report Form",https://www.tennis.com.au/nsw/doc/tournaments-incident-report-form,migrated
+document,"Spectator Behaviour",https://www.tennis.com.au/nsw/doc/spectator-behaviour,migrated
