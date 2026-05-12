@@ -1,6 +1,6 @@
 {
-  "description": "Latest 3 news articles - data for Content Fragment model",
-  "generatedAt": "2026-05-12T22:59:05.133Z",
+  "description": "Latest 3 news articles with full rich text body - for Content Fragment model",
+  "generatedAt": "2026-05-12T23:03:29.508Z",
   "articles": [
     {
       "title": "Tennis NSW retains Gold Tier Status in Pride in Sport Index for third consecutive year",
@@ -11,7 +11,8 @@
       "url": "https://www.tennis.com.au/nsw/news/2026/04/17/tennis-nsw-retains-gold-tier-status-in-pride-in-sport-index-for-third-consecutive-year",
       "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/04/Untitled-design-42.png",
       "imageAlt": "Untitled design (42)",
-      "excerpt": "Tennis NSW has achieved Gold Tier Status in the Pride in Sport Index (PSI) for a third consecutive year, recognising its contributions and efforts made to the LGBTQIA+ space. Tennis NSW was honoured w"
+      "excerpt": "Tennis NSW has achieved Gold Tier Status in the Pride in Sport Index (PSI) for a third consecutive year, recognising its contributions and efforts made to the LGBTQIA+ space. Tennis NSW was honoured w",
+      "bodyRichText": "<p>Tennis NSW has achieved Gold Tier Status in the Pride in Sport Index (PSI) for a third consecutive year, recognising its contributions and efforts made to the LGBTQIA+ space. Tennis NSW was honoured with this achievement at the 2026 Australian Pride in Sport Awards, held in Melbourne this week.</p>\n<p>The PSI is Australia's leading benchmarking tool designed to assess LGBTQIA+ inclusion in sport and sporting organisations.</p>\n<p>Tennis NSW Head of Venue &amp; Community Development, Nikita Sayle said, \"This recognition reflects a sustained commitment from Tennis NSW to creating a sport where everyone feels welcome and included. Achieving Gold Tier status for the third consecutive year is something we're proud of, but what matters most is seeing that commitment come to life across our network.</p>\n<p>\"We're particularly proud of the way community venues are embracing and leading inclusive practices, and we're incredibly grateful for the engagement and ongoing relationship we have with LGBTQIA+ clubs across NSW. We also acknowledge the support and guidance of Pride in Sport, whose partnership continues to strengthen our approach and impact.\"</p>\n<p>Additionally, Collaroy Tennis Club has retained its Silver Tier Status in the Community Club Pride in Sport Index. This marks the second consecutive year the club has been recognised for its outstanding commitment to advocating for and supporting the LGBTQIA+ community. Key initiatives contributing to this achievement include the creation of <em>Rainbow Racquets</em>, an inclusive tennis program for LGBTQIA+ participants, hosting an AO Pride event and formally embedding inclusion within its organisational strategic plan.</p>\n<p>Collaroy Tennis Club Committee Member &#8211; Inclusion and Diversity, David Keogh said, \"This recognition reinforces our commitment to inclusion among current and prospective club members, and I believe is one of the main reasons we are attracting new members in such large numbers. It also reinforces our reputation within the wider Northern Beaches community and emphasises our commitment to making the Club a safe and welcoming environment for everyone.\"</p>\n<p>Meanwhile, City Community Tennis was a finalist in the LGBTQ+ Inclusive Innovation Award for its Trans Pathway to Rainbow Tennis.</p>\n<p>Tennis NSW continues to advocate for LGBTQIA+ inclusion by supporting clubs and coaches through education opportunities, inclusive programming, and visibility at LGBTQIA+ community events such as Fair Day. Tennis NSW also works closely with LGBTQIA+ community clubs, including Amazon Women's Tennis and Tennis Sydney, to consult on, promote and deliver programs that broaden access to tennis across the community.</p>\n<p>To find out more about Tennis NSW's LGBTQIA+ programs and opportunities, please visit the website <a href=\"https://www.tennis.com.au/nsw/our-work/inclusion-diversity/lgbtq\"><strong>here</strong></a><strong>.</strong></p>"
     },
     {
       "title": "Olivia Thornton Appointed Chief Executive Officer of Tennis NSW",
@@ -22,7 +23,8 @@
       "url": "https://www.tennis.com.au/nsw/news/2026/03/31/olivia-thornton-appointed-chief-executive-officer-of-tennis-nsw",
       "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/03/Olivia.jpg",
       "imageAlt": "",
-      "excerpt": "This appointment signals the start of the next chapter for tennis in New South Wales, focused on connecting with members, strengthening culture, and growing the game from the grassroots up."
+      "excerpt": "Tennis NSW is delighted to announce the appointment of Olivia Thornton as the next Chief Executive Officer, securing one of Australia’s highly regarded sporting administrators through a competitive re",
+      "bodyRichText": "<p>Tennis NSW is delighted to announce the appointment of Olivia Thornton as the next Chief Executive Officer, securing one of Australia’s highly regarded sporting administrators through a competitive recruitment process. Olivia will commence with Tennis NSW on 11<sup> </sup>May 2026.</p>\n<p>This appointment signals the start of the next chapter for tennis in New South Wales, focused on connecting with members, strengthening culture, and growing the game from the grassroots up.</p>\n<p>Olivia joins Tennis NSW following a successful tenure as Chief Executive Officer of Cricket ACT, where she developed expertise across transformational change, strategic leadership, stakeholder engagement, financial management, and oversaw strong participation growth. A values-driven leader, Olivia is recognised for building high-performing teams and delivering meaningful community impact across grassroots sport.</p>\n<p>Originally from the Hawkesbury region of NSW, Olivia is a proud current member of a regional tennis club. She brings an authentic connection to grassroots tennis which, combined with her knowledge from cricket, provides a deep understanding of the role players, coaches, clubs, associations, volunteers, and regions play across NSW.</p>\n<p>Olivia’s appointment also marks a historic milestone, as she becomes the first female CEO for Tennis NSW.</p>\n<p>On behalf of the Board, President of Tennis NSW Melissa Achten said the appointment reflected the Board’s commitment to securing a CEO with the skills required to deliver on its Vision 2030 strategy.</p>\n<p><span><strong><em>&#8220;The Board is delighted to appoint Olivia as Chief Executive Officer of Tennis NSW. She is a highly accomplished, values-driven leader with a proven track record of delivering strategic, financial and transformational change. Importantly, this appointment represents a fresh start for tennis in New South Wales. Olivia understands grassroots tennis, and her commitment to community engagement presents us with a genuine opportunity to deepen member engagement, strengthen our culture and governance, and refocus on what matters most: growing the game from the ground up and positioning Tennis NSW for long-term, sustainable success.&#8221;</em></strong></span></p>\n<p>The incoming CEO said she was excited and honoured by the appointment, and that she was energised by the opportunity to contribute to the future of Tennis NSW.</p>\n<p><span><strong><em>&#8220;It’s a privilege to be appointed as CEO of Tennis NSW and to be part of shaping the next chapter of the sport. As a passionate member of a local tennis club, I am genuinely interested in the opportunity to broaden community access, continue to drive growth, and foster an inclusive tennis environment across New South Wales.&#8221;</em></strong></span></p>\n<p>On behalf of the Board, we warmly welcome Olivia to Tennis NSW and look forward to working with her to strengthen our connection with members and build a more connected and sustainable future for tennis across New South Wales.</p>"
     },
     {
       "title": "Opportunity to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships",
@@ -33,12 +35,13 @@
       "url": "https://www.tennis.com.au/nsw/news/2026/03/12/opportunity-to-host-the-2026-2028-nsw-metropolitan-hardcourt-closed-championships",
       "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/03/Metro-hardcourt-700x450.jpg",
       "imageAlt": "",
-      "excerpt": "Tennis NSW is now inviting its Metropolitan member clubs to submit expressions of interest to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships."
+      "excerpt": "Tennis NSW is now inviting its Metropolitan member clubs to submit expressions of interest to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships.",
+      "bodyRichText": "<p>Tennis NSW is now inviting its Metropolitan member clubs to submit expressions of interest to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships.</p>\n<p>This premier annual event &#8211; which runs for eight consecutive days during the first week of the Term 2 school holidays &#8211; offers clubs a unique opportunity to showcase their venue, engage their community, as well as contribute to the ongoing growth of competitive tennis across Metropolitan Sydney.</p>\n<p>Around 700 players and spectators are expected at this year’s event, which will see the 05K contested from Friday 3 July to Monday 6 July, followed by the J125 from Tuesday 7 July to Friday 10 July.</p>\n<p>Tennis NSW is seeking a host for a three‑year term (2026–2028) and those wishing to submit an EOI are required to address a range of essential and highly desirable criteria, which can be found <a href=\"/content/dam/tennis-nsw/nsw/files/2026/03/Metro-Closed-EOI-eDM.pdf\">HERE</a>.</p>\n<p>Tennis NSW is proud to partner with the NSW Hardcourt Tennis Association to deliver the NSW Metropolitan Hardcourt Closed Championships &#8211; bringing together the long‑running Sydney Closed and Metropolitan Hardcourt Championships into one unified event.</p>\n<p>First contested in 1933, the Metropolitan Hardcourt Championships carries a rich history and has attracted top‑level players from across Australia and abroad. Its honour roll features some of the sport’s most notable figures, including John Bromwich, Lew Hoad, Mal Anderson, Bill Bowrey, Kim Warwick, Craig Miller, Evonne Goolagong and Dianne Fromholtz.</p>\n<p>The legacy of excellence extends to its junior singles champions as well, with names such as John Newcombe, John Alexander, Wally Masur and Pat Rafter.</p>\n<p>For all enquiries, please contact Tennis NSW Tournaments and Events Manager, Susan Harris via <a title=\"Original URL: https://public-oce.mkt.dynamics.com/api/orgs/c5b227c4-d39e-47b2-bdaa-765ef3d0eed1/r/dCXaL72MM0uW3iAulOUDAAMAAAA?msdynmkt_target=%7B%22TargetUrl%22%3A%22http%253A%252F%252Fsharris%2540tennis.com.au%252F%22%2C%22RedirectOptions%22%3A%7B%225%22%3Anull%2C%221%22%3Anull%2C%222%22%3A%7B%22utm_medium%22%3A%22email%22%2C%22utm_term%22%3A%22N%2FA%22%2C%22utm_source%22%3A%22TA-Email%22%2C%22utm_content%22%3A%22NSW%20Metropolitan%20Hardcourt%22%2C%22utm_campaign%22%3A%22EOI%20NSW%20Hardcourt%20Championship%22%7D%7D%7D&amp;msdynmkt_digest=kBp2Zw9WVN25ZATayIeFpmOrZNlniCe9z2ErD0ojWuc%3D&amp;msdynmkt_secretVersion=6d23f24cdfa04f32aeb95f73474cb587. Click or tap if you trust this link.\" href=\"/cdn-cgi/l/email-protection#ed9e858c9f9f849ead99888383849ec38e8280c38c98\"><span>[email&#160;protected]</span></a> or call 0478 490 944.</p>"
     }
   ],
   "contentFragmentModelFields": {
     "title": {
-      "type": "text",
+      "type": "single-line-text",
       "description": "Article headline"
     },
     "date": {
@@ -46,24 +49,30 @@
       "description": "Publication date (YYYY-MM-DD)"
     },
     "byline": {
-      "type": "text",
-      "description": "Date and author line"
+      "type": "single-line-text",
+      "description": "Date and author line e.g. \"17 April 2026 | Tennis NSW\""
     },
     "path": {
-      "type": "text",
-      "description": "AEM content path"
+      "type": "single-line-text",
+      "description": "AEM content path for linking"
     },
     "image": {
       "type": "content-reference",
       "description": "Article hero image DAM path"
     },
     "imageAlt": {
-      "type": "text",
+      "type": "single-line-text",
       "description": "Image alt text"
     },
     "excerpt": {
       "type": "multi-line-text",
-      "description": "First paragraph summary (for teasers)"
+      "subType": "plaintext",
+      "description": "Short summary for teasers"
+    },
+    "body": {
+      "type": "multi-line-text",
+      "subType": "richtext",
+      "description": "Full article body as rich text HTML — supports p, strong, em, a, ul, li, h3, h4, img, br, blockquote"
     }
   }
 }
