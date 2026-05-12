@@ -76,7 +76,6 @@
 /* fallback font */
 @font-face {
   font-family: lato-fallback;
-  font-weight: 100;
   size-adjust: 97.38%;
   ascent-override: 99%;
   src: local('Arial');
