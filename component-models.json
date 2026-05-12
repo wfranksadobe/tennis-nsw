@@ -1,5 +1,30 @@
 [
   {
+    "id": "latest-news",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "article1",
+        "label": "Article 1"
+      },
+      {
+        "component": "aem-content",
+        "name": "article2",
+        "label": "Article 2"
+      },
+      {
+        "component": "aem-content",
+        "name": "article3",
+        "label": "Article 3"
+      },
+      {
+        "component": "aem-content",
+        "name": "viewMoreLink",
+        "label": "View More Link"
+      }
+    ]
+  },
+  {
     "id": "page-metadata",
     "fields": [
       {
@@ -199,6 +224,10 @@
           {
             "name": "Grey",
             "value": "grey"
+          },
+          {
+            "name": "Two Column",
+            "value": "two-column"
           }
         ]
       }
