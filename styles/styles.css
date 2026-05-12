@@ -69,7 +69,7 @@
   font-family: lato;
   font-style: normal;
   font-weight: 100;
-  font-display: optional;
+  font-display: swap;
   src: url('/fonts/lato-light.woff2') format('woff2');
 }
 
