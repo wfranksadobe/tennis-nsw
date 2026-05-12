@@ -17,11 +17,22 @@ export default function decorate(block) {
   const pageTitle = document.title || '';
   const pageTitleClean = pageTitle.split('|')[0].trim();
 
+  // For news articles, skip yyyy/mm/dd date segments
+  // Pattern: /nsw/news/YYYY/MM/DD/article-slug → /nsw/news/article-slug
+  const isNews = segments.length >= 5
+    && segments[1] === 'news'
+    && /^\d{4}$/.test(segments[2]);
+  const filtered = isNews
+    ? [segments[0], segments[1], segments[segments.length - 1]]
+    : segments;
+
   // Build crumb items from path segments
   const crumbs = [];
   let href = '';
-  segments.forEach((segment) => {
-    href += `/${segment}`;
+  filtered.forEach((segment, i) => {
+    href = isNews && i === filtered.length - 1
+      ? `/${segments.join('/')}`
+      : `${href}/${segment}`;
     const label = segment
       .replace(/-/g, ' ')
       .replace(/\b\w/g, (c) => c.toUpperCase());
