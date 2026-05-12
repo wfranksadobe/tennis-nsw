@@ -1,0 +1,69 @@
+{
+  "description": "Latest 3 news articles - data for Content Fragment model",
+  "generatedAt": "2026-05-12T22:59:05.133Z",
+  "articles": [
+    {
+      "title": "Tennis NSW retains Gold Tier Status in Pride in Sport Index for third consecutive year",
+      "metaTitle": "Tennis NSW retains Gold Tier Status in Pride in Sport Index for third consecutive year | 17 April, 2026 | Tennis NSW",
+      "date": "2026-04-17",
+      "byline": "17 April 2026 | Tennis NSW",
+      "path": "/nsw/news/2026/04/17/tennis-nsw-retains-gold-tier-status-in-pride-in-sport-index-for-third-consecutive-year",
+      "url": "https://www.tennis.com.au/nsw/news/2026/04/17/tennis-nsw-retains-gold-tier-status-in-pride-in-sport-index-for-third-consecutive-year",
+      "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/04/Untitled-design-42.png",
+      "imageAlt": "Untitled design (42)",
+      "excerpt": "Tennis NSW has achieved Gold Tier Status in the Pride in Sport Index (PSI) for a third consecutive year, recognising its contributions and efforts made to the LGBTQIA+ space. Tennis NSW was honoured w"
+    },
+    {
+      "title": "Olivia Thornton Appointed Chief Executive Officer of Tennis NSW",
+      "metaTitle": "Olivia Thornton Appointed Chief Executive Officer of Tennis NSW | 31 March, 2026 | Tennis NSW",
+      "date": "2026-03-31",
+      "byline": "",
+      "path": "/nsw/news/2026/03/31/olivia-thornton-appointed-chief-executive-officer-of-tennis-nsw",
+      "url": "https://www.tennis.com.au/nsw/news/2026/03/31/olivia-thornton-appointed-chief-executive-officer-of-tennis-nsw",
+      "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/03/Olivia.jpg",
+      "imageAlt": "",
+      "excerpt": "This appointment signals the start of the next chapter for tennis in New South Wales, focused on connecting with members, strengthening culture, and growing the game from the grassroots up."
+    },
+    {
+      "title": "Opportunity to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships",
+      "metaTitle": "Opportunity to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships | 12 March, 2026 | Tennis NSW",
+      "date": "2026-03-12",
+      "byline": "",
+      "path": "/nsw/news/2026/03/12/opportunity-to-host-the-2026-2028-nsw-metropolitan-hardcourt-closed-championships",
+      "url": "https://www.tennis.com.au/nsw/news/2026/03/12/opportunity-to-host-the-2026-2028-nsw-metropolitan-hardcourt-closed-championships",
+      "imagePath": "/content/dam/tennis-nsw/nsw/files/2026/03/Metro-hardcourt-700x450.jpg",
+      "imageAlt": "",
+      "excerpt": "Tennis NSW is now inviting its Metropolitan member clubs to submit expressions of interest to host the 2026–2028 NSW Metropolitan Hardcourt Closed Championships."
+    }
+  ],
+  "contentFragmentModelFields": {
+    "title": {
+      "type": "text",
+      "description": "Article headline"
+    },
+    "date": {
+      "type": "date",
+      "description": "Publication date (YYYY-MM-DD)"
+    },
+    "byline": {
+      "type": "text",
+      "description": "Date and author line"
+    },
+    "path": {
+      "type": "text",
+      "description": "AEM content path"
+    },
+    "image": {
+      "type": "content-reference",
+      "description": "Article hero image DAM path"
+    },
+    "imageAlt": {
+      "type": "text",
+      "description": "Image alt text"
+    },
+    "excerpt": {
+      "type": "multi-line-text",
+      "description": "First paragraph summary (for teasers)"
+    }
+  }
+}
