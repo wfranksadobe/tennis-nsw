@@ -355,62 +355,34 @@ main .section.white {
   background-image: none;
 }
 
-/* Latest news sidebar — h3 followed by ul pattern */
-main .default-content-wrapper > h3:has(+ ul) {
+/* Latest news sidebar — targets the latest-news block wrapper */
+main .latest-news-wrapper {
+  background-color: #eef2f5;
+}
+
+main .latest-news-wrapper .latest-news::before {
+  content: 'LATEST';
+  display: block;
   background-color: var(--color-blue);
   color: var(--color-white);
   font-size: 15px;
   font-weight: 400;
-  font-style: normal;
   text-transform: uppercase;
   padding: 14px 10px;
   margin: 0;
 }
 
-main .default-content-wrapper > h3 + ul {
-  list-style: none;
-  padding: 5px 0 0;
-  margin: 0;
-  background-color: #eef2f5;
-}
-
-main .default-content-wrapper > h3 + ul li {
+main .latest-news-wrapper .latest-news > div {
   padding: 10px;
   border-bottom: 1px solid #dde3e8;
 }
 
-main .default-content-wrapper > h3 + ul li:last-child {
+main .latest-news-wrapper .latest-news > div:last-child {
   border-bottom: none;
+  padding: 0;
 }
 
-main .default-content-wrapper > h3 + ul li p {
-  margin: 0;
-}
-
-main .default-content-wrapper > h3 + ul li a {
-  color: var(--color-blue);
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-  line-height: 1.3;
-}
-
-main .default-content-wrapper > h3 + ul li a:hover {
-  text-decoration: underline;
-}
-
-main .default-content-wrapper > h3 + ul li img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 8px;
-}
-
-main .default-content-wrapper > h3 + ul + p {
-  margin: 0;
-}
-
-main .default-content-wrapper > h3 + ul + p a {
+main .latest-news-wrapper .latest-news > div:last-child a {
   display: block;
   position: relative;
   background-color: var(--color-blue);
@@ -421,7 +393,7 @@ main .default-content-wrapper > h3 + ul + p a {
   text-decoration: none;
 }
 
-main .default-content-wrapper > h3 + ul + p a::before {
+main .latest-news-wrapper .latest-news > div:last-child a::before {
   content: '';
   position: absolute;
   right: 0;
@@ -431,7 +403,7 @@ main .default-content-wrapper > h3 + ul + p a::before {
   background-color: var(--color-shadow-blue);
 }
 
-main .default-content-wrapper > h3 + ul + p a::after {
+main .latest-news-wrapper .latest-news > div:last-child a::after {
   content: '\203A';
   position: absolute;
   right: 0;
@@ -444,14 +416,26 @@ main .default-content-wrapper > h3 + ul + p a::after {
   line-height: 18px;
 }
 
-main .default-content-wrapper > h3 + ul + p a:hover {
+main .latest-news-wrapper .latest-news > div:last-child a:hover {
   background-color: var(--color-shadow-blue);
   color: var(--color-white);
   text-decoration: none;
 }
 
-main .default-content-wrapper > h3 + ul + p a:hover::before {
+main .latest-news-wrapper .latest-news > div:last-child a:hover::before {
   background-color: var(--color-navy);
+}
+
+main .latest-news-wrapper .latest-news a {
+  color: var(--color-blue);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+main .latest-news-wrapper .latest-news a:hover {
+  text-decoration: underline;
 }
 
 /* Grey section — "Also In" navigation, light grey background */
