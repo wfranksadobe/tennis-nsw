@@ -277,6 +277,37 @@
     ]
   },
   {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Variant",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Style",
+            "children": [
+              {
+                "name": "Standard",
+                "value": ""
+              },
+              {
+                "name": "Compact",
+                "value": "compact"
+              },
+              {
+                "name": "Feature",
+                "value": "feature"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
