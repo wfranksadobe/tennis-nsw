@@ -1,51 +1,65 @@
-.latest-news-wrapper h3 {
+/* Latest news sidebar — rendered as default content in two-column sections */
+
+/* The "Latest" h3 heading */
+.section.white .default-content-wrapper > h3 {
   background-color: var(--color-blue);
   color: var(--color-white);
   font-size: 15px;
   font-weight: 400;
+  font-style: normal;
   text-transform: uppercase;
   padding: 14px 10px;
   margin: 0;
 }
 
-.latest-news-wrapper ul {
+/* Article list below the heading */
+.section.white .default-content-wrapper > ul {
   list-style: none;
   padding: 5px 0 0;
   margin: 0;
   background-color: #eef2f5;
 }
 
-.latest-news-wrapper li {
+.section.white .default-content-wrapper > ul li {
   padding: 10px;
   border-bottom: 1px solid #dde3e8;
 }
 
-.latest-news-wrapper li:last-child {
+.section.white .default-content-wrapper > ul li:last-child {
   border-bottom: none;
 }
 
-.latest-news-wrapper li a img {
+.section.white .default-content-wrapper > ul li p {
+  margin: 0;
+}
+
+.section.white .default-content-wrapper > ul li a {
+  color: var(--color-blue);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.section.white .default-content-wrapper > ul li a:hover {
+  text-decoration: underline;
+}
+
+.section.white .default-content-wrapper > ul li img {
   width: 100%;
   height: auto;
   display: block;
   margin-bottom: 8px;
 }
 
-.latest-news-wrapper .latest-news-title {
-  color: var(--color-blue);
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-  display: block;
-  line-height: 1.3;
+/* "View more" link — blue button with dark blue arrow square */
+.section.white .default-content-wrapper > ul + p {
+  margin: 0;
 }
 
-.latest-news-wrapper .latest-news-title:hover {
-  text-decoration: underline;
-}
-
-.latest-news-wrapper .latest-news-more {
+.section.white .default-content-wrapper > ul + p a {
   display: block;
+  position: relative;
   background-color: var(--color-blue);
   color: var(--color-white);
   font-size: 18px;
@@ -54,27 +68,54 @@
   text-decoration: none;
 }
 
-.latest-news-wrapper .latest-news-more:hover {
+.section.white .default-content-wrapper > ul + p a::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background-color: var(--color-shadow-blue);
+}
+
+.section.white .default-content-wrapper > ul + p a::after {
+  content: '\203A';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 30px;
+  margin-top: -9px;
+  font-size: 18px;
+  color: var(--color-white);
+  text-align: center;
+  line-height: 18px;
+}
+
+.section.white .default-content-wrapper > ul + p a:hover {
   background-color: var(--color-shadow-blue);
   color: var(--color-white);
   text-decoration: none;
 }
 
+.section.white .default-content-wrapper > ul + p a:hover::before {
+  background-color: var(--color-navy);
+}
+
 /* Two-column section layout: article body left, latest-news right */
-.section.two-column > .default-content-wrapper {
+.section.white > .default-content-wrapper {
   float: left;
   width: calc(100% - 260px);
   padding-right: 40px;
   box-sizing: border-box;
 }
 
-.section.two-column > .latest-news-wrapper,
-.section.two-column > .latest-news-container {
+.section.white > .latest-news-wrapper,
+.section.white > .latest-news-container {
   float: left;
   width: 220px;
 }
 
-.section.two-column::after {
+.section.white::after {
   content: '';
   display: table;
   clear: both;
@@ -82,14 +123,14 @@
 
 /* Mobile: stack vertically */
 @media (max-width: 899px) {
-  .section.two-column > .default-content-wrapper {
+  .section.white > .default-content-wrapper {
     float: none;
     width: 100%;
     padding-right: 0;
   }
 
-  .section.two-column > .latest-news-wrapper,
-  .section.two-column > .latest-news-container {
+  .section.white > .latest-news-wrapper,
+  .section.white > .latest-news-container {
     float: none;
     width: 100%;
     margin-top: 32px;
