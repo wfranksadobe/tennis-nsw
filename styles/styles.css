@@ -355,34 +355,63 @@ main .section.white {
   background-image: none;
 }
 
-/* Latest news sidebar — targets the latest-news block wrapper */
-main .latest-news-wrapper {
+/* Latest news sidebar */
+main .latest-news-wrapper .latest-news-wrapper {
   background-color: #eef2f5;
 }
 
-main .latest-news-wrapper .latest-news::before {
-  content: 'LATEST';
-  display: block;
+main .latest-news-wrapper h3 {
   background-color: var(--color-blue);
   color: var(--color-white);
   font-size: 15px;
   font-weight: 400;
+  font-style: normal;
   text-transform: uppercase;
   padding: 14px 10px;
   margin: 0;
 }
 
-main .latest-news-wrapper .latest-news > div {
+main .latest-news-wrapper ul {
+  list-style: none;
+  padding: 5px 0 0;
+  margin: 0;
+  background-color: #eef2f5;
+}
+
+main .latest-news-wrapper ul li {
   padding: 10px;
   border-bottom: 1px solid #dde3e8;
 }
 
-main .latest-news-wrapper .latest-news > div:last-child {
+main .latest-news-wrapper ul li:last-child {
   border-bottom: none;
-  padding: 0;
 }
 
-main .latest-news-wrapper .latest-news > div:last-child a {
+main .latest-news-wrapper ul li p {
+  margin: 0;
+}
+
+main .latest-news-wrapper ul li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 8px;
+}
+
+main .latest-news-wrapper .latest-news-title {
+  color: var(--color-blue);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+  line-height: 1.3;
+}
+
+main .latest-news-wrapper .latest-news-title:hover {
+  text-decoration: underline;
+}
+
+main .latest-news-wrapper .latest-news-more {
   display: block;
   position: relative;
   background-color: var(--color-blue);
@@ -393,7 +422,7 @@ main .latest-news-wrapper .latest-news > div:last-child a {
   text-decoration: none;
 }
 
-main .latest-news-wrapper .latest-news > div:last-child a::before {
+main .latest-news-wrapper .latest-news-more::before {
   content: '';
   position: absolute;
   right: 0;
@@ -403,7 +432,7 @@ main .latest-news-wrapper .latest-news > div:last-child a::before {
   background-color: var(--color-shadow-blue);
 }
 
-main .latest-news-wrapper .latest-news > div:last-child a::after {
+main .latest-news-wrapper .latest-news-more::after {
   content: '\203A';
   position: absolute;
   right: 0;
@@ -416,26 +445,14 @@ main .latest-news-wrapper .latest-news > div:last-child a::after {
   line-height: 18px;
 }
 
-main .latest-news-wrapper .latest-news > div:last-child a:hover {
+main .latest-news-wrapper .latest-news-more:hover {
   background-color: var(--color-shadow-blue);
   color: var(--color-white);
   text-decoration: none;
 }
 
-main .latest-news-wrapper .latest-news > div:last-child a:hover::before {
+main .latest-news-wrapper .latest-news-more:hover::before {
   background-color: var(--color-navy);
-}
-
-main .latest-news-wrapper .latest-news a {
-  color: var(--color-blue);
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-  line-height: 1.3;
-}
-
-main .latest-news-wrapper .latest-news a:hover {
-  text-decoration: underline;
 }
 
 /* Grey section — "Also In" navigation, light grey background */
