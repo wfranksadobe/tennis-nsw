@@ -318,11 +318,19 @@ main > .section > .table-wrapper {
   padding: 0 24px;
 }
 
+main > .section > .cards-wrapper {
+  padding-bottom: 24px;
+}
+
 @media (width >= 900px) {
   main > .section > .default-content-wrapper,
   main > .section > .cards-wrapper,
   main > .section > .table-wrapper {
     padding: 0 32px;
+  }
+
+  main > .section > .cards-wrapper {
+    padding-bottom: 32px;
   }
 }
 
