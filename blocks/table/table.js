@@ -59,6 +59,14 @@ export default async function decorate(block) {
     dataStartIndex = 1;
   }
 
+  // Skip AEM-generated placeholder row where all cells are "Column1", "Column2", etc.
+  const defaultPattern = /^Column\d+$/;
+  if (rows[dataStartIndex] && [...rows[dataStartIndex].children].every(
+    (cell) => defaultPattern.test(cell.textContent.trim()),
+  )) {
+    dataStartIndex += 1;
+  }
+
   const dataRows = rows.slice(dataStartIndex);
   const header = !block.classList.contains('no-header');
 
