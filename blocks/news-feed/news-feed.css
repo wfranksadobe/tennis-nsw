@@ -1,0 +1,54 @@
+/* News feed block reuses cards styling */
+.news-feed .cards {
+  padding: 0;
+}
+
+.news-feed .cards ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
+
+.news-feed .cards li {
+  background-color: var(--color-white);
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.news-feed .cards-card-heading {
+  padding: 16px 16px 0;
+}
+
+.news-feed .cards-card-heading h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.news-feed .cards-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.news-feed .cards-card-body {
+  padding: 0 16px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.news-feed .cards-card-cta {
+  display: block;
+  padding: 8px 16px 16px;
+  color: var(--color-blue);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.news-feed .cards-card-cta:hover {
+  text-decoration: underline;
+}

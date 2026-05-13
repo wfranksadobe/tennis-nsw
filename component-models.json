@@ -1,5 +1,16 @@
 [
   {
+    "id": "news-feed",
+    "fields": [
+      {
+        "component": "text",
+        "name": "endpoint",
+        "label": "GraphQL Endpoint URL",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "latest-news",
     "fields": [
       {
