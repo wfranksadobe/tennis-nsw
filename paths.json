@@ -1,0 +1,11 @@
+{
+  "mappings": [
+    "/:/",
+    "/content/tennis-nsw/:/",
+    "/content/tennis-nsw/configuration:/.helix/config.json"
+  ],
+  "includes": [
+    "/content/tennis-nsw/",
+    "/content/dam/"
+  ]
+}
