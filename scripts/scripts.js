@@ -96,6 +96,18 @@ function a11yLinks(main) {
 }
 
 /**
+ * Rewrite /content/dam/ links to AEM publish CDN.
+ * Images are already served via ./media_ hashes so this only affects
+ * document links (PDFs, Word docs, etc.) in <a href> attributes.
+ */
+function rewriteDamLinks(container) {
+  const publishOrigin = 'https://publish-p154716-e1630108.adobeaemcloud.com';
+  container.querySelectorAll('a[href^="/content/dam/"]').forEach((a) => {
+    a.href = `${publishOrigin}${a.getAttribute('href')}`;
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -109,6 +121,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
   // add aria-label to links
   a11yLinks(main);
+  rewriteDamLinks(main);
 }
 
 /**
@@ -154,6 +167,9 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+
+  // Rewrite DAM links in header/footer after they load
+  setTimeout(() => rewriteDamLinks(doc), 3000);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
